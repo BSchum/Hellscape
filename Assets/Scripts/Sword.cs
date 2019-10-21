@@ -8,10 +8,13 @@ public class Sword : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        IDamagable damagable = other.GetComponent<IDamagable>();
-        if (damagable != null)
+        if (other.tag == CONSTANTS.TAGS.ENEMY_TAG)
         {
-            damagable.takeDamage(damage);
+            IDamagable damagable = other.GetComponent<IDamagable>();
+            if (damagable != null)
+            {
+                damagable.takeDamage(damage);
+            }
         }
     }
 }
