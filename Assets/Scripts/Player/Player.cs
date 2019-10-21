@@ -7,6 +7,13 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     private Animator animator;
 
+    public KeyCode forward = KeyCode.Z;
+    public KeyCode backward = KeyCode.S;
+    public KeyCode left = KeyCode.Q;
+    public KeyCode right = KeyCode.D;
+
+    public KeyCode hitKey = KeyCode.Mouse0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,24 +23,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(forward))
         {
             this.transform.position += this.transform.forward * Time.deltaTime * speed;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(backward))
         {
             this.transform.position += -this.transform.forward * Time.deltaTime * speed;
         }
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(left))
         {
             this.transform.position += -this.transform.right * Time.deltaTime * speed;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(right))
         {
             this.transform.position += this.transform.right * Time.deltaTime * speed;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(hitKey))
         {
             animator.SetTrigger("sword hit");
         }
