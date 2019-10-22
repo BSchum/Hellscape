@@ -16,24 +16,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis(CONSTANTS.PLAYER_HORIZONTAL) > 0)
+        if (Input.GetAxis(Constants.Inputs.PLAYER_HORIZONTAL) > 0)
         {
             this.transform.position += this.transform.forward * Time.deltaTime * speed;
         }
-        if (Input.GetAxis(CONSTANTS.PLAYER_HORIZONTAL) < 0)
+        if (Input.GetAxis(Constants.Inputs.PLAYER_HORIZONTAL) < 0)
         {
             this.transform.position += -this.transform.forward * Time.deltaTime * speed;
         }
-        if (Input.GetAxis(CONSTANTS.PLAYER_VERTICAL) > 0)
+        if (Input.GetAxis(Constants.Inputs.PLAYER_VERTICAL) > 0)
         {
             this.transform.position += -this.transform.right * Time.deltaTime * speed;
         }
-        if (Input.GetAxis(CONSTANTS.PLAYER_VERTICAL) < 0)
+        if (Input.GetAxis(Constants.Inputs.PLAYER_VERTICAL) < 0)
         {
             this.transform.position += this.transform.right * Time.deltaTime * speed;
         }
 
-        if (Input.GetButton(CONSTANTS.PLAYER_HIT))
+        if (Input.GetButton(Constants.Inputs.PLAYER_HIT))
         {
             animator.SetTrigger("sword hit");
         }
