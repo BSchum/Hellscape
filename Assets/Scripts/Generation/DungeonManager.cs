@@ -116,9 +116,9 @@ namespace SDG.Unity.Scripts
             var endPoint = camera.transform.position + distance;
 
             float elapsedTime = 0;
-            while(elapsedTime < 5)
+            while(elapsedTime < 2)
             {
-                camera.transform.position = Vector3.Lerp(camera.transform.position, endPoint, elapsedTime/5);
+                camera.transform.position = Vector3.Lerp(camera.transform.position, endPoint, elapsedTime/2);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
