@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    BaseStats currentStats;
-    BaseStats bonusStats;
-    BaseStats finalStats;
+    BaseStats currentStats = new BaseStats();
+    BaseStats bonusStats = new BaseStats();
+    BaseStats finalStats = new BaseStats();
 
     private void Update()
     {

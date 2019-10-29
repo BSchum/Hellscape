@@ -333,6 +333,8 @@ MonoBehaviour:
     type: 3}
   startRoomPrefab: {fileID: 6422140262973680625, guid: 04dd1fae509c7784d937c6ed07447806,
     type: 3}
+  playerPrefab: {fileID: 281481530547320143, guid: 1d91729d01236924b82d398aaa61788c,
+    type: 3}
 --- !u!4 &1798008179
 Transform:
   m_ObjectHideFlags: 0

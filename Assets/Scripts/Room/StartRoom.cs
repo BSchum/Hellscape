@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreasureRoom : MonoBehaviour
+public class StartRoom : MonoBehaviour
 {
+    public Transform playerHolder;
 }

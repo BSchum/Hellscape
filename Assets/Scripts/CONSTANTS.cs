@@ -7,6 +7,7 @@ public static class Constants
     public class Tags
     {
         public const string ENEMY_TAG = "Enemy";
+        public const string BRIDGE_TAG = "Bridge";
     }
 
     public class Inputs
@@ -14,6 +15,12 @@ public static class Constants
         public const string PLAYER_HORIZONTAL = "Horizontal";
         public const string PLAYER_VERTICAL = "Vertical";
         public const string PLAYER_HIT = "Hit";
+    }
+
+    public class Rooms
+    {
+        public const float ROOM_SIZE_X = 30f + 6f;
+        public const float ROOM_SIZE_Y = 20f + 6f;
     }
 
 }

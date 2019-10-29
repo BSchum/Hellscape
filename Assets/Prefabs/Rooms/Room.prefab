@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3873119617032578122}
   - component: {fileID: 8030759140798973127}
   - component: {fileID: 6159502993230481666}
+  - component: {fileID: 820352780068596574}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 3125462344529196561}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 11.5}
-  m_LocalScale: {x: 3, y: 0.1, z: 5}
+  m_LocalScale: {x: 3, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 2550846579047471483}
   m_RootOrder: 1
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
+--- !u!65 &820352780068596574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125462344529196561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2, z: 1.0000002}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4019751929135286530
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +164,7 @@ GameObject:
   - component: {fileID: 5731205626960139708}
   - component: {fileID: 4760014395155124129}
   - component: {fileID: 2454793012044516644}
+  - component: {fileID: 3451586857102316940}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -166,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 4019751929135286530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.5, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 0.1, z: 5}
+  m_LocalScale: {x: 3, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 2550846579047471483}
   m_RootOrder: 3
@@ -243,6 +258,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 2
+--- !u!65 &3451586857102316940
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4019751929135286530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4214678459501138530
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +443,7 @@ GameObject:
   - component: {fileID: 986414844546930616}
   - component: {fileID: 683363979198566812}
   - component: {fileID: 3672043476372130358}
+  - component: {fileID: 8140970595493391855}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -431,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 7204788998933204490}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -11.5}
-  m_LocalScale: {x: 3, y: 0.1, z: 5}
+  m_LocalScale: {x: 3, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 2550846579047471483}
   m_RootOrder: 2
@@ -508,6 +537,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
+--- !u!65 &8140970595493391855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204788998933204490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2, z: 1.0000002}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &9149100363361321318
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +563,7 @@ GameObject:
   - component: {fileID: 4624365426848247511}
   - component: {fileID: 5919219424280934344}
   - component: {fileID: 8243869118324981966}
+  - component: {fileID: 3274812984408985504}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -537,7 +580,7 @@ Transform:
   m_GameObject: {fileID: 9149100363361321318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.5, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 0.1, z: 5}
+  m_LocalScale: {x: 3, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 2550846579047471483}
   m_RootOrder: 0
@@ -614,6 +657,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 3
+--- !u!65 &3274812984408985504
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149100363361321318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &5990975521046195480
 PrefabInstance:
   m_ObjectHideFlags: 0
