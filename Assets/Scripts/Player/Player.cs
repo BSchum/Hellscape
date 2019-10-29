@@ -31,39 +31,4 @@ public class Player : MonoBehaviour
             animator.SetTrigger("sword hit");
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(Constants.Tags.BRIDGE_TAG) && !isMoving)
-        {
-            Debug.Log("Je deplace la camera");
-            isMoving = true;
-            MoveCamera(other.GetComponent<Bridge>().direction);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        isMoving = false;
-    }
-
-    private void MoveCamera(Direction direction)
-    {
-        switch (direction)
-        {
-            case Direction.Top:
-                camera.transform.Translate(new Vector3(-Constants.Rooms.ROOM_SIZE_X, 0, 0));
-                break;
-            case Direction.Bottom:
-                camera.transform.Translate(new Vector3(Constants.Rooms.ROOM_SIZE_X, 0, 0));
-                break;
-            case Direction.Right:
-                camera.transform.Translate(new Vector3(0, 0, -Constants.Rooms.ROOM_SIZE_Y));
-                break;
-            case Direction.Left:
-                camera.transform.Translate(new Vector3(0, 0, Constants.Rooms.ROOM_SIZE_Y));
-                break;
-            default:
-                break;
-        }
-    }
 }

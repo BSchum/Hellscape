@@ -16,10 +16,15 @@ namespace SDG.Unity.Scripts
         public GameObject bossRoomPrefab;
         public GameObject startRoomPrefab;
         public GameObject playerPrefab;
-        GameObject player;
+
+        public PlayerContext playerContext;
+
+        Camera camera;
         // Start is called before the first frame update
         void Start()
         {
+            playerContext = GetComponent<PlayerContext>();
+            camera = Camera.main;
             RandomProvider randomProvider = new RandomProvider();
             var generator = new DungeonGenerator(randomProvider);
             var dungeon = generator.Generate();
@@ -52,7 +57,8 @@ namespace SDG.Unity.Scripts
                     case RoomType.Start:
                         instantiateRoom = Instantiate(startRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity);
                         var playerHolder = instantiateRoom.GetComponent<StartRoom>().playerHolder;
-                        player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity);
+                        playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
+                        playerContext.currentPosition = room.Pos;
                         break;
                     default:
                         break;
@@ -76,6 +82,47 @@ namespace SDG.Unity.Scripts
         // Update is called once per frame
         void Update()
         {
+            MoveCamera();
+        }
+        public void MoveCamera()
+        {
+            var playerPosition = playerContext.player.transform.position;
+            
+            if (playerPosition.x >= (playerContext.currentPosition.X * Constants.Rooms.ROOM_SIZE_X) + Constants.Rooms.ROOM_SIZE_X / 2)
+            {
+                playerContext.currentPosition.X += 1;
+                StartCoroutine(TranslateCamera(new Vector3(Constants.Rooms.ROOM_SIZE_X, 0, 0)));
+            }
+            else if (playerPosition.x <= (playerContext.currentPosition.X * Constants.Rooms.ROOM_SIZE_X) - Constants.Rooms.ROOM_SIZE_X / 2)
+            {
+                playerContext.currentPosition.X -= 1;
+                StartCoroutine(TranslateCamera(new Vector3(-Constants.Rooms.ROOM_SIZE_X, 0, 0)));
+            }
+            else if (playerPosition.z >= (playerContext.currentPosition.Y * Constants.Rooms.ROOM_SIZE_Y) + Constants.Rooms.ROOM_SIZE_Y / 2)
+            {
+                playerContext.currentPosition.Y += 1;
+                StartCoroutine(TranslateCamera(new Vector3(0, 0, Constants.Rooms.ROOM_SIZE_Y)));
+            }
+            else if (playerPosition.z <= (playerContext.currentPosition.Y * Constants.Rooms.ROOM_SIZE_Y) - Constants.Rooms.ROOM_SIZE_Y / 2)
+            {
+                playerContext.currentPosition.Y -= 1;
+                StartCoroutine(TranslateCamera(new Vector3(0, 0, -Constants.Rooms.ROOM_SIZE_Y)));
+            }
+        }
+        
+
+        public IEnumerator TranslateCamera(Vector3 distance)
+        {
+            var endPoint = camera.transform.position + distance;
+
+            float elapsedTime = 0;
+            while(elapsedTime < 5)
+            {
+                camera.transform.position = Vector3.Lerp(camera.transform.position, endPoint, elapsedTime/5);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
 
         }
     }
