@@ -17,6 +17,8 @@ namespace SDG.Unity.Scripts
         public GameObject startRoomPrefab;
         public GameObject playerPrefab;
 
+        public Transform roomParents;
+
         public PlayerContext playerContext;
 
         Camera camera;
@@ -46,16 +48,16 @@ namespace SDG.Unity.Scripts
                 switch (room.RoomType)
                 {
                     case RoomType.Default:
-                        instantiateRoom = Instantiate(defaultRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity);
+                        instantiateRoom = Instantiate(defaultRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity, roomParents);
                         break;
                     case RoomType.Treasure:
-                        instantiateRoom = Instantiate(treasureRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity);
+                        instantiateRoom = Instantiate(treasureRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity, roomParents);
                         break;
                     case RoomType.Boss:
-                        instantiateRoom = Instantiate(bossRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity);
+                        instantiateRoom = Instantiate(bossRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity, roomParents);
                         break;
                     case RoomType.Start:
-                        instantiateRoom = Instantiate(startRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity);
+                        instantiateRoom = Instantiate(startRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity, roomParents);
                         var playerHolder = instantiateRoom.GetComponent<StartRoom>().playerHolder;
                         playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
                         playerContext.currentPosition = room.Pos;

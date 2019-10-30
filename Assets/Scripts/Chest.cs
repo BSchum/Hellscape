@@ -4,14 +4,41 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-
+    [SerializeField]
+    private Animator _animator;
     private Item _item;
     public GameObject anchor;
-    // Start is called before the first frame update
+    private GameObject _itemSpawned;
+    public bool IsOpened { get; private set; }
+    public bool IsLooted { get; private set; }
+    private bool isOpening;
+
     void Start()
     {
         _item = ItemsProvider.Instance.GetRandomItem();
-        Instantiate(_item, anchor.transform.position, Quaternion.identity);
     }
 
+    public void Open()
+    {
+        if (!isOpening)
+        {
+            _animator.SetTrigger("Open");
+        }
+
+        isOpening = true;
+    }
+
+    private void ReleaseObject()
+    {
+        IsOpened = true;
+        _itemSpawned = Instantiate(_item.gameObject, anchor.transform.position, Quaternion.identity, anchor.transform);
+        _itemSpawned.SetActive(true);
+    }
+
+    public Item GetItem()
+    {
+        _itemSpawned.gameObject.SetActive(false);
+        IsLooted = true;
+        return _item;
+    }
 }

@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4723059979377626189, guid: d703a905fbe7d0048851e15706d639cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064442871596596628, guid: d703a905fbe7d0048851e15706d639cd,
+        type: 3}
+      propertyPath: itemName
+      value: bouclier
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064442871596596628, guid: d703a905fbe7d0048851e15706d639cd,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 847a51f3a93f3b24bb00710b543ba552,
+        type: 3}
     - target: {fileID: 7207456035624988512, guid: d703a905fbe7d0048851e15706d639cd,
         type: 3}
       propertyPath: m_LocalPosition.x
