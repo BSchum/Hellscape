@@ -6,9 +6,4 @@ using UnityEngine.UI;
 public class ItemUI : MonoBehaviour
 {
     public Image image;
-
-    public void DisplayItem(Item item)
-    {
-        image.sprite = item.sprite;
-    }
 }

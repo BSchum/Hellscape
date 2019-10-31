@@ -5,10 +5,13 @@ using UnityEngine;
 public class Bag
 {
     private List<Item> items = new List<Item>();
+    public delegate void OnAddItem(Item item);
+    public event OnAddItem OnAddItemEvent;
 
     public void AddItem(Item item)
     {
         items.Add(item);
+        OnAddItemEvent(item);
     }
 
     public void RemoveItem(Item item)

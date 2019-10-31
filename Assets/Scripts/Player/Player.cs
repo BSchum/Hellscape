@@ -3,26 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using SDG.Platform.Entities;
 using UnityEngine;
+using SDG.Scripts;
 
 [RequireComponent(typeof(Motor))]
 public class Player : MonoBehaviour
 {
     private Animator animator;
     private Motor motor;
-    [SerializeField]
-    private Camera camera;
-    private bool isMoving;
 
-    private Bag _bag = new Bag();
+    public Bag Bag { get; private set; } = new Bag();
     private Chest _chest;
 
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    private void Awake()
+    {
+        PlayerContext.instance.player = this.gameObject;
         animator = this.GetComponentInChildren<Animator>();
         motor = this.GetComponent<Motor>();
-        camera = Camera.main;
-        PlayerUIManager.playerUIUpdate += _bag.AddItem;
     }
 
     // Update is called once per frame
@@ -38,18 +40,23 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_INTERACT) && _chest != null)
         {
-            if (_chest.IsOpened)
+            InteractWithChest();
+        }
+    }
+
+    private void InteractWithChest()
+    {
+        if (_chest.IsOpened)
+        {
+            if (!_chest.IsLooted)
             {
-                if (!_chest.IsLooted)
-                {
-                    Item i = _chest.GetItem();
-                    PlayerUIManager.playerUIUpdate(i);
-                }
+                Item item = _chest.GetItem();
+                Bag.AddItem(item);
             }
-            else
-            {
-                _chest.Open();
-            }
+        }
+        else
+        {
+            _chest.Open();
         }
     }
 
