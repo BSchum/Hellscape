@@ -4,23 +4,32 @@ using UnityEngine;
 
 public static class Constants
 {
-    public class Tags
+    public static class Tags
     {
         public const string ENEMY_TAG = "Enemy";
         public const string BRIDGE_TAG = "Bridge";
+        public const string PLAYER_TAG = "Player";
     }
 
-    public class Inputs
+    public static class Inputs
     {
         public const string PLAYER_HORIZONTAL = "Horizontal";
         public const string PLAYER_VERTICAL = "Vertical";
         public const string PLAYER_HIT = "Hit";
     }
 
-    public class Rooms
+    public static class Rooms
     {
         public const float ROOM_SIZE_X = 30f + 6f;
         public const float ROOM_SIZE_Y = 20f + 6f;
+    }
+
+    public static class Enemies
+    {
+        public static class LittleDoggo
+        {
+            public const float ATTACK_RADIUS = 20f;
+        }
     }
 
 }
