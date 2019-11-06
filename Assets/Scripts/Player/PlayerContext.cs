@@ -11,5 +11,12 @@ namespace SDG.Unity.Scripts
         public Position currentPosition;
         [HideInInspector]
         public GameObject player;
+        public static PlayerContext instance { get; private set; }
+
+        private void Start()
+        {
+            instance = this;
+        }
+
     }
 }
