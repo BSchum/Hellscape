@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using SDG.Platform.Entities;
 using UnityEngine;
-using SDG.Scripts;
 
 [RequireComponent(typeof(Motor))]
 public class Player : MonoBehaviour
