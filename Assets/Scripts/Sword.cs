@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public float damage = 1;
+    public float damage = 50;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +13,7 @@ public class Sword : MonoBehaviour
             IDamagable damagable = other.GetComponent<IDamagable>();
             if (damagable != null)
             {
+                Debug.Log("Take Damage");
                 damagable.TakeDamage(damage);
             }
         }

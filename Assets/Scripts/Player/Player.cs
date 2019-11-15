@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
 {
     private Animator animator;
     private Motor motor;
-
+    [SerializeField]
+    private Sword sword;
     public Bag Bag { get; private set; } = new Bag();
     private Chest _chest;
 
@@ -32,9 +33,9 @@ public class Player : MonoBehaviour
         motor.LookAtMouse();
         motor.Move(new Vector3(Input.GetAxisRaw(Constants.Inputs.PLAYER_HORIZONTAL), 0, Input.GetAxisRaw(Constants.Inputs.PLAYER_VERTICAL)));
 
-        if (Input.GetButton(Constants.Inputs.PLAYER_HIT))
+        if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT))
         {
-            animator.SetTrigger("sword hit");
+            StartCoroutine(Attack());
         }
 
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_INTERACT) && _chest != null)
@@ -43,6 +44,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator Attack()
+    {
+        animator.SetTrigger("sword hit");
+        sword.GetComponent<CapsuleCollider>().enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        sword.GetComponent<CapsuleCollider>().enabled = false;
+
+    }
     private void InteractWithChest()
     {
         if (_chest.IsOpened)
