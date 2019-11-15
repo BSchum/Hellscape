@@ -9,6 +9,7 @@ public static class Constants
         public const string ENEMY_TAG = "Enemy";
         public const string BRIDGE_TAG = "Bridge";
         public const string CHEST_TAG = "Chest";
+        public const string PLAYER_TAG = "Player";
     }
 
     public class Inputs
@@ -21,8 +22,8 @@ public static class Constants
 
     public class Rooms
     {
-        public const float ROOM_SIZE_X = 30f + 6f;
-        public const float ROOM_SIZE_Y = 20f + 6f;
+        public const float ROOM_SIZE_X = 40f + 6f;
+        public const float ROOM_SIZE_Y = 30f + 6f;
     }
 
 }
