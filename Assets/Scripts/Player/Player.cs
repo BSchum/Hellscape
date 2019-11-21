@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public Bag Bag { get; private set; } = new Bag();
     private Chest _chest;
 
+    private float attackSpeed = 0.5f;
+    private float lastAttack = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
         motor.LookAtMouse();
         motor.Move(new Vector3(Input.GetAxisRaw(Constants.Inputs.PLAYER_HORIZONTAL), 0, Input.GetAxisRaw(Constants.Inputs.PLAYER_VERTICAL)));
 
-        if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT))
+        if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && lastAttack + attackSpeed <= Time.time)
         {
             StartCoroutine(Attack());
         }
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Attack()
     {
+        lastAttack = Time.time;
         animator.SetTrigger("sword hit");
         sword.GetComponent<CapsuleCollider>().enabled = true;
         yield return new WaitForSeconds(0.1f);
