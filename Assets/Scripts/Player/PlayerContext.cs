@@ -13,7 +13,7 @@ namespace SDG.Unity.Scripts
         public GameObject player;
         public static PlayerContext instance { get; private set; }
 
-        private void Start()
+        private void Awake()
         {
             instance = this;
         }

@@ -8,7 +8,7 @@ public class Motor : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
-        transform.Translate(direction.normalized * Time.deltaTime * speed, Space.World);
+        GetComponent<Rigidbody>().MovePosition(transform.position + direction.normalized * Time.deltaTime * speed);
     }
 
     public void Look(Vector3 pointToLook)

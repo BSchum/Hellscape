@@ -6,12 +6,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamagable
 {
     public float health = 100;
+    public float damageMultiplier = 1f;
     public void TakeDamage(float amount)
     {
-        Debug.Log(this + " a subit " + amount); 
+        Debug.Log(this.name + " a subit " + amount); 
         if(health > 0)
         {
-            health -= amount;
+            health -= amount * damageMultiplier;
         }
         else
         {

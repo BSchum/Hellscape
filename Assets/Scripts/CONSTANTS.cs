@@ -10,6 +10,7 @@ public static class Constants
         public const string BRIDGE_TAG = "Bridge";
         public const string CHEST_TAG = "Chest";
         public const string PLAYER_TAG = "Player";
+        public const string FLOOR_TAG = "Floor";
     }
 
     public class Inputs

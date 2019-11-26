@@ -13,7 +13,7 @@ public class Sword : MonoBehaviour
             IDamagable damagable = other.GetComponent<IDamagable>();
             if (damagable != null)
             {
-                Debug.Log("Take Damage");
+                Debug.Log($"J'inflige des degats a {other.name}");
                 damagable.TakeDamage(damage);
             }
         }

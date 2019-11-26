@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
+
+    bool _isGrounded = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +34,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_isGrounded)
+        {
+            motor.Move(new Vector3(Input.GetAxisRaw(Constants.Inputs.PLAYER_HORIZONTAL), 0, Input.GetAxisRaw(Constants.Inputs.PLAYER_VERTICAL)));
+        }
         motor.LookAtMouse();
-        motor.Move(new Vector3(Input.GetAxisRaw(Constants.Inputs.PLAYER_HORIZONTAL), 0, Input.GetAxisRaw(Constants.Inputs.PLAYER_VERTICAL)));
 
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && lastAttack + attackSpeed <= Time.time)
         {
@@ -78,7 +83,7 @@ public class Player : MonoBehaviour
         if (other.tag == Constants.Tags.CHEST_TAG)
         {
             _chest = other.GetComponent<Chest>();
-        }
+        }        
     }
 
     public void OnTriggerExit(Collider other)
@@ -86,6 +91,21 @@ public class Player : MonoBehaviour
         if (other.tag == Constants.Tags.CHEST_TAG)
         {
             _chest = null;
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == Constants.Tags.FLOOR_TAG || collision.gameObject.tag == Constants.Tags.BRIDGE_TAG)
+        {
+            _isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == Constants.Tags.FLOOR_TAG || collision.gameObject.tag == Constants.Tags.BRIDGE_TAG)
+        {
+            _isGrounded = false;
         }
     }
 }
