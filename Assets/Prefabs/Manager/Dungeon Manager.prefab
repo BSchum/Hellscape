@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7605781038918695470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7605781038918695468}
+  - component: {fileID: 7605781038918695469}
+  - component: {fileID: 7605781038918695467}
+  - component: {fileID: 7605781038918695466}
+  - component: {fileID: 7605781038918695465}
+  - component: {fileID: 957687225}
+  m_Layer: 0
+  m_Name: Dungeon Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7605781038918695468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605781038918695470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0828441, y: -4.3862305, z: -3.1455874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7605781038918695469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605781038918695470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d4a0bd82beda146a06d6fa4014f736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRoomPrefab: {fileID: 4214678459501138530, guid: 60532068054a0694c97a6c4449dae484,
+    type: 3}
+  treasureRoomPrefab: {fileID: 1257232190388991596, guid: aa938f32389f4324499a2ee07e0225b9,
+    type: 3}
+  bossRoomPrefab: {fileID: 8908604664724216033, guid: 4353e8c10c1cf3e4ba37c23615c4370e,
+    type: 3}
+  startRoomPrefab: {fileID: 6422140262973680625, guid: 04dd1fae509c7784d937c6ed07447806,
+    type: 3}
+  playerPrefab: {fileID: 281481530547320143, guid: 94bd681b9abfa1c4eb02b6958cf96e5a,
+    type: 3}
+  roomParents: {fileID: 0}
+  playerContext: {fileID: 7605781038918695465}
+--- !u!114 &7605781038918695467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605781038918695470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa15259c193c3904e93d91905db640de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hellItems:
+  - {fileID: 9064442871596596628, guid: d703a905fbe7d0048851e15706d639cd, type: 3}
+  - {fileID: 6422149225157141754, guid: 1a21a47dbd6ddde418ee3221fb3a992e, type: 3}
+  - {fileID: 1184882728871685387, guid: 6128aff35841c6145a2339e76c112f09, type: 3}
+--- !u!114 &7605781038918695466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605781038918695470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9760129d4e65ff54eb957538b7a7ac36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hellBosses:
+  - {fileID: 8531969880768332763, guid: bf48b40d3bfb81d4c87a61b008605ed7, type: 3}
+  - {fileID: 4585675498699236864, guid: 97023dcac4e57fc448bd1d51185c7469, type: 3}
+  - {fileID: 3082036811906177655, guid: 96ccec9eb8358e347a32e1d4adedd145, type: 3}
+--- !u!114 &7605781038918695465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605781038918695470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d418c36de75f2984fbb6f882a309ccef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &957687225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605781038918695470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45525daef2c3ee945a786d144f0e8ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1438415788123293136, guid: 3e9c526afaa257549bd7aa9505ab8133, type: 3}
+  - {fileID: 6915848376467330489, guid: c4cabfc738e6382478565409cdb5fa89, type: 3}

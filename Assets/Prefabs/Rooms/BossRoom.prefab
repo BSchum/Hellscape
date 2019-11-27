@@ -51,6 +51,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4214678459501138530, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_Name
+      value: BossRoom
+      objectReference: {fileID: 0}
     - target: {fileID: 8349754155812967556, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -106,10 +111,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4214678459501138530, guid: 60532068054a0694c97a6c4449dae484,
+    - target: {fileID: 5423809094066649996, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
-      propertyPath: m_Name
-      value: BossRoom
+      propertyPath: enemyNumber
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2366680431023200856, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
