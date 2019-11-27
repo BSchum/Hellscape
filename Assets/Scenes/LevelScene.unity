@@ -192,12 +192,6 @@ PrefabInstance:
       propertyPath: roomParents
       value: 
       objectReference: {fileID: 1695194856}
-    - target: {fileID: 7605781038918695469, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
-        type: 3}
-      propertyPath: playerPrefab
-      value: 
-      objectReference: {fileID: 281481530547320143, guid: 94bd681b9abfa1c4eb02b6958cf96e5a,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
 --- !u!1 &96915176

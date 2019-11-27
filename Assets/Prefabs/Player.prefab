@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee588961dd9946b4398577854a343f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 30
   sword: {fileID: 964233019455455377}
 --- !u!114 &4564009270137118349
 MonoBehaviour:

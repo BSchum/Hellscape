@@ -5,8 +5,11 @@ using SDG.Platform.Entities;
 using UnityEngine;
 
 [RequireComponent(typeof(Motor))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
+    [SerializeField]
+    private float life = 30;
+
     private Animator animator;
     private Motor motor;
     [SerializeField]
@@ -49,7 +52,7 @@ public class Player : MonoBehaviour
         animator.SetTrigger("sword hit");
         sword.GetComponent<CapsuleCollider>().enabled = true;
         yield return new WaitForSeconds(0.1f);
-        Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
+        //Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         sword.GetComponent<CapsuleCollider>().enabled = false;
 
@@ -83,6 +86,15 @@ public class Player : MonoBehaviour
         if (other.tag == Constants.Tags.CHEST_TAG)
         {
             _chest = null;
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        life -= amount;
+        if (life <= 0)
+        {
+            Debug.Log("t'es mort gros");
         }
     }
 }
