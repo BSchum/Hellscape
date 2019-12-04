@@ -13,7 +13,11 @@ public class BigOne : Enemy
     public Projector projector;
     GameObject target;
     bool _isRotating = false;
-    float speed = 3f;
+    bool _isCharging = false;
+    [SerializeField]
+    Motor motor;
+    [SerializeField]
+    Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -26,33 +30,33 @@ public class BigOne : Enemy
         }
         else if (target != null)
         {
-            
             var toTarget = (target.transform.position - transform.position).normalized;
-            if (_isRotating)
+            if (!_isCharging)
             {
-                //Pourchasse le player
-                GetComponent<Rigidbody>().MovePosition(Vector3.MoveTowards(this.transform.position, target.transform.position, Time.deltaTime * speed));
+                this.transform.LookAt(target.transform);
+                motor.Move(target.transform.position - transform.position);
             }
 
             if (Vector3.Distance(target.transform.position, this.transform.position) < attackRange)
             {
+                var hitPos = Vector3.Dot(toTarget, transform.forward);
+
                 //Si devant le joueur
-                if (Vector3.Dot(toTarget, transform.forward) > 0 && !_isRotating)
+                if (hitPos > 0 && !_isRotating)
                 {
                     //On se prepare a taper
                     projector.enabled = true;
                     damageMultiplier = 1f;
-                    GetComponent<Animator>().SetTrigger("Charge");
+                    animator.SetTrigger("Charge");
                     StartCoroutine(SmashAttack());
-
                 }
                 // Si derriere le joueur
-                if (Vector3.Dot(toTarget, transform.forward) < 0 && !_isRotating)
+                if (hitPos < 0 && !_isRotating)
                 {
                     //On fait tourner et on suis
                     damageMultiplier = 2f;
                     _isRotating = true;
-                    GetComponent<Animator>().SetBool("isRotating", _isRotating);
+                    animator.SetBool("isRotating", _isRotating);
                     StartCoroutine(CircularAttack());
                 }
             }
@@ -62,7 +66,9 @@ public class BigOne : Enemy
 
     IEnumerator SmashAttack()
     {
+        _isCharging = true;
         yield return new WaitForSeconds(chargingTime);
+        _isCharging = false;
         GetComponent<Animator>().SetTrigger("Attack");
         projector.enabled = false;
         var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);

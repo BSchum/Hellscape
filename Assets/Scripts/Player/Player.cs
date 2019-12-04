@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         animator.SetTrigger("sword hit");
         sword.GetComponent<CapsuleCollider>().enabled = true;
         yield return new WaitForSeconds(0.1f);
-        Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
+        //Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         sword.GetComponent<CapsuleCollider>().enabled = false;
 
