@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour, IDamagable
 {
     public float health = 100;
     public float damageMultiplier = 1f;
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         Debug.Log(this.name + " a subit " + amount); 
         if(health > 0)
