@@ -5,7 +5,7 @@ using SDG.Platform.Entities;
 using UnityEngine;
 
 [RequireComponent(typeof(Motor))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
     private Animator animator;
     private Motor motor;
@@ -18,11 +18,6 @@ public class Player : MonoBehaviour
     private float lastAttack = 0.0f;
 
     bool _isGrounded = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     private void Awake()
     {
@@ -107,5 +102,10 @@ public class Player : MonoBehaviour
         {
             _isGrounded = false;
         }
+    }
+
+    public void TakeDamage(float amount)
+    {
+
     }
 }

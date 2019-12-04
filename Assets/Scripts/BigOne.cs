@@ -69,7 +69,7 @@ public class BigOne : Enemy
         _isCharging = true;
         yield return new WaitForSeconds(chargingTime);
         _isCharging = false;
-        GetComponent<Animator>().SetTrigger("Attack");
+        animator.SetTrigger("Attack");
         projector.enabled = false;
         var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
         foreach(var target in targets)
@@ -82,6 +82,6 @@ public class BigOne : Enemy
     {
         yield return new WaitForSeconds(3f);
         _isRotating = false;
-        GetComponent<Animator>().SetBool("isRotating", _isRotating);
+        animator.SetBool("isRotating", _isRotating);
     }
 }

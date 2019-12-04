@@ -10,7 +10,8 @@ public class Lancier : Enemy, IDamagable
     public Transform projectileSpawn;
     public float aimDelay;
     public float damageTakenSpeed = 2;
-    public float bonusSpeedDuration = 2;
+    public float bonusSpeedDuration = 4;
+    public float bonusSpeed = 2;
     public float range;
     public Motor motor;
 
@@ -46,7 +47,7 @@ public class Lancier : Enemy, IDamagable
             }
             else
             {
-                motor.speed = hasBonusMooveSpeed ? motor.speed : bonusSpeedDuration;
+                motor.speed = hasBonusMooveSpeed ? motor.speed : bonusSpeed;
                 motor.Move(transform.position - target.transform.position);
             }
         }

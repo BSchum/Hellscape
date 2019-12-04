@@ -776,7 +776,7 @@ MonoBehaviour:
   projectileSpawn: {fileID: 5727643879947460047}
   aimDelay: 1
   damageTakenSpeed: 2
-  bonusSpeedDuration: 2
+  bonusSpeedDuration: 5
   range: 90
   motor: {fileID: 3696296593714651698}
 --- !u!114 &5759449190778829618

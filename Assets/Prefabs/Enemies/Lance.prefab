@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4801962868180528646}
-  m_Mesh: {fileID: 4068373912626513877, guid: 2368c865f82427441b258dc7ae70ab7d, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: da4b4674601fbdc41bd80fdc7413fadd, type: 3}
 --- !u!23 &5655594678058117917
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -165,10 +165,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6766409457736630624}
-  - component: {fileID: 5663848185501771675}
   - component: {fileID: 730144983471989008}
   - component: {fileID: 37633445365783847}
   - component: {fileID: 8487466460689788835}
+  - component: {fileID: 7341163978516608947}
   m_Layer: 0
   m_Name: Lance
   m_TagString: Untagged
@@ -192,21 +192,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5663848185501771675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766409457736630639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ca067ff7894b9f43aa1dadb53273863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  motor: {fileID: 730144983471989008}
-  lifetime: 10
-  damage: 10
 --- !u!114 &730144983471989008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +234,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &7341163978516608947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766409457736630639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f59f27b00cb9ce47a8715146e363801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motor: {fileID: 730144983471989008}
+  lifetime: 10
+  damage: 10

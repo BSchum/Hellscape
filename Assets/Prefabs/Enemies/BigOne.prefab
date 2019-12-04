@@ -199,6 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7503301227235299496}
+  - component: {fileID: 6989796770749602186}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -223,6 +224,25 @@ Transform:
   m_Father: {fileID: 5161378123225745602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6989796770749602186
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181549497466816288}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee78731ff6f2ae04180ea83bbf74010b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2392173461749681575
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,9 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5161378123225745602}
   - component: {fileID: 8757001007777353508}
-  - component: {fileID: 8757001007777353507}
   - component: {fileID: 471606916057008449}
-  - component: {fileID: 454370169}
   - component: {fileID: 2727671130206968593}
   - component: {fileID: -2265156953290799618}
   m_Layer: 0
@@ -777,20 +795,7 @@ MonoBehaviour:
   damageMultiplier: 1
   projector: {fileID: 855703468}
   motor: {fileID: -2265156953290799618}
-  animator: {fileID: 454370169}
---- !u!65 &8757001007777353507
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7042965785554482867}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.30757, z: 0.66466606}
-  m_Center: {x: -0, y: 0.15378499, z: -0.008757055}
+  animator: {fileID: 6989796770749602186}
 --- !u!54 &471606916057008449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -807,25 +812,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!95 &454370169
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7042965785554482867}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee78731ff6f2ae04180ea83bbf74010b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &2727671130206968593
 BoxCollider:
   m_ObjectHideFlags: 0
