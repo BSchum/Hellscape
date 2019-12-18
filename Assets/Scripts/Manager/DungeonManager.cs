@@ -23,7 +23,7 @@ namespace SDG.Unity.Scripts
 
         Camera camera;
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             playerContext = GetComponent<PlayerContext>();
             camera = Camera.main;
@@ -124,8 +124,6 @@ namespace SDG.Unity.Scripts
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
-
-
         }
     }
 

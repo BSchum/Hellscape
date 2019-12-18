@@ -16,8 +16,6 @@ public class BigOne : Enemy
     bool _isCharging = false;
     [SerializeField]
     Motor motor;
-    [SerializeField]
-    Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -47,7 +45,6 @@ public class BigOne : Enemy
                     //On se prepare a taper
                     projector.enabled = true;
                     damageMultiplier = 1f;
-                    animator.SetTrigger("Charge");
                     StartCoroutine(SmashAttack());
                 }
                 // Si derriere le joueur
@@ -56,7 +53,6 @@ public class BigOne : Enemy
                     //On fait tourner et on suis
                     damageMultiplier = 2f;
                     _isRotating = true;
-                    animator.SetBool("isRotating", _isRotating);
                     StartCoroutine(CircularAttack());
                 }
             }
@@ -69,7 +65,6 @@ public class BigOne : Enemy
         _isCharging = true;
         yield return new WaitForSeconds(chargingTime);
         _isCharging = false;
-        animator.SetTrigger("Attack");
         projector.enabled = false;
         var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
         foreach(var target in targets)
@@ -82,6 +77,5 @@ public class BigOne : Enemy
     {
         yield return new WaitForSeconds(3f);
         _isRotating = false;
-        animator.SetBool("isRotating", _isRotating);
     }
 }
