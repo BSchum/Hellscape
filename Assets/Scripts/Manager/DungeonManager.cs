@@ -84,7 +84,7 @@ namespace SDG.Unity.Scripts
         // Update is called once per frame
         void Update()
         {
-            MoveCamera();
+            //MoveCamera();
         }
         public void MoveCamera()
         {

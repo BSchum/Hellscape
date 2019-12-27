@@ -23,8 +23,8 @@ public static class Constants
 
     public class Rooms
     {
-        public const float ROOM_SIZE_X = 50f + 6f;
-        public const float ROOM_SIZE_Y = 30f + 6f;
+        public const float ROOM_SIZE_X = 50f + 8f;
+        public const float ROOM_SIZE_Y = 30f + 8f;
     }
 
 }

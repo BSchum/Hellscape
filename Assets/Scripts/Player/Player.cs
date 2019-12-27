@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, IDamagable
     private float lastAttack = 0.0f;
 
     bool _isGrounded = true;
+    bool _isOnSlope = false;
 
     private void Awake()
     {
@@ -29,10 +30,17 @@ public class Player : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
-        if (_isGrounded)
+        _isOnSlope = OnSlope();
+
+        if (_isOnSlope)
+        {
+            motor.Move(Vector3.down * 3 * Time.deltaTime * 10);
+        }
+        if (_isGrounded || _isOnSlope)
         {
             motor.Move(new Vector3(Input.GetAxisRaw(Constants.Inputs.PLAYER_HORIZONTAL), 0, Input.GetAxisRaw(Constants.Inputs.PLAYER_VERTICAL)));
         }
+        
         motor.LookAtMouse();
 
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && lastAttack + attackSpeed <= Time.time)
@@ -45,7 +53,17 @@ public class Player : MonoBehaviour, IDamagable
             InteractWithChest();
         }
     }
-
+    private bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
+        {
+            if (hit.normal != Vector3.up)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     IEnumerator Attack()
     {
         lastAttack = Time.time;
