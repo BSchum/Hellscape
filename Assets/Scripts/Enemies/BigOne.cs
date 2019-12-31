@@ -25,7 +25,7 @@ public class BigOne : Enemy
     void Update()
     {
         
-        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber)
+        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             var toTarget = (target.transform.position - transform.position).normalized;
             if (!_isCharging)

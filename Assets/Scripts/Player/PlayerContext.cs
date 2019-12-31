@@ -8,10 +8,9 @@ namespace SDG.Unity.Scripts
     /// </summary>
     public class PlayerContext : MonoBehaviour
     {
-        public Position currentPosition;
-        public int currentRoomNumber;
-        [HideInInspector]
-        public GameObject player;
+        [HideInInspector] public Position currentPosition;
+        [HideInInspector] public int currentRoomNumber;
+        [HideInInspector] public GameObject player;
         public static PlayerContext instance { get; private set; }
 
         private void Awake()

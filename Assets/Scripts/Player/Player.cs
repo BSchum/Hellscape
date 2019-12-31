@@ -41,7 +41,7 @@ public class Player : MonoBehaviour, IDamagable
 
         if (_isOnSlope)
         {
-            motor.Move(Vector3.down * 3 * Time.deltaTime * 10);
+            motor.Move(Vector3.down * 15 * Time.deltaTime);
         }
         if (_isGrounded || _isOnSlope)
         {

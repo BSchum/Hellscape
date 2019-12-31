@@ -24,7 +24,6 @@ namespace SDG.Unity.Scripts
         List<DefaultRoom> rooms;
 
         Camera camera;
-        bool _cameraIsMoving = false;
         // Start is called before the first frame update
         void Awake()
         {
@@ -88,14 +87,13 @@ namespace SDG.Unity.Scripts
                             Destroy(bridge.gameObject);
                         }
                     }
+
                     if(room.RoomType == RoomType.Start)
                     {
                         PlayerContext.instance.currentRoomNumber = i;
                         MoveCameraToRoom(defaultRoom.roomNumber);
                     }
                 }
-
-                
 
                 i++;
             } 

@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     {
         if(other.tag == Constants.Tags.PLAYER_TAG && !room.roomCleared)
         {
-            room.CloseDoors();
+            //room.CloseDoors();
         }
     }
 }

@@ -9,13 +9,26 @@ namespace SDG.Unity.Scripts
         public Direction direction;
         public DefaultRoom room;
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collider)
         {
-            if(collision.gameObject.tag == Constants.Tags.PLAYER_TAG)
+            if(collider.tag == Constants.Tags.PLAYER_TAG)
             {
                 if(PlayerContext.instance.currentRoomNumber != room.roomNumber)
                     DungeonManager.GetInstance().MoveCameraToRoom(room.roomNumber);
                 PlayerContext.instance.currentRoomNumber = room.roomNumber;
+
+            }
+        }
+
+        private void OnTriggerExit(Collider collider)
+        {
+            if (collider.tag == Constants.Tags.PLAYER_TAG)
+            {
+                var simpleRoom = room.GetComponent<SimpleRoom>();
+                if(simpleRoom != null && !simpleRoom.roomCleared)
+                {
+                    simpleRoom.CloseDoors();
+                }
             }
         }
     }

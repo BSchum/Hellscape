@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public float health = 100;
     public float damageMultiplier = 1f;
     public int roomNumber;
+    public SimpleRoom room;
     public virtual void TakeDamage(int amount)
     {
         health -= amount * damageMultiplier;

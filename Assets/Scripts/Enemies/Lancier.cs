@@ -30,7 +30,7 @@ public class Lancier : Enemy, IDamagable
 
     void Update()
     {
-        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber)
+        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             if (!isRunningAway)
             {

@@ -16,7 +16,7 @@ public class LittleDoggo : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber)
+        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             transform.LookAt(target.transform);
 
