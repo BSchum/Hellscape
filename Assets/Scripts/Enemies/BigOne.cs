@@ -17,16 +17,15 @@ public class BigOne : Enemy
     [SerializeField]
     Motor motor;
 
+    private void Start()
+    {
+        target = PlayerContext.instance.player;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
-        {
-            var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
-            if (targets.Count() > 0)
-                target = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG).FirstOrDefault().gameObject;
-        }
-        else if (target != null)
+        
+        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber)
         {
             var toTarget = (target.transform.position - transform.position).normalized;
             if (!_isCharging)

@@ -25,17 +25,12 @@ public class Lancier : Enemy, IDamagable
     {
         range = Constants.Rooms.ROOM_SIZE_Y / 2;
         animator = this.GetComponent<Animator>();
+        target = PlayerContext.instance.player;
     }
 
     void Update()
     {
-        if (target == null)
-        {
-            var targets = Physics.OverlapSphere(this.transform.position, range).Where(c => c.tag == Constants.Tags.PLAYER_TAG);            
-            if (targets.Count() > 0)
-                this.target = targets.FirstOrDefault().gameObject;
-        }
-        else if (target != null)
+        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber)
         {
             if (!isRunningAway)
             {

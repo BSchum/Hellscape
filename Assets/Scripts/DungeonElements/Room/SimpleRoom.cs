@@ -34,6 +34,7 @@ public class SimpleRoom : DefaultRoom
         for(int i = 0; i < roomsEnemy.Count; i++)
         {
             var enemy = Instantiate(roomsEnemy[i], enemyHolders[i].position, Quaternion.identity);
+            enemy.roomNumber = roomNumber;
             enemies.Add(enemy);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SDG.Unity.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,16 +9,14 @@ public class LittleDoggo : Enemy
 {
     GameObject target;
 
+    private void Start()
+    {
+        target = PlayerContext.instance.player;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
-        {
-            var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
-            if (targets.Count() > 0)
-                target = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG).FirstOrDefault().gameObject;
-        }
-        else if(target != null)
+        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber)
         {
             transform.LookAt(target.transform);
 
