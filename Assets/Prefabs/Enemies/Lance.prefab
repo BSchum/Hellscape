@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 730144983471989008}
   - component: {fileID: 37633445365783847}
   - component: {fileID: 8487466460689788835}
-  - component: {fileID: 7341163978516608947}
+  - component: {fileID: 5547231303054824156}
   m_Layer: 0
   m_Name: Lance
   m_TagString: Untagged
@@ -234,7 +234,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &7341163978516608947
+--- !u!114 &5547231303054824156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,9 +243,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6766409457736630639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f59f27b00cb9ce47a8715146e363801, type: 3}
+  m_Script: {fileID: 11500000, guid: 978025663feb17d429a9daa9bb3d461c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   motor: {fileID: 730144983471989008}
-  lifetime: 10
-  damage: 10
+  lifetime: 3
+  damage: 1

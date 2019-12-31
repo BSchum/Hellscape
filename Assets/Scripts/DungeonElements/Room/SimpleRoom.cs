@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleRoom : MonoBehaviour
+public class SimpleRoom : DefaultRoom
 {
     public Transform holder;
-    List<Enemy> roomsEnemy;
+
+    [HideInInspector] List<Enemy> roomsEnemy;
     public Transform[] enemyHolders;
-    public Door[] doors;
-    public List<Enemy> enemies;
-    [SerializeField]
-    int enemyNumber;
+    [HideInInspector] public Door[] doors;
+    [HideInInspector] public List<Enemy> enemies;
+    [SerializeField] int enemyNumber;
+    public bool roomCleared = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class SimpleRoom : MonoBehaviour
         if(enemies.Count == 0)
         {
             OpenDoors();
+            roomCleared = true;
         }
     }
     void SpawnEnemies()

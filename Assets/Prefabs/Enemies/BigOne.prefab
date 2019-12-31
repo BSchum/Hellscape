@@ -59,10 +59,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5161378123225745602}
-  - component: {fileID: 8757001007777353508}
   - component: {fileID: 471606916057008449}
   - component: {fileID: 2727671130206968593}
   - component: {fileID: -2265156953290799618}
+  - component: {fileID: 701750543659087593}
+  - component: {fileID: 7665681542475485501}
   m_Layer: 0
   m_Name: BigOne
   m_TagString: Enemy
@@ -86,23 +87,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &8757001007777353508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7042965785554482867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a465faf23637f249a7a1a8df8aa4a9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  damageMultiplier: 1
-  projector: {fileID: 855703468}
-  motor: {fileID: -2265156953290799618}
-  animator: {fileID: 0}
 --- !u!54 &471606916057008449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,8 +114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.30757, z: 0.66466606}
-  m_Center: {x: -0, y: 0.15378499, z: -0.008757055}
+  m_Size: {x: 2.0695958, y: 4.6030335, z: 0.66466606}
+  m_Center: {x: -0.028602421, y: 2.3522904, z: -0.008757055}
 --- !u!114 &-2265156953290799618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +129,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &701750543659087593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042965785554482867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8575155d04b26e4696411074db2832c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7665681542475485501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042965785554482867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6342149f0ce75b94cb27e3703ae8839e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 6
+  damageMultiplier: 1
+  roomNumber: 0
+  projector: {fileID: 855703468}
+  motor: {fileID: -2265156953290799618}
 --- !u!1 &8541473062245991362
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +209,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: eee9c91d1b26fc847a1715529d4ba1f3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.81
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eee9c91d1b26fc847a1715529d4ba1f3,
         type: 3}

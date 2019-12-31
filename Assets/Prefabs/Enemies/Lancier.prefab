@@ -695,10 +695,10 @@ GameObject:
   - component: {fileID: 8896498263923693131}
   - component: {fileID: 1102193781612427217}
   - component: {fileID: 1102193781612427216}
-  - component: {fileID: 6915848376467330489}
   - component: {fileID: 5759449190778829618}
   - component: {fileID: 1753430921530944067}
   - component: {fileID: 3696296593714651698}
+  - component: {fileID: 3476039298315684302}
   m_Layer: 9
   m_Name: Lancier
   m_TagString: Enemy
@@ -757,28 +757,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &6915848376467330489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7782450066019571148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a7bcb54bc4da841ba2c93314583ef3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 150
-  damageMultiplier: 1
-  projectile: {fileID: 6766409457736630639, guid: 094b70fe7167e7a419fe67aaf8bc14af,
-    type: 3}
-  projectileSpawn: {fileID: 5727643879947460047}
-  aimDelay: 1
-  damageTakenSpeed: 2
-  bonusSpeedDuration: 5
-  range: 90
-  motor: {fileID: 3696296593714651698}
 --- !u!114 &5759449190778829618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,3 +801,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &3476039298315684302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782450066019571148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544837ac471f6994b83b4a77f8f181c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  damageMultiplier: 1
+  roomNumber: 0
+  projectile: {fileID: 6766409457736630639, guid: 094b70fe7167e7a419fe67aaf8bc14af,
+    type: 3}
+  projectileSpawn: {fileID: 5727643879947460047}
+  aimDelay: 0
+  damageTakenSpeed: 2
+  bonusSpeedDuration: 4
+  bonusSpeed: 2
+  range: 0
+  motor: {fileID: 3696296593714651698}

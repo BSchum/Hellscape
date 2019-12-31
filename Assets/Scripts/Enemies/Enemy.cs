@@ -7,14 +7,13 @@ public class Enemy : MonoBehaviour, IDamagable
 {
     public float health = 100;
     public float damageMultiplier = 1f;
-    public virtual void TakeDamage(float amount)
+    public int roomNumber;
+    public virtual void TakeDamage(int amount)
     {
-        Debug.Log(this.name + " a subit " + amount); 
-        if(health > 0)
-        {
-            health -= amount * damageMultiplier;
-        }
-        else
+        health -= amount * damageMultiplier;
+        Debug.Log($"{this.name} a subit {amount}, il lui reste {health} PV");
+
+        if (health <= 0)
         {
             Destroy(this.gameObject);
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossRoom : MonoBehaviour
+public class BossRoom : DefaultRoom
 {
     public GameObject bossAnchor;
     public Boss chosenBoss;

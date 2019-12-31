@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace SDG.Unity.Scripts
 {
-    public class DungeonManager : MonoBehaviour
+    public class DungeonManager : ManagerSingleton<DungeonManager>
     {
         public GameObject defaultRoomPrefab;
         public GameObject treasureRoomPrefab;
@@ -21,7 +21,10 @@ namespace SDG.Unity.Scripts
 
         public PlayerContext playerContext;
 
+        List<DefaultRoom> rooms;
+
         Camera camera;
+        bool _cameraIsMoving = false;
         // Start is called before the first frame update
         void Awake()
         {
@@ -42,6 +45,8 @@ namespace SDG.Unity.Scripts
         }
         void GenerateDungeon(Dungeon dungeon)
         {
+            rooms = new List<DefaultRoom>();
+            int i = 0;
             foreach (Room room in dungeon.dungeon)
             {
                 GameObject instantiateRoom = null;
@@ -65,10 +70,16 @@ namespace SDG.Unity.Scripts
                     default:
                         break;
                 }
+
                 if (instantiateRoom != null)
                 {
-                    instantiateRoom.name = $"Room({room.Pos.X},{room.Pos.Y})";
+                    var defaultRoom = instantiateRoom.GetComponent<DefaultRoom>();
+                    defaultRoom.roomNumber = i;
+                    
+                    rooms.Add(defaultRoom);
 
+                    instantiateRoom.name = $"Room({room.Pos.X},{room.Pos.Y}) Number {i}";
+                    //Destruction des ponts
                     var bridges = instantiateRoom.GetComponentsInChildren<Bridge>().OfType<Bridge>().ToList();
                     foreach(Bridge bridge in bridges)
                     {
@@ -77,50 +88,34 @@ namespace SDG.Unity.Scripts
                             Destroy(bridge.gameObject);
                         }
                     }
+                    if(room.RoomType == RoomType.Start)
+                    {
+                        PlayerContext.instance.currentRoomNumber = i;
+                        MoveCameraToRoom(defaultRoom.roomNumber);
+                    }
                 }
 
-            }
+                
+
+                i++;
+            } 
         }
-        // Update is called once per frame
-        void Update()
-        {
-            //MoveCamera();
-        }
-        public void MoveCamera()
-        {
-            var playerPosition = playerContext.player.transform.position;
-            
-            if (playerPosition.x >= (playerContext.currentPosition.X * Constants.Rooms.ROOM_SIZE_X) + Constants.Rooms.ROOM_SIZE_X / 2)
-            {
-                playerContext.currentPosition.X += 1;
-                StartCoroutine(TranslateCamera(new Vector3(Constants.Rooms.ROOM_SIZE_X, 0, 0)));
-            }
-            else if (playerPosition.x <= (playerContext.currentPosition.X * Constants.Rooms.ROOM_SIZE_X) - Constants.Rooms.ROOM_SIZE_X / 2)
-            {
-                playerContext.currentPosition.X -= 1;
-                StartCoroutine(TranslateCamera(new Vector3(-Constants.Rooms.ROOM_SIZE_X, 0, 0)));
-            }
-            else if (playerPosition.z >= (playerContext.currentPosition.Y * Constants.Rooms.ROOM_SIZE_Y) + Constants.Rooms.ROOM_SIZE_Y / 2)
-            {
-                playerContext.currentPosition.Y += 1;
-                StartCoroutine(TranslateCamera(new Vector3(0, 0, Constants.Rooms.ROOM_SIZE_Y)));
-            }
-            else if (playerPosition.z <= (playerContext.currentPosition.Y * Constants.Rooms.ROOM_SIZE_Y) - Constants.Rooms.ROOM_SIZE_Y / 2)
-            {
-                playerContext.currentPosition.Y -= 1;
-                StartCoroutine(TranslateCamera(new Vector3(0, 0, -Constants.Rooms.ROOM_SIZE_Y)));
-            }
-        }
+       
         
-
-        public IEnumerator TranslateCamera(Vector3 distance)
+        public void MoveCameraToRoom(int roomNumber)
         {
-            var endPoint = camera.transform.position + distance;
+            Debug.Log($"On va vers la room numero ->{roomNumber}");
+            var camHolder = rooms.Where(r => r.roomNumber == roomNumber).First().cameraHolder;
+            StartCoroutine(TranslateCameraTo(camHolder.position));
+            
+        }
 
+        public IEnumerator TranslateCameraTo(Vector3 position)
+        {
             float elapsedTime = 0;
-            while(elapsedTime < 2)
+            while (elapsedTime < 2)
             {
-                camera.transform.position = Vector3.Lerp(camera.transform.position, endPoint, elapsedTime/2);
+                camera.transform.position = Vector3.Lerp(camera.transform.position, position, elapsedTime / 2);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }

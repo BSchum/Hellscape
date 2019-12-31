@@ -9,6 +9,7 @@ namespace SDG.Unity.Scripts
     public class PlayerContext : MonoBehaviour
     {
         public Position currentPosition;
+        public int currentRoomNumber;
         [HideInInspector]
         public GameObject player;
         public static PlayerContext instance { get; private set; }

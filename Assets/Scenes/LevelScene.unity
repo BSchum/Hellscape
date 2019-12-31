@@ -205,17 +205,17 @@ PrefabInstance:
     - target: {fileID: 957687225, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
       propertyPath: enemies.Array.data[1]
       value: 
-      objectReference: {fileID: 6915848376467330489, guid: c4cabfc738e6382478565409cdb5fa89,
+      objectReference: {fileID: 3476039298315684302, guid: c4cabfc738e6382478565409cdb5fa89,
         type: 3}
     - target: {fileID: 957687225, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
       propertyPath: enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 8757001007777353508, guid: ec023544da18adb47ad9ec1db60fbc59,
+      objectReference: {fileID: 7665681542475485501, guid: ec023544da18adb47ad9ec1db60fbc59,
         type: 3}
     - target: {fileID: 957687225, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
       propertyPath: enemies.Array.data[2]
       value: 
-      objectReference: {fileID: 1438415788123293136, guid: 3e9c526afaa257549bd7aa9505ab8133,
+      objectReference: {fileID: 3095695288779228384, guid: 3e9c526afaa257549bd7aa9505ab8133,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
@@ -536,7 +536,7 @@ PrefabInstance:
     - target: {fileID: 3091250211250777449, guid: 6f767bedf04f6d5448b5c2b571594197,
         type: 3}
       propertyPath: field of view
-      value: 21.5
+      value: 54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f767bedf04f6d5448b5c2b571594197, type: 3}

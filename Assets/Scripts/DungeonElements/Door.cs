@@ -6,7 +6,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == Constants.Tags.PLAYER_TAG)
+        if(other.tag == Constants.Tags.PLAYER_TAG && !room.roomCleared)
         {
             room.CloseDoors();
         }

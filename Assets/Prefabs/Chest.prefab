@@ -197,11 +197,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3069345152786289861}
-  - component: {fileID: 2861013331146220936}
   - component: {fileID: 3161301680841961256}
   - component: {fileID: 3898420210940046660}
   - component: {fileID: 1164485384197986703}
   - component: {fileID: 4992767733737761962}
+  - component: {fileID: 1702510085166125985}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Chest
@@ -226,20 +226,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2861013331146220936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2796393345508585954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef528766d82ba5746ad6188641516080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 4992767733737761962}
-  anchor: {fileID: 5020080168232196470}
 --- !u!65 &3161301680841961256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -301,6 +287,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1702510085166125985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796393345508585954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce0053070bbf1947882bb4ea75384d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 4992767733737761962}
+  anchor: {fileID: 5020080168232196470}
 --- !u!1 &5020080168232196470
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6227425115494460727}
   m_Layer: 0
-  m_Name: Object
+  m_Name: ItemAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

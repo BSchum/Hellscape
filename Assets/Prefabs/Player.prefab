@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee588961dd9946b4398577854a343f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 964233019455455377}
+  sword: {fileID: 8680998437107178020}
+  health: 5
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +83,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281481530547320143}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -405,7 +406,7 @@ GameObject:
   - component: {fileID: 7515985328033530281}
   - component: {fileID: 4080838843138503098}
   - component: {fileID: 7427309070984986301}
-  - component: {fileID: 964233019455455377}
+  - component: {fileID: 8680998437107178020}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -488,7 +489,7 @@ CapsuleCollider:
   m_Height: 1.3512471
   m_Direction: 1
   m_Center: {x: -0.000000014293275, y: -0.37772724, z: -0.00000002327937}
---- !u!114 &964233019455455377
+--- !u!114 &8680998437107178020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -497,10 +498,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7121186225458820233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d56ea3a8c2408bf45add74d99aa454d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 075d0bd71a69b2e42842c215bc092438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 1
 --- !u!1 &7654841200500890947
 GameObject:
   m_ObjectHideFlags: 0

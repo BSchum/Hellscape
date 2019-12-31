@@ -11,6 +11,8 @@ public class Player : MonoBehaviour, IDamagable
     private Motor motor;
     [SerializeField]
     private Sword sword;
+    public int health = 5;
+
     public Bag Bag { get; private set; } = new Bag();
     private Chest _chest;
 
@@ -20,12 +22,17 @@ public class Player : MonoBehaviour, IDamagable
     bool _isGrounded = true;
     bool _isOnSlope = false;
 
+    public delegate void OnTakeDamage(int currentHealth);
+    public event OnTakeDamage OnTakeDamageEvent;
+
     private void Awake()
     {
         PlayerContext.instance.player = this.gameObject;
         animator = this.GetComponentInChildren<Animator>();
         motor = this.GetComponent<Motor>();
     }
+    
+    
 
     // Update is called once per frame
     void Update()
@@ -52,6 +59,10 @@ public class Player : MonoBehaviour, IDamagable
         {
             InteractWithChest();
         }
+    }
+    public void UpdateHealthUI()
+    {
+        OnTakeDamageEvent(health);
     }
     private bool OnSlope()
     {
@@ -91,6 +102,12 @@ public class Player : MonoBehaviour, IDamagable
         }
     }
 
+    public void TakeDamage(int amount)
+    {
+        OnTakeDamageEvent(health);
+    }
+
+    #region Triggers
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == Constants.Tags.CHEST_TAG)
@@ -121,9 +138,5 @@ public class Player : MonoBehaviour, IDamagable
             _isGrounded = false;
         }
     }
-
-    public void TakeDamage(float amount)
-    {
-
-    }
+    #endregion
 }

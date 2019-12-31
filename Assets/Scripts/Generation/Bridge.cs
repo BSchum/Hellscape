@@ -7,5 +7,16 @@ namespace SDG.Unity.Scripts
     public class Bridge : MonoBehaviour
     {
         public Direction direction;
+        public DefaultRoom room;
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(collision.gameObject.tag == Constants.Tags.PLAYER_TAG)
+            {
+                if(PlayerContext.instance.currentRoomNumber != room.roomNumber)
+                    DungeonManager.GetInstance().MoveCameraToRoom(room.roomNumber);
+                PlayerContext.instance.currentRoomNumber = room.roomNumber;
+            }
+        }
     }
 }

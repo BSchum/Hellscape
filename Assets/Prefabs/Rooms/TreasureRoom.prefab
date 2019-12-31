@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60be1aa99e8b70049a91980c7a0277bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomNumber: 0
+  cameraHolder: {fileID: 0}
 --- !u!1001 &1185039079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,16 +155,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2366680431023200856, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d37f45eee4c73c6449999d68730c44a9, type: 2}
     - target: {fileID: 5423809094066649996, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: enemyNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2366680431023200856, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d37f45eee4c73c6449999d68730c44a9, type: 2}
     - target: {fileID: 879357730977463334, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_Name

@@ -46,3 +46,8 @@ MonoBehaviour:
   itemUIPrefab: {fileID: 8682511641447182039, guid: 56203ec6f4606004b92a47b3895a620b,
     type: 3}
   bagAnchor: {fileID: 0}
+  player: {fileID: 0}
+  HealthUI: {fileID: 0}
+  HeartPrefab: {fileID: 6584254051180177972, guid: ef0f016cb1735c946b12092948ae808a,
+    type: 3}
+  IsUILoaded: 0
