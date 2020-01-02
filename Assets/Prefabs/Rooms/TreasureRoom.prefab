@@ -160,6 +160,11 @@ PrefabInstance:
       propertyPath: enemyNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8999728513221359238, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2366680431023200856, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -170,6 +175,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3905648457044170431, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d37f45eee4c73c6449999d68730c44a9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60532068054a0694c97a6c4449dae484, type: 3}
 --- !u!1 &1257232190388991596 stripped
