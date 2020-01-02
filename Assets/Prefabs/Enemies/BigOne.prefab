@@ -156,8 +156,10 @@ MonoBehaviour:
   health: 6
   damageMultiplier: 1
   roomNumber: 0
+  room: {fileID: 0}
   projector: {fileID: 855703468}
   motor: {fileID: -2265156953290799618}
+  changeDirectionCooldown: 6
 --- !u!1 &8541473062245991362
 GameObject:
   m_ObjectHideFlags: 0
