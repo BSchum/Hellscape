@@ -32,6 +32,9 @@ public class HellDoggo : Boss, IDamagable
     bool chargeIsOnCooldown;
     bool isSpittingLava;
 
+    [HideInInspector]
+    public bool isChained = false;
+    
     void Start()
     {
         StartCoroutine(SpittingLava());
@@ -45,7 +48,7 @@ public class HellDoggo : Boss, IDamagable
             if (targets.Count() > 0)
                 this.target = targets.FirstOrDefault().gameObject;
         }
-        else if (target != null)
+        else if (target != null && !isChained)
         {
             if (isAbleToMove)
             {
