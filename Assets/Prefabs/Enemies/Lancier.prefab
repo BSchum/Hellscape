@@ -816,12 +816,12 @@ MonoBehaviour:
   health: 2
   damageMultiplier: 1
   roomNumber: 0
+  room: {fileID: 0}
   projectile: {fileID: 6766409457736630639, guid: 094b70fe7167e7a419fe67aaf8bc14af,
     type: 3}
   projectileSpawn: {fileID: 5727643879947460047}
   aimDelay: 0
-  damageTakenSpeed: 2
-  bonusSpeedDuration: 4
-  bonusSpeed: 2
+  bonusSpeedDuration: 2
+  bonusSpeed: 10
   range: 0
   motor: {fileID: 3696296593714651698}

@@ -122,11 +122,6 @@ PrefabInstance:
       propertyPath: enemyNumber
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8999728513221359238, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7728594481042401769, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -136,36 +131,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3125462344529196561, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_TagString
-      value: Bridge
-      objectReference: {fileID: 0}
-    - target: {fileID: 5143815911799229500, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149100363361321318, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_TagString
-      value: Bridge
-      objectReference: {fileID: 0}
-    - target: {fileID: 2366680431023200856, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 21b0ecb79b2036148be00ed0edc51001, type: 2}
-    - target: {fileID: 1798879297313301973, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7204788998933204490, guid: 60532068054a0694c97a6c4449dae484,
-        type: 3}
-      propertyPath: m_TagString
-      value: Bridge
       objectReference: {fileID: 0}
     - target: {fileID: 3083631135394467531, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
@@ -177,7 +142,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3125462344529196561, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204788998933204490, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bridge
+      objectReference: {fileID: 0}
     - target: {fileID: 4019751929135286530, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149100363361321318, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_TagString
       value: Bridge
@@ -203,6 +183,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4760014395155124129, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366680431023200856, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21b0ecb79b2036148be00ed0edc51001, type: 2}
+    - target: {fileID: 1798879297313301973, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -225,6 +215,16 @@ PrefabInstance:
     - target: {fileID: 5919219424280934344, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999728513221359238, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143815911799229500, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5820825146494372617, guid: 60532068054a0694c97a6c4449dae484,

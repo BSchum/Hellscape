@@ -15,11 +15,10 @@ public class Chaine : MonoBehaviour
 
     private void Update()
     {
-        chainLife += 0.1f * Time.deltaTime;
-
         if (hellDogoRb != null)
         {
-            foreach(MeshRenderer m in chainMesh)
+            chainLife += 0.1f * Time.deltaTime;
+            foreach (MeshRenderer m in chainMesh)
                 m.material.color = Color.Lerp(m.material.color, brokenChain, chainLife);
         }
 

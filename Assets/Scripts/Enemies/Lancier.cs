@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using SDG.Unity.Scripts;
 
@@ -9,7 +7,6 @@ public class Lancier : Enemy, IDamagable
     public GameObject projectile;
     public Transform projectileSpawn;
     public float aimDelay;
-    public float damageTakenSpeed = 2;
     public float bonusSpeedDuration = 4;
     public float bonusSpeed = 2;
     public float range;
@@ -18,7 +15,6 @@ public class Lancier : Enemy, IDamagable
     GameObject target;
     bool isAiming = false;
     bool isRunningAway = false;
-    bool hasBonusMooveSpeed = false;
     Animator animator;
 
     private void Start()
@@ -26,6 +22,7 @@ public class Lancier : Enemy, IDamagable
         range = Constants.Rooms.ROOM_SIZE_Y / 2;
         animator = this.GetComponent<Animator>();
         target = PlayerContext.instance.player;
+        motor.speed = bonusSpeed;
     }
 
     void Update()
@@ -42,7 +39,6 @@ public class Lancier : Enemy, IDamagable
             }
             else
             {
-                motor.speed = hasBonusMooveSpeed ? motor.speed : bonusSpeed;
                 motor.Move(transform.position - target.transform.position);
             }
         }
@@ -57,7 +53,6 @@ public class Lancier : Enemy, IDamagable
         }
 
         StopAllCoroutines();
-        StartCoroutine(ObtainBonusMooveSpeed());
         StartCoroutine(RunAway());
     }
 
@@ -80,17 +75,8 @@ public class Lancier : Enemy, IDamagable
     {
         isRunningAway = true;
 
-        yield return new WaitForSeconds(0.5f);
-
-        isRunningAway = false;
-    }
-
-    IEnumerator ObtainBonusMooveSpeed()
-    {
-        hasBonusMooveSpeed = true;
-
         yield return new WaitForSeconds(bonusSpeedDuration);
 
-        hasBonusMooveSpeed = false;
+        isRunningAway = false;
     }
 }
