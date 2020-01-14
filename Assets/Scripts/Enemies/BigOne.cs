@@ -16,10 +16,16 @@ public class BigOne : Enemy
     GameObject target;
     bool _isRotating = false;
     bool _isCharging = false;
+
+    float lastCircularAttack = 0.0f;
+    float circularAttackCooldown = 6f;
+
+    float lastSmashAttack = 0.0f;
+    float smashAttackCooldown = 3f;
     [SerializeField]
     Motor motor;
     List<Direction> directions;
-
+    Animator animator;
     public float changeDirectionCooldown = 3f;
     float lastDirectionChange = 0.0f;
 
@@ -27,6 +33,7 @@ public class BigOne : Enemy
     private void Start()
     {
         target = PlayerContext.instance.player;
+        animator = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -39,16 +46,22 @@ public class BigOne : Enemy
             {
                 //Move randomly in the platform, change direction every 2seconds or if a wall/an enemy is on the way
                 var ray = new Ray(this.transform.position, currentDirection);
-                Debug.Log(Physics.Raycast(ray, 5));
-                if (Time.time >= changeDirectionCooldown + lastDirectionChange || Physics.Raycast(ray, 5))
+
+                if (!_isRotating)
                 {
-                    Debug.Log("Je change direction");
-                    ChangeDirection();
-                    lastDirectionChange = Time.time;
+                    if (Time.time >= changeDirectionCooldown + lastDirectionChange || Physics.Raycast(ray, 5))
+                    {
+                        ChangeDirection();
+                        lastDirectionChange = Time.time;
+                    }
+                    motor.Move(currentDirection);
+                }
+                else
+                {
+                    motor.Move((target.transform.position - this.transform.position).normalized);
                 }
 
                 
-                motor.Move(currentDirection);
             }
 
             if (Vector3.Distance(target.transform.position, this.transform.position) < attackRange)
@@ -56,19 +69,21 @@ public class BigOne : Enemy
                 var hitPos = Vector3.Dot(toTarget, transform.forward);
 
                 //Si devant le joueur
-                if (hitPos > 0 && !_isRotating)
+                if (hitPos > 0 && !_isRotating && lastSmashAttack + smashAttackCooldown < Time.time)
                 {
                     //On se prepare a taper
+                    lastSmashAttack = Time.time;
                     projector.enabled = true;
                     damageMultiplier = 1f;
                     StartCoroutine(SmashAttack());
                 }
                 // Si derriere le joueur
-                if (hitPos < 0 && !_isRotating)
+                if (hitPos < 0 && !_isRotating && lastCircularAttack + circularAttackCooldown < Time.time )
                 {
                     //On fait tourner et on suis
                     damageMultiplier = 2f;
                     _isRotating = true;
+                    lastCircularAttack = Time.time;
                     StartCoroutine(CircularAttack());
                 }
             }
@@ -103,8 +118,10 @@ public class BigOne : Enemy
     IEnumerator SmashAttack()
     {
         _isCharging = true;
+        animator.SetTrigger("Charge");
         yield return new WaitForSeconds(chargingTime);
         _isCharging = false;
+        animator.SetTrigger("Attack");
         projector.enabled = false;
         var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
         foreach(var target in targets)
@@ -115,7 +132,10 @@ public class BigOne : Enemy
 
     IEnumerator CircularAttack()
     {
-        yield return new WaitForSeconds(3f);
+        animator.SetBool("isRotating", true);
+        yield return new WaitForSeconds(circularAttackTime);
         _isRotating = false;
+        animator.SetBool("isRotating", false);
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SDG.Platform.Entities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Motor))]
 public class Player : MonoBehaviour, IDamagable
@@ -104,6 +105,12 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakeDamage(int amount)
     {
+        health -= amount;
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+            SceneManager.LoadScene("LevelScene");
+        }
         OnTakeDamageEvent(health);
     }
 

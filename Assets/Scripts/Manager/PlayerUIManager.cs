@@ -44,7 +44,7 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
         }
         else
         {
-            heartNumber = currentHealth;
+            heartNumber = currentHealth/2;
         }
 
         //On fait spawn le bon nombre de coeur

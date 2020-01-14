@@ -22,7 +22,7 @@ public class LittleDoggo : Enemy
 
             if ((target.transform.position - this.transform.position).magnitude > 3f)
             {
-                GetComponent<Rigidbody>().AddForce((target.transform.position - this.transform.position).normalized * 35);
+                GetComponent<Rigidbody>().AddForce((target.transform.position - this.transform.position).normalized * 30);
             }
         }
 

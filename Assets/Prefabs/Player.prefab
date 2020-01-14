@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 8680998437107178020}
-  health: 5
+  health: 150
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,10 +485,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 1.3512471
+  m_Radius: 1.0569583
+  m_Height: 2.4140394
   m_Direction: 1
-  m_Center: {x: -0.000000014293275, y: -0.37772724, z: -0.00000002327937}
+  m_Center: {x: -0.000000051753698, y: -0.18361305, z: 0.10670528}
 --- !u!114 &8680998437107178020
 MonoBehaviour:
   m_ObjectHideFlags: 0

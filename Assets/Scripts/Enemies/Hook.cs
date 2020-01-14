@@ -11,6 +11,7 @@ public class Hook : MonoBehaviour
         if(other.gameObject.tag == Constants.Tags.PLAYER_TAG)
         {
             Debug.Log("J'inflige des dégats au joueur");
+            other.GetComponent<Player>().TakeDamage(1);
         }
     }
 }

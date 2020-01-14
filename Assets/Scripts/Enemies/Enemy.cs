@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public virtual void TakeDamage(int amount)
     {
         health -= amount * damageMultiplier;
-        Debug.Log($"{this.name} a subit {amount}, il lui reste {health} PV");
+        Debug.Log($"{this.name} a subit {amount * damageMultiplier}, il lui reste {health} PV");
 
         if (health <= 0)
         {

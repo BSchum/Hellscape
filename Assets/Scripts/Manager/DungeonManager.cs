@@ -27,6 +27,7 @@ namespace SDG.Unity.Scripts
         // Start is called before the first frame update
         void Awake()
         {
+            DontDestroyOnLoad(this);
             playerContext = GetComponent<PlayerContext>();
             camera = Camera.main;
             RandomProvider randomProvider = new RandomProvider();
@@ -65,6 +66,7 @@ namespace SDG.Unity.Scripts
                         var playerHolder = instantiateRoom.GetComponent<StartRoom>().playerHolder;
                         playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
                         playerContext.currentPosition = room.Pos;
+                        DontDestroyOnLoad(playerContext.player);
                         break;
                     default:
                         break;
