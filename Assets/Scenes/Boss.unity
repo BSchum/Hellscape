@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 3278752114269083882, guid: b700c05d4e4a29342b8088eaa14a6c56,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3278752114269083882, guid: b700c05d4e4a29342b8088eaa14a6c56,
         type: 3}
@@ -189,75 +189,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b700c05d4e4a29342b8088eaa14a6c56, type: 3}
---- !u!1001 &253012231
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 571773287610997557, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_Name
-      value: Hell Doggo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.018603265
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.2021856
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550208147407804859, guid: 24e735659fd77e94093d14d989d013bc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 24e735659fd77e94093d14d989d013bc, type: 3}
 --- !u!1 &1519978265
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 1012277491433101381, guid: bece2c0a977a8134f837eafe4692dfec,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1012277491433101381, guid: bece2c0a977a8134f837eafe4692dfec,
         type: 3}
