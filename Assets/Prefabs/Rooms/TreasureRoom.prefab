@@ -1935,6 +1935,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 7202756947814523932, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
         type: 3}
       propertyPath: m_LocalPosition.x
