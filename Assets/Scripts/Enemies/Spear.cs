@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spear : Projectile
 {
     public float lifetime;
-    public int damage;
+    public uint damage;
 
     void Start()
     {

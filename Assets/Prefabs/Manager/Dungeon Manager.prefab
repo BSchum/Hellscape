@@ -59,6 +59,7 @@ MonoBehaviour:
     type: 3}
   roomParents: {fileID: 0}
   playerContext: {fileID: 7605781038918695465}
+  roomNumber: 15
 --- !u!114 &7605781038918695467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,9 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hellItems:
-  - {fileID: 9064442871596596628, guid: d703a905fbe7d0048851e15706d639cd, type: 3}
-  - {fileID: 6422149225157141754, guid: 1a21a47dbd6ddde418ee3221fb3a992e, type: 3}
-  - {fileID: 1184882728871685387, guid: 6128aff35841c6145a2339e76c112f09, type: 3}
+  - {fileID: 478272155, guid: d4227718ea1decf42b520c6472ab4b6f, type: 3}
 --- !u!114 &7605781038918695466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,9 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hellBosses:
-  - {fileID: 8531969880768332763, guid: bf48b40d3bfb81d4c87a61b008605ed7, type: 3}
-  - {fileID: 4585675498699236864, guid: 97023dcac4e57fc448bd1d51185c7469, type: 3}
-  - {fileID: 3082036811906177655, guid: 96ccec9eb8358e347a32e1d4adedd145, type: 3}
+  - {fileID: 5851019639683273617, guid: 24e735659fd77e94093d14d989d013bc, type: 3}
 --- !u!114 &7605781038918695465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d418c36de75f2984fbb6f882a309ccef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRoomNumber: 0
   player: {fileID: 0}
 --- !u!114 &957687225
 MonoBehaviour:
@@ -117,4 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1438415788123293136, guid: 3e9c526afaa257549bd7aa9505ab8133, type: 3}
+  - {fileID: 7665681542475485501, guid: ec023544da18adb47ad9ec1db60fbc59, type: 3}
+  - {fileID: 3476039298315684302, guid: c4cabfc738e6382478565409cdb5fa89, type: 3}
+  - {fileID: 3095695288779228384, guid: 3e9c526afaa257549bd7aa9505ab8133, type: 3}
+  - {fileID: 8116629483113830813, guid: c201b4b5f87b0fe4ba210678b4812a81, type: 3}

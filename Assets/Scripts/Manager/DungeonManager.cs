@@ -20,19 +20,18 @@ namespace SDG.Unity.Scripts
         public Transform roomParents;
 
         public PlayerContext playerContext;
-
+        public int roomNumber;
         List<DefaultRoom> rooms;
 
         Camera camera;
         // Start is called before the first frame update
         void Awake()
         {
-            DontDestroyOnLoad(this);
             playerContext = GetComponent<PlayerContext>();
             camera = Camera.main;
             RandomProvider randomProvider = new RandomProvider();
             var generator = new DungeonGenerator(randomProvider);
-            var dungeon = generator.Generate();
+            var dungeon = generator.Generate(roomNumber);
             var specialRoomList = new List<IRoomBehaviour>()
             {
                 new StartRoomBehaviour(randomProvider),
@@ -121,5 +120,4 @@ namespace SDG.Unity.Scripts
             }
         }
     }
-
 }

@@ -401,7 +401,6 @@ GameObject:
   - component: {fileID: 2011783366409269163}
   - component: {fileID: -7076555349639355796}
   - component: {fileID: 2813209716952656925}
-  - component: {fileID: 8623822930058212878}
   - component: {fileID: 3095695288779228384}
   m_Layer: 0
   m_Name: LittleDoggo
@@ -464,18 +463,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &8623822930058212878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4433553161211175103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8575155d04b26e4696411074db2832c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3095695288779228384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +478,7 @@ MonoBehaviour:
   health: 2
   damageMultiplier: 1
   roomNumber: 0
+  room: {fileID: 0}
 --- !u!1 &4751940875174780879
 GameObject:
   m_ObjectHideFlags: 0

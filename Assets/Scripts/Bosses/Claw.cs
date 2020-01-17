@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
-    public int damage;
+    public uint damage;
 
     private void OnTriggerEnter(Collider other)
     {

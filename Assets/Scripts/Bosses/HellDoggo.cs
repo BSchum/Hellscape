@@ -14,7 +14,7 @@ public class HellDoggo : Boss, IDamagable
     public float clawCastTime = 1.5f;
 
     public float chargeCastTime = 2;
-    public int chargeDamage = 10;
+    public uint chargeDamage = 2;
     public float chargeForce = 100;
     public float repulseForce = 50;
     public float chargeCooldown = 7;
@@ -129,7 +129,7 @@ public class HellDoggo : Boss, IDamagable
         StartCoroutine(SpittingLava());
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(uint amount)
     {
         health -= amount;
         if (health <= 0)
