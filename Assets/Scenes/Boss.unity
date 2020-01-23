@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 5157069706282327715, guid: bece2c0a977a8134f837eafe4692dfec,
         type: 3}
       propertyPath: m_Name
-      value: BossEntranceRoom
+      value: BossRoom
       objectReference: {fileID: 0}
     - target: {fileID: 1012277491433101381, guid: bece2c0a977a8134f837eafe4692dfec,
         type: 3}
@@ -442,6 +442,42 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 1.3860397
       objectReference: {fileID: 0}
+    - target: {fileID: 8173875092657803597, guid: bece2c0a977a8134f837eafe4692dfec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400331744038516288, guid: bece2c0a977a8134f837eafe4692dfec,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792987338807815793, guid: bece2c0a977a8134f837eafe4692dfec,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 281481530547320143, guid: 94bd681b9abfa1c4eb02b6958cf96e5a,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 3938716234233460557, guid: bece2c0a977a8134f837eafe4692dfec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bece2c0a977a8134f837eafe4692dfec, type: 3}
+--- !u!1 &4701536876357126515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5157069706282327715, guid: bece2c0a977a8134f837eafe4692dfec,
+    type: 3}
+  m_PrefabInstance: {fileID: 4701536876357126514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4701536876357126516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701536876357126515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9760129d4e65ff54eb957538b7a7ac36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hellBosses:
+  - {fileID: 5851019639683273617, guid: 24e735659fd77e94093d14d989d013bc, type: 3}

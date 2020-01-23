@@ -34,9 +34,11 @@ public class HellDoggo : Boss, IDamagable
 
     [HideInInspector]
     public bool isChained = false;
+
     
     void Start()
     {
+        animator = GetComponent<Animator>();
         StartCoroutine(SpittingLava());
     }
 
@@ -61,28 +63,27 @@ public class HellDoggo : Boss, IDamagable
                 StartCoroutine(ClawHit());
             }
 
-            if (!chargeIsOnCooldown && !isCharging)
+            if (!chargeIsOnCooldown && !isCharging && !isClawing)
             {
                 StartCoroutine(ChargeForward());
             }
         }
     }
-
+    public void FinishClawing()
+    {
+        isAbleToMove = true;
+        isClawing = true;
+    }
     IEnumerator ClawHit()
     {
         isClawing = true;
         isAbleToMove = false;
-
+        animator.SetTrigger("IsCastingClaw");
         yield return new WaitForSeconds(clawCastTime);
 
-        isAbleToMove = true;
         isClawing = false;
 
-        claw.gameObject.SetActive(true);
-
-        yield return new WaitForSeconds(0.2f);
-
-        claw.gameObject.SetActive(false);
+        animator.SetTrigger("IsClawing");
     }
 
     IEnumerator ChargeForward()

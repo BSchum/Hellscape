@@ -7,13 +7,17 @@ public class BossRoom : DefaultRoom
 {
     public GameObject bossAnchor;
     public GameObject playerAnchor;
+    public GameObject playerPrefab;
     public Boss chosenBoss;
     // Start is called before the first frame update
     void Start()
     {
+
         PlayerUIManager.GetInstance().Awake();
+        
         chosenBoss = BossesProvider.Instance.GetRandomBosses();
         Instantiate(chosenBoss, bossAnchor.transform.position, Quaternion.identity);
+
         PlayerContext.instance.player.transform.position = playerAnchor.transform.position;
         Camera.main.transform.position = cameraHolder.position;
     }

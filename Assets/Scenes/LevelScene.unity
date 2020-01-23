@@ -197,7 +197,8 @@ PrefabInstance:
       propertyPath: roomNumber
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7605781038918695466, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
 --- !u!1 &96915176
 GameObject:

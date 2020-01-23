@@ -49,15 +49,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07a09412b35e154aaa2a4c425320d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 35
   motor: {fileID: 575777732095770980}
   rb: {fileID: 5042478031547635320}
   animator: {fileID: 1106552758374206739}
   range: 20
   claw: {fileID: 4761996398043430129}
   clawRange: 5
-  clawCastTime: 1.5
-  chargeCastTime: 2
+  clawCastTime: 1
+  chargeCastTime: 5
   chargeDamage: 2
   chargeForce: 1000
   repulseForce: 200
@@ -1110,7 +1110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1856146472987403539
 Transform:
   m_ObjectHideFlags: 0
@@ -1134,7 +1134,7 @@ BoxCollider:
   m_GameObject: {fileID: 5522740415798683868}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.63, z: 0.57}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1716,13 +1716,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8048098711964764554}
-  m_LocalRotation: {x: -0.16485046, y: -0.0000000013969841, z: -1.7462301e-10, w: 0.9863186}
-  m_LocalPosition: {x: -0.083, y: -0.072, z: -0.086}
+  m_LocalRotation: {x: 0.14789854, y: -0.0000000013969839, z: 4.3655746e-11, w: 0.9890026}
+  m_LocalPosition: {x: -0.08299963, y: -0.07199998, z: -0.08600022}
   m_LocalScale: {x: -0.06, y: 0.14, z: 0.06}
   m_Children: []
   m_Father: {fileID: 7894228323655548116}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -18.977001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.01, y: 0, z: 0}
 --- !u!33 &5180625989034633868
 MeshFilter:
   m_ObjectHideFlags: 0
