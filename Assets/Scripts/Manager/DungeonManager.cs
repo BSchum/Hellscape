@@ -23,12 +23,12 @@ namespace SDG.Unity.Scripts
         public int roomNumber;
         List<DefaultRoom> rooms;
 
-        Camera camera;
+        Camera cam;
         // Start is called before the first frame update
         void Awake()
         {
             playerContext = GetComponent<PlayerContext>();
-            camera = Camera.main;
+            cam = Camera.main;
             RandomProvider randomProvider = new RandomProvider();
             var generator = new DungeonGenerator(randomProvider);
             var dungeon = generator.Generate(roomNumber);
@@ -114,7 +114,7 @@ namespace SDG.Unity.Scripts
             float elapsedTime = 0;
             while (elapsedTime < 2)
             {
-                camera.transform.position = Vector3.Lerp(camera.transform.position, position, elapsedTime / 2);
+                cam.transform.position = Vector3.Lerp(cam.transform.position, position, elapsedTime / 2);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }

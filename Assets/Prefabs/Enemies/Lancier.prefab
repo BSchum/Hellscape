@@ -787,7 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ca3338df5bc194c9e65b0713ec9207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
 --- !u!114 &3476039298315684302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +809,6 @@ MonoBehaviour:
   projectileSpawn: {fileID: 5727643879947460047}
   aimDelay: 0
   bonusSpeedDuration: 1.5
-  bonusSpeed: 10
+  bonusSpeed: 2
   range: 0
   motor: {fileID: 3696296593714651698}

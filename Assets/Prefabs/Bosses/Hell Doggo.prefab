@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1508577626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508577627}
+  m_Layer: 9
+  m_Name: LavaPuddleAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1508577627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508577626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.287, z: 0.356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6550208147407804859}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &571773287610997557
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,11 +39,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6550208147407804859}
-  - component: {fileID: 5851019639683273617}
   - component: {fileID: 6409609206609784597}
   - component: {fileID: 5042478031547635320}
   - component: {fileID: 575777732095770980}
   - component: {fileID: 1106552758374206739}
+  - component: {fileID: 2415770256359914918}
+  - component: {fileID: 8415640790251491848}
   m_Layer: 9
   m_Name: Hell Doggo
   m_TagString: Enemy
@@ -34,41 +65,10 @@ Transform:
   m_Children:
   - {fileID: 7894228323655548116}
   - {fileID: 1856146472987403539}
+  - {fileID: 1508577627}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5851019639683273617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571773287610997557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c07a09412b35e154aaa2a4c425320d80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 35
-  motor: {fileID: 575777732095770980}
-  rb: {fileID: 5042478031547635320}
-  animator: {fileID: 1106552758374206739}
-  range: 20
-  claw: {fileID: 4761996398043430129}
-  clawRange: 5
-  clawCastTime: 1
-  chargeCastTime: 5
-  chargeDamage: 2
-  chargeForce: 1000
-  repulseForce: 200
-  chargeCooldown: 7
-  lavaPuddlePrefab: {fileID: 4179985381804066462, guid: bf11fa96b6b4a364cade2ae148f1e13e,
-    type: 3}
-  lavaPuddleLifeTime: 7
-  lavaSpittingTime: 7
-  lavaSpawingDelay: 2
-  lavaSpittingCooldown: 14
-  isChained: 0
 --- !u!65 &6409609206609784597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ca3338df5bc194c9e65b0713ec9207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
 --- !u!95 &1106552758374206739
 Animator:
   serializedVersion: 3
@@ -130,6 +130,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2415770256359914918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571773287610997557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63df549b47c68a0418c349c86251ace4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    Power: 10
+    Speed: 5
+    Health: 50
+    MaxHealth: 50
+  motor: {fileID: 8415640790251491848}
+  target: {fileID: 0}
+  animator: {fileID: 1106552758374206739}
+  aggroRange: 15
+  rotationSpeed: 5
+  canMove: 1
+  clawStrikeCooldown: 5
+  clawStrikeCastTime: 0.5
+  lavaPuddlePrefab: {fileID: 4179985381804066462, guid: bf11fa96b6b4a364cade2ae148f1e13e,
+    type: 3}
+  lavaPuddleAnchor: {fileID: 1508577627}
+  lavaPuddleCastTime: 2
+  lavaPuddleCooldown: 9
+  chargeCastTime: 1
+  chargeCooldown: 9
+  chargeForce: 1500
+  chargeDamage: 2
+  chargeDuration: 1
+--- !u!114 &8415640790251491848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571773287610997557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ca3338df5bc194c9e65b0713ec9207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1546406660496588326
 GameObject:
   m_ObjectHideFlags: 0

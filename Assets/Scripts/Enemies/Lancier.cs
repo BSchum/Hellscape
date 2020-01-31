@@ -8,7 +8,7 @@ public class Lancier : Enemy, IDamagable
     public Transform projectileSpawn;
     public float aimDelay;
     public float bonusSpeedDuration = 4;
-    public float bonusSpeed = 2;
+    public int bonusSpeed = 2;
     public float range;
     public Motor motor;
 

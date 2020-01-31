@@ -11,10 +11,24 @@ public class Motor : MonoBehaviour
         GetComponent<Rigidbody>().MovePosition(transform.position + direction.normalized * Time.deltaTime * speed);
     }
 
+    public void Move(Transform target, float magnitudeBeforeStop)
+    {
+        var direction = (target.transform.position - transform.position);
+        if(direction.magnitude > magnitudeBeforeStop)
+            GetComponent<Rigidbody>().MovePosition(transform.position + direction.normalized * Time.deltaTime * speed);
+    }
+
     public void Look(Vector3 pointToLook)
     {
         pointToLook.y = transform.position.y;
         transform.LookAt(pointToLook);
+    }
+
+    public void LookSmooth(Transform target, float rotationSpeed)
+    {
+        var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     public void LookAtMouse()

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Motor), typeof(Animator))]
 public class BigOne : Enemy
 {
 
@@ -22,7 +23,6 @@ public class BigOne : Enemy
 
     float lastSmashAttack = 0.0f;
     float smashAttackCooldown = 3f;
-    [SerializeField]
     Motor motor;
     List<Direction> directions;
     Animator animator;
@@ -34,6 +34,7 @@ public class BigOne : Enemy
     {
         target = PlayerContext.instance.player;
         animator = GetComponent<Animator>();
+        motor = GetComponent<Motor>();
     }
     // Update is called once per frame
     void Update()
