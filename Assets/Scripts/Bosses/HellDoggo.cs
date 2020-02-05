@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HellDoggo : Boss, IDamagable
+public class HellDoggo : Boss
 {
     public Rigidbody rb;
     public Animator animator;
@@ -40,6 +40,7 @@ public class HellDoggo : Boss, IDamagable
     {
         animator = GetComponent<Animator>();
         StartCoroutine(SpittingLava());
+        TakeDamage((uint)health);
     }
 
     void Update()
@@ -128,15 +129,6 @@ public class HellDoggo : Boss, IDamagable
         yield return new WaitForSeconds(lavaSpittingCooldown);
 
         StartCoroutine(SpittingLava());
-    }
-
-    public void TakeDamage(uint amount)
-    {
-        health -= amount;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void OnCollisionEnter(Collision collision)

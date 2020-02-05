@@ -8,16 +8,18 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Motor))]
 public class Player : MonoBehaviour, IDamagable
 {
+    [SerializeField]
+    private float life = 30;
+
     private Animator animator;
     private Motor motor;
     [SerializeField]
-    Sword sword;
+    private Sword sword;
+    public Sword Sword { get { return sword; } private set { sword = value; } }
 
     public Bag Bag { get; private set; } = new Bag();
     private Chest _chest;
     public Stats stats;
-    private float attackSpeed = 0.5f;
-    private float lastAttack = 0.0f;
 
     bool _isGrounded = true;
     bool _isOnSlope = false;
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour, IDamagable
 
     private void Awake()
     {
-        PlayerContext.instance.player = this.gameObject;
+        //PlayerContext.instance.player = this.gameObject;
         animator = this.GetComponentInChildren<Animator>();
         motor = this.GetComponent<Motor>();
         Bag.OnAddItemEvent += Use;
@@ -38,15 +40,13 @@ public class Player : MonoBehaviour, IDamagable
     {
         stats += item.bonusStats;
         LoadAllStats();
-        Debug.Log("Nouvel item!");
         UpdateStatsUI();
     }
     void LoadAllStats()
     {
         motor.speed = stats.Speed;
-        sword.damage = stats.Power;
+        Sword.Power = stats.Power;
     }
-    // Update is called once per frame
     void Update()
     {
         _isOnSlope = OnSlope();
@@ -62,9 +62,9 @@ public class Player : MonoBehaviour, IDamagable
         
         motor.LookAtMouse();
 
-        if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && lastAttack + attackSpeed <= Time.time)
+        if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && Sword.AttackEnabled)
         {
-            StartCoroutine(Attack());
+            Sword.Attack();
         }
 
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_INTERACT) && _chest != null)
@@ -86,17 +86,6 @@ public class Player : MonoBehaviour, IDamagable
             }
         }
         return false;
-    }
-    IEnumerator Attack()
-    {
-        lastAttack = Time.time;
-        animator.SetTrigger("sword hit");
-        sword.GetComponent<CapsuleCollider>().enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        //Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
-        sword.GetComponent<CapsuleCollider>().enabled = false;
-
     }
     private void InteractWithChest()
     {
@@ -140,21 +129,6 @@ public class Player : MonoBehaviour, IDamagable
         if (other.tag == Constants.Tags.CHEST_TAG)
         {
             _chest = null;
-        }
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag == Constants.Tags.FLOOR_TAG || collision.gameObject.tag == Constants.Tags.BRIDGE_TAG)
-        {
-            _isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == Constants.Tags.FLOOR_TAG || collision.gameObject.tag == Constants.Tags.BRIDGE_TAG)
-        {
-            _isGrounded = false;
         }
     }
     #endregion

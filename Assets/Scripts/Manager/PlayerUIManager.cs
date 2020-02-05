@@ -9,6 +9,7 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
 {
     public GameObject ItemUI;
     public ItemUI itemUIPrefab;
+    public SoulUI soulUIPrefab;
     public Player player;
     public GameObject HealthUI;
     public GameObject PowerUI;
@@ -27,6 +28,7 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
     {
         player = PlayerContext.instance.player.GetComponent<Player>();
         player.Bag.OnAddItemEvent += Display;
+        player.Sword.OnSoulUpdateEvent += DisplaySouls;
         player.OnStatUpdateEvent += UpdateUI;
     }
     private void Update()
@@ -103,5 +105,10 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
     {
         GameObject newItem = Instantiate(itemUIPrefab.gameObject, ItemUI.transform);
         newItem.GetComponent<ItemUI>().image.sprite = item.sprite;
+    }
+    private void DisplaySouls(Soul soul)
+    {
+        GameObject newItem = Instantiate(soulUIPrefab.gameObject, ItemUI.transform);
+        newItem.GetComponent<ItemUI>().image.sprite = soul.sprite;
     }
 }
