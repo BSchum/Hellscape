@@ -14,7 +14,7 @@ public class HellDoggo : Boss, IDamagable
     public float clawCastTime = 1.5f;
 
     public float chargeCastTime = 2;
-    public int chargeDamage = 10;
+    public uint chargeDamage = 2;
     public float chargeForce = 100;
     public float repulseForce = 50;
     public float chargeCooldown = 7;
@@ -34,9 +34,11 @@ public class HellDoggo : Boss, IDamagable
 
     [HideInInspector]
     public bool isChained = false;
+
     
     void Start()
     {
+        animator = GetComponent<Animator>();
         StartCoroutine(SpittingLava());
     }
 
@@ -61,28 +63,27 @@ public class HellDoggo : Boss, IDamagable
                 StartCoroutine(ClawHit());
             }
 
-            if (!chargeIsOnCooldown && !isCharging)
+            if (!chargeIsOnCooldown && !isCharging && !isClawing)
             {
                 StartCoroutine(ChargeForward());
             }
         }
     }
-
+    public void FinishClawing()
+    {
+        isAbleToMove = true;
+        isClawing = true;
+    }
     IEnumerator ClawHit()
     {
         isClawing = true;
         isAbleToMove = false;
-
+        animator.SetTrigger("IsCastingClaw");
         yield return new WaitForSeconds(clawCastTime);
 
-        isAbleToMove = true;
         isClawing = false;
 
-        claw.gameObject.SetActive(true);
-
-        yield return new WaitForSeconds(0.2f);
-
-        claw.gameObject.SetActive(false);
+        animator.SetTrigger("IsClawing");
     }
 
     IEnumerator ChargeForward()
@@ -129,7 +130,7 @@ public class HellDoggo : Boss, IDamagable
         StartCoroutine(SpittingLava());
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(uint amount)
     {
         health -= amount;
         if (health <= 0)

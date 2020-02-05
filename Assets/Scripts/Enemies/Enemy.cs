@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Stats))]
 public class Enemy : MonoBehaviour, IDamagable
 {
     public float health = 100;
     public float damageMultiplier = 1f;
     public int roomNumber;
     public SimpleRoom room;
-    public virtual void TakeDamage(int amount)
+    public virtual void TakeDamage(uint amount)
     {
         health -= amount * damageMultiplier;
         Debug.Log($"{this.name} a subit {amount * damageMultiplier}, il lui reste {health} PV");

@@ -1,16 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-
-public class Stats : MonoBehaviour
+[Serializable]
+public class Stats
 {
-    BaseStats currentStats = new BaseStats();
-    BaseStats bonusStats = new BaseStats();
-    BaseStats finalStats = new BaseStats();
+    /// <summary>
+    /// Amount of damage dealed by one hit. (must be positive)
+    /// </summary>
+    public uint Power;
+    public int Speed;
+    public uint Health;
+    public uint MaxHealth;
 
-    private void Update()
+    public static Stats operator +(Stats a, Stats b)
     {
-        finalStats = currentStats + bonusStats;
+        return new Stats()
+        {
+            Power = a.Power + b.Power,
+            Speed = a.Speed + b.Speed,
+            MaxHealth = a.MaxHealth + b.MaxHealth,
+            Health = a.Health + b.Health
+        };
     }
 
+    public void TakeDamage(uint amount)
+    {
+        if(amount > Health)
+        {
+            Health = 0;
+        }
+        else
+        {
+            Health -= amount;
+        }
+    }
 }

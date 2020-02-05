@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public int damage = 1;
+    public uint damage = 1;
 
     private void OnTriggerEnter(Collider other)
     {

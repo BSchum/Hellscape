@@ -11,30 +11,41 @@ public class Player : MonoBehaviour, IDamagable
     private Animator animator;
     private Motor motor;
     [SerializeField]
-    private Sword sword;
-    public int health = 5;
+    Sword sword;
 
     public Bag Bag { get; private set; } = new Bag();
     private Chest _chest;
-
+    public Stats stats;
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
 
     bool _isGrounded = true;
     bool _isOnSlope = false;
 
-    public delegate void OnTakeDamage(int currentHealth);
-    public event OnTakeDamage OnTakeDamageEvent;
+    public delegate void OnStatUpdate(Stats stats);
+    public event OnStatUpdate OnStatUpdateEvent;
 
     private void Awake()
     {
         PlayerContext.instance.player = this.gameObject;
         animator = this.GetComponentInChildren<Animator>();
         motor = this.GetComponent<Motor>();
+        Bag.OnAddItemEvent += Use;
+        LoadAllStats();
     }
-    
-    
 
+    void Use(Item item)
+    {
+        stats += item.bonusStats;
+        LoadAllStats();
+        Debug.Log("Nouvel item!");
+        UpdateStatsUI();
+    }
+    void LoadAllStats()
+    {
+        motor.speed = stats.Speed;
+        sword.damage = stats.Power;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -61,9 +72,9 @@ public class Player : MonoBehaviour, IDamagable
             InteractWithChest();
         }
     }
-    public void UpdateHealthUI()
+    public void UpdateStatsUI()
     {
-        OnTakeDamageEvent(health);
+        OnStatUpdateEvent(stats);
     }
     private bool OnSlope()
     {
@@ -103,15 +114,16 @@ public class Player : MonoBehaviour, IDamagable
         }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(uint amount)
     {
-        health -= amount;
-        if(health <= 0)
+        stats.TakeDamage(amount);
+        if(stats.Health <= 0)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene("LevelScene");
+            Debug.Log("On est mort!");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
         }
-        OnTakeDamageEvent(health);
+        OnStatUpdateEvent(stats);
     }
 
     #region Triggers

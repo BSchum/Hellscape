@@ -9,7 +9,7 @@ public class Bouboule : Enemy
     public Motor motor;
     public Rigidbody rb;
     public Animator animator;
-    public int damage = 10;
+    public uint damage = 10;
     public float repulseForce = 10;
 
     float range;

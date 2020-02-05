@@ -44,7 +44,7 @@ public class Lancier : Enemy, IDamagable
         }
     }
 
-    public override void TakeDamage(int amount)
+    public override void TakeDamage(uint amount)
     {
         base.TakeDamage(amount);
         if (isAiming)
