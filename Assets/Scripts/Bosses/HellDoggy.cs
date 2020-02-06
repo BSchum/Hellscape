@@ -25,6 +25,7 @@ public class HellDoggy : Boss, IDamagable
     [Header("Coulée de lave")]
     public GameObject lavaPuddlePrefab;
     public Transform lavaPuddleAnchor;
+    public float lavaPuddleCastTime;
 
     [Header("Charge")]
     public float chargeCastTime;
