@@ -8,7 +8,7 @@ public abstract class Item : MonoBehaviour
     public Sprite sprite;
     private float _speed = 20f;
     public Stats bonusStats;
-    // Update is called once per frame
+
     void Update()
     {
         this.transform.Rotate(Vector3.up * _speed * Time.deltaTime);
