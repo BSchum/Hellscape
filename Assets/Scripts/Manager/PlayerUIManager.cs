@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
 {
     public GameObject ItemUI;
+    public GameObject SoulUI;
     public ItemUI itemUIPrefab;
+    public SoulUI soulUIPrefab;
     public Player player;
     public GameObject HealthUI;
     public GameObject PowerUI;
@@ -28,6 +30,7 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
         player = PlayerContext.instance.player.GetComponent<Player>();
         player.Bag.OnAddItemEvent += Display;
         player.OnStatUpdateEvent += UpdateUI;
+        player.Sword.OnSoulUpdateEvent += DisplaySouls;
     }
     private void Update()
     {
@@ -95,6 +98,7 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
         MaxHealthUI = GameObject.Find("MaxHealth");
         PowerUI = GameObject.Find("Power");
         ItemUI = GameObject.Find("Items");
+        SoulUI = GameObject.Find("Souls");
         IsUILoaded = true;
 
         UpdateUI(player.stats);
@@ -103,5 +107,10 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
     {
         GameObject newItem = Instantiate(itemUIPrefab.gameObject, ItemUI.transform);
         newItem.GetComponent<ItemUI>().image.sprite = item.sprite;
+    }
+    private void DisplaySouls(Soul soul)
+    {
+        GameObject newSoul = Instantiate(soulUIPrefab.gameObject, SoulUI.transform);
+        newSoul.GetComponent<SoulUI>().image.sprite = soul.sprite;
     }
 }

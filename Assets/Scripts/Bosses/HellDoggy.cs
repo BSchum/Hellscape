@@ -144,14 +144,6 @@ public class HellDoggy : Boss, IDamagable
     {
         canMove = true;
     }
-    public void TakeDamage(uint amount)
-    {
-        stats.TakeDamage(amount);
-        if (stats.Health == 0)
-        {
-            Destroy(this.gameObject);
-        }
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

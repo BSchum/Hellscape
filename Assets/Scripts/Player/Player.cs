@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IDamagable
     private Motor motor;
     [SerializeField]
     Sword sword;
+    public Sword Sword { get { return sword; } }
 
     public Bag Bag { get; private set; } = new Bag();
     private Chest _chest;
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour, IDamagable
     void LoadAllStats()
     {
         motor.speed = stats.Speed;
-        sword.damage = stats.Power;
+        sword.power = stats.Power;
     }
     // Update is called once per frame
     void Update()

@@ -627,22 +627,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6008742989008605453, guid: b09419bd128eab343b4b34acb79b6122,
-        type: 3}
-      propertyPath: bagAnchor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008742989008605453, guid: b09419bd128eab343b4b34acb79b6122,
-        type: 3}
-      propertyPath: PowerPrefab
-      value: 
-      objectReference: {fileID: 3079070101765368160, guid: 654f801c3043e19459c94bc78ef67bb6,
-        type: 3}
-    - target: {fileID: 6008742989008605453, guid: b09419bd128eab343b4b34acb79b6122,
-        type: 3}
-      propertyPath: MaxHealthPrefab
-      value: 
-      objectReference: {fileID: 2124199463925336007, guid: 14368085e1e643a489d4449f6918bfb2,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09419bd128eab343b4b34acb79b6122, type: 3}

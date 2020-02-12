@@ -150,16 +150,17 @@ MonoBehaviour:
   motor: {fileID: 8415640790251491848}
   target: {fileID: 0}
   animator: {fileID: 1106552758374206739}
+  soul: {fileID: 3828828715940676939, guid: 1e6a529391a24914f85e5ca3911fc762, type: 3}
   aggroRange: 15
   rotationSpeed: 5
   canMove: 1
+  isChained: 0
   clawStrikeCooldown: 5
   clawStrikeCastTime: 0.5
   lavaPuddlePrefab: {fileID: 4179985381804066462, guid: bf11fa96b6b4a364cade2ae148f1e13e,
     type: 3}
   lavaPuddleAnchor: {fileID: 1508577627}
   lavaPuddleCastTime: 2
-  lavaPuddleCooldown: 9
   chargeCastTime: 1
   chargeCooldown: 9
   chargeForce: 1500

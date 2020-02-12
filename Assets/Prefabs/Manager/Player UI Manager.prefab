@@ -43,11 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16eebdcbed9ba649ab67ca046592ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemUI: {fileID: 0}
+  SoulUI: {fileID: 0}
   itemUIPrefab: {fileID: 8682511641447182039, guid: 56203ec6f4606004b92a47b3895a620b,
     type: 3}
-  bagAnchor: {fileID: 0}
+  soulUIPrefab: {fileID: 9143169326373699066, guid: 5a6f3417b50ee15469024eadf1516508,
+    type: 3}
   player: {fileID: 0}
   HealthUI: {fileID: 0}
+  PowerUI: {fileID: 0}
+  MaxHealthUI: {fileID: 0}
   HeartPrefab: {fileID: 6584254051180177972, guid: ef0f016cb1735c946b12092948ae808a,
+    type: 3}
+  MaxHealthPrefab: {fileID: 2124199463925336007, guid: 14368085e1e643a489d4449f6918bfb2,
+    type: 3}
+  PowerPrefab: {fileID: 3079070101765368160, guid: 654f801c3043e19459c94bc78ef67bb6,
     type: 3}
   IsUILoaded: 0

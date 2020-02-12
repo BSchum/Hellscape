@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee588961dd9946b4398577854a343f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 8680998437107178020}
+  sword: {fileID: 9183824532600963688}
   stats:
     Power: 1
     Speed: 13
-    Health: 6
-    MaxHealth: 6
+    Health: 100
+    MaxHealth: 100
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 7515985328033530281}
   - component: {fileID: 4080838843138503098}
   - component: {fileID: 7427309070984986301}
-  - component: {fileID: 8680998437107178020}
+  - component: {fileID: 9183824532600963688}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -480,7 +480,7 @@ CapsuleCollider:
   m_Height: 2.4140394
   m_Direction: 1
   m_Center: {x: -0.000000051753698, y: -0.18361305, z: 0.10670528}
---- !u!114 &8680998437107178020
+--- !u!114 &9183824532600963688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -489,10 +489,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7121186225458820233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075d0bd71a69b2e42842c215bc092438, type: 3}
+  m_Script: {fileID: 11500000, guid: 866a8fedbc72bd44b8a17938904abef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  power: 1
+  playerAnimator: {fileID: 3171566368126751290}
 --- !u!1 &7654841200500890947
 GameObject:
   m_ObjectHideFlags: 0
