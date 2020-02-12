@@ -38,7 +38,6 @@ public class Player : MonoBehaviour, IDamagable
     {
         stats += item.bonusStats;
         LoadAllStats();
-        Debug.Log("Nouvel item!");
         UpdateStatsUI();
     }
     void LoadAllStats()
@@ -64,7 +63,8 @@ public class Player : MonoBehaviour, IDamagable
 
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && lastAttack + attackSpeed <= Time.time)
         {
-            StartCoroutine(Attack());
+            lastAttack = Time.time;
+            animator.SetTrigger("sword hit");
         }
 
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_INTERACT) && _chest != null)
@@ -86,17 +86,6 @@ public class Player : MonoBehaviour, IDamagable
             }
         }
         return false;
-    }
-    IEnumerator Attack()
-    {
-        lastAttack = Time.time;
-        animator.SetTrigger("sword hit");
-        sword.GetComponent<CapsuleCollider>().enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        //Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
-        sword.GetComponent<CapsuleCollider>().enabled = false;
-
     }
     private void InteractWithChest()
     {

@@ -480,4 +480,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hellBosses:
-  - {fileID: 5851019639683273617, guid: 24e735659fd77e94093d14d989d013bc, type: 3}
+  - {fileID: 2415770256359914918, guid: 24e735659fd77e94093d14d989d013bc, type: 3}
