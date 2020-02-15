@@ -16,7 +16,7 @@ namespace SDG.Unity.Scripts
         public GameObject bossRoomPrefab;
         public GameObject startRoomPrefab;
         public GameObject playerPrefab;
-
+        public GameObject backGroundPrefab;
         public Transform roomParents;
 
         public PlayerContext playerContext;
@@ -44,6 +44,16 @@ namespace SDG.Unity.Scripts
         }
         void GenerateDungeon(Dungeon dungeon)
         {
+            float backgroundNumberX = Constants.Rooms.ROOM_SIZE_X * dungeon.dungeon.GetLength(0) / Constants.Rooms.ROOM_BACKGROUND_SIZE_X;
+            float backgroundNumberY = Constants.Rooms.ROOM_SIZE_Y * dungeon.dungeon.GetLength(1) / Constants.Rooms.ROOM_BACKGROUND_SIZE_Y;
+
+            for(int x = 0; x < backgroundNumberX; x++)
+            {
+                for (int y = 0; y < backgroundNumberY; y++)
+                {
+                    Instantiate(backGroundPrefab, new Vector3(x * Constants.Rooms.ROOM_BACKGROUND_SIZE_X, backGroundPrefab.transform.position.y, y * Constants.Rooms.ROOM_BACKGROUND_SIZE_Y), Quaternion.identity, roomParents);
+                }
+            }
             rooms = new List<DefaultRoom>();
             int i = 0;
             foreach (Room room in dungeon.dungeon)

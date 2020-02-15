@@ -65,6 +65,7 @@ public class Player : MonoBehaviour, IDamagable
         if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && lastAttack + attackSpeed <= Time.time)
         {
             lastAttack = Time.time;
+            Debug.Log("Lance lattack");
             animator.SetTrigger("sword hit");
         }
 

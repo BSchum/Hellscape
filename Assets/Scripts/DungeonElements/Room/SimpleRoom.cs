@@ -55,8 +55,12 @@ public class SimpleRoom : DefaultRoom
     {
         foreach (var door in doors)
         {
-            door.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-            door.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            if(door != null)
+            {
+                door.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                door.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            }
+
         }
         doorsClosed = false;
     }

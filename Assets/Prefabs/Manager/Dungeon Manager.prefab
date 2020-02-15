@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7605781038918695468}
   - component: {fileID: 7605781038918695469}
   - component: {fileID: 7605781038918695467}
-  - component: {fileID: 7605781038918695466}
   - component: {fileID: 7605781038918695465}
   - component: {fileID: 957687225}
   m_Layer: 0
@@ -57,9 +56,11 @@ MonoBehaviour:
     type: 3}
   playerPrefab: {fileID: 281481530547320143, guid: 94bd681b9abfa1c4eb02b6958cf96e5a,
     type: 3}
+  backGroundPrefab: {fileID: 5921097216357750279, guid: 1915a903678bafd439449fdeb7ff7de6,
+    type: 3}
   roomParents: {fileID: 0}
   playerContext: {fileID: 7605781038918695465}
-  roomNumber: 15
+  roomNumber: 7
 --- !u!114 &7605781038918695467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,20 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hellItems:
   - {fileID: 478272155, guid: d4227718ea1decf42b520c6472ab4b6f, type: 3}
---- !u!114 &7605781038918695466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605781038918695470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9760129d4e65ff54eb957538b7a7ac36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hellBosses:
-  - {fileID: 5851019639683273617, guid: 24e735659fd77e94093d14d989d013bc, type: 3}
+  - {fileID: 3189505877001947775, guid: a8b26787e0afc6f49bf08456db42f38c, type: 3}
+  - {fileID: 204175255688698354, guid: 2a530bf765b352849b71f8354e62b5b0, type: 3}
 --- !u!114 &7605781038918695465
 MonoBehaviour:
   m_ObjectHideFlags: 0
