@@ -5,26 +5,26 @@ using Substance.Game;
 
 public class FlowTexture : MonoBehaviour
 {
-    public Renderer rend;
-    SubstanceGraph gr;
-    void Start()
-    {
-        rend = GetComponent<Renderer>();
-    }
+    public SubstanceGraph gr;
+
     void Update()
     {
-        if (rend.isVisible)
-        {
-            Material mat = null;
-            mat = rend.sharedMaterial;
-            gr = SubstanceGraph.Find(mat);
-            gr.SetInputVector2("Lava_Flowing", new Vector2(Mathf.Lerp(-0.5f, 0.5f, Time.time % 10 / 10), Mathf.Lerp(-0.5f, 0.5f, Time.time % 10 / 10)));
-            // queue the substance to render
-            gr.QueueForRender();
+        gr.SetInputVector2("Lava_Flowing", new Vector2(Mathf.Lerp(-0.5f, 0.5f, Time.time % 10 / 10), Mathf.Lerp(-0.5f, 0.5f, Time.time % 10 / 10)));
+        // queue the substance to render
+        gr.QueueForRender();
 
-            //render all substancs async
-            Substance.Game.Substance.RenderSubstancesAsync();
-        }
+        //render all substancs async
+        Substance.Game.Substance.RenderSubstancesAsync();
+    }
+
+    private void OnBecameVisible()
+    {
+        this.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        this.GetComponent<MeshRenderer>().enabled = false;
     }
 }
 
