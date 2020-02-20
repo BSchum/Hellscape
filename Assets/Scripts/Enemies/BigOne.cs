@@ -9,12 +9,10 @@ using UnityEngine;
 [RequireComponent(typeof(Motor), typeof(Animator))]
 public class BigOne : Enemy
 {
-
     float attackRange = 5.0f;
     float chargingTime = 1f;
     float circularAttackTime = 3f;
     public Projector projector;
-    GameObject target;
     bool _isRotating = false;
     bool _isCharging = false;
 
@@ -23,26 +21,30 @@ public class BigOne : Enemy
 
     float lastSmashAttack = 0.0f;
     float smashAttackCooldown = 3f;
-    Motor motor;
     List<Direction> directions;
-    Animator animator;
     public float changeDirectionCooldown = 3f;
     float lastDirectionChange = 0.0f;
 
     Vector3 currentDirection;
+    [Header("Components")]
+    Motor _motor;
+    Animator _animator;
+    GameObject _target;
+
+
     private void Start()
     {
-        target = PlayerContext.instance.player;
-        animator = GetComponent<Animator>();
-        motor = GetComponent<Motor>();
+        _target = PlayerContext.instance.player;
+        _animator = GetComponent<Animator>();
+        _motor = GetComponent<Motor>();
     }
     // Update is called once per frame
     void Update()
     {
         
-        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
+        if (_target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
         {
-            var toTarget = (target.transform.position - transform.position).normalized;
+            var toTarget = (_target.transform.position - transform.position).normalized;
             if (!_isCharging)
             {
                 //Move randomly in the platform, change direction every 2seconds or if a wall/an enemy is on the way
@@ -55,17 +57,17 @@ public class BigOne : Enemy
                         ChangeDirection();
                         lastDirectionChange = Time.time;
                     }
-                    motor.Move(currentDirection);
+                    _motor.Move(currentDirection);
                 }
                 else
                 {
-                    motor.Move((target.transform.position - this.transform.position).normalized);
+                    _motor.Move((_target.transform.position - this.transform.position).normalized);
                 }
 
                 
             }
 
-            if (Vector3.Distance(target.transform.position, this.transform.position) < attackRange)
+            if (Vector3.Distance(_target.transform.position, this.transform.position) < attackRange)
             {
                 var hitPos = Vector3.Dot(toTarget, transform.forward);
 
@@ -119,10 +121,10 @@ public class BigOne : Enemy
     IEnumerator SmashAttack()
     {
         _isCharging = true;
-        animator.SetTrigger("Charge");
+        _animator.SetTrigger("Charge");
         yield return new WaitForSeconds(chargingTime);
         _isCharging = false;
-        animator.SetTrigger("Attack");
+        _animator.SetTrigger("Attack");
         projector.enabled = false;
         var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
         foreach(var target in targets)
@@ -133,10 +135,10 @@ public class BigOne : Enemy
 
     IEnumerator CircularAttack()
     {
-        animator.SetBool("isRotating", true);
+        _animator.SetBool("isRotating", true);
         yield return new WaitForSeconds(circularAttackTime);
         _isRotating = false;
-        animator.SetBool("isRotating", false);
+        _animator.SetBool("isRotating", false);
 
     }
 }

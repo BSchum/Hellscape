@@ -127,7 +127,6 @@ public class HellDoggy : Boss, IDamagable
         canMove = true;
     }
     #endregion
-
     #region ClawStrike
     public IEnumerator ClawStrike()
     {
