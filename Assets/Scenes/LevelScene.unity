@@ -474,6 +474,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2013521256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 34607946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2013521257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013521256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1506c88b3be8c48872bbb5c6e998cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gr: {fileID: -5537756484518242580, guid: 6b63dad365320c64aaa47db17400dd13, type: 3}
+  textureFlowSpeed: 10
+  textureParametersName: Lava_Flowing
+  minValue: 0
+  maxValue: 1
 --- !u!1001 &1090637278046963589
 PrefabInstance:
   m_ObjectHideFlags: 0

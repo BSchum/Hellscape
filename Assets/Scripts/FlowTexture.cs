@@ -6,25 +6,18 @@ using Substance.Game;
 public class FlowTexture : MonoBehaviour
 {
     public SubstanceGraph gr;
+    public float textureFlowSpeed;
+    public string textureParametersName;
+    public float minValue;
+    public float maxValue;
 
     void Update()
     {
-        gr.SetInputVector2("Lava_Flowing", new Vector2(Mathf.Lerp(-0.5f, 0.5f, Time.time % 10 / 10), Mathf.Lerp(-0.5f, 0.5f, Time.time % 10 / 10)));
+        gr.SetInputVector2(textureParametersName, new Vector2(Mathf.Lerp(minValue, maxValue, Time.time % textureFlowSpeed / textureFlowSpeed), Mathf.Lerp(minValue, maxValue, Time.time % textureFlowSpeed / textureFlowSpeed)));
         // queue the substance to render
         gr.QueueForRender();
-
         //render all substancs async
         Substance.Game.Substance.RenderSubstancesAsync();
-    }
-
-    private void OnBecameVisible()
-    {
-        this.GetComponent<MeshRenderer>().enabled = true;
-    }
-
-    private void OnBecameInvisible()
-    {
-        this.GetComponent<MeshRenderer>().enabled = false;
     }
 }
 

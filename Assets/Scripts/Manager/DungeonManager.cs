@@ -40,20 +40,12 @@ namespace SDG.Unity.Scripts
             };
 
             dungeon = generator.PopulateRooms(dungeon, specialRoomList);
-            GenerateDungeon(dungeon);
-        }
-        void GenerateDungeon(Dungeon dungeon)
-        {
-            float backgroundNumberX = Constants.Rooms.ROOM_SIZE_X * dungeon.dungeon.GetLength(0) / Constants.Rooms.ROOM_BACKGROUND_SIZE_X;
-            float backgroundNumberY = Constants.Rooms.ROOM_SIZE_Y * dungeon.dungeon.GetLength(1) / Constants.Rooms.ROOM_BACKGROUND_SIZE_Y;
 
-            for(int x = 0; x < backgroundNumberX; x++)
-            {
-                for (int y = 0; y < backgroundNumberY; y++)
-                {
-                    Instantiate(backGroundPrefab, new Vector3(x * Constants.Rooms.ROOM_BACKGROUND_SIZE_X, backGroundPrefab.transform.position.y, y * Constants.Rooms.ROOM_BACKGROUND_SIZE_Y), Quaternion.identity, roomParents);
-                }
-            }
+            Generate3DDungeon(dungeon);
+            GenerateDungeonBackground(dungeon);
+        }
+        void Generate3DDungeon(Dungeon dungeon)
+        {
             rooms = new List<DefaultRoom>();
             int i = 0;
             foreach (Room room in dungeon.dungeon)
@@ -107,16 +99,50 @@ namespace SDG.Unity.Scripts
                 }
 
                 i++;
-            } 
+            }
         }
-       
+        void GenerateDungeonBackground(Dungeon dungeon)
+        {
+            int minIndexX = 999;
+            int minIndexY = 999;
+            int maxIndexX = 0;
+            int maxIndexY = 0;
+            foreach(Room room in dungeon.dungeon)
+            {
+                if (room.RoomType != RoomType.None)
+                {
+                    minIndexX = Mathf.Min(minIndexX, room.Pos.X);
+                    maxIndexX = Mathf.Max(maxIndexX, room.Pos.X);
+
+                    minIndexY = Mathf.Min(minIndexY, room.Pos.Y);
+                    maxIndexY = Mathf.Max(maxIndexY, room.Pos.Y);
+                }
+            }
+
+            //Mon nombre de salle présente
+            int XRoomNumber = maxIndexX + 1 - minIndexX;
+            int YRoomNumber = maxIndexY + 1 - minIndexY;
+            //Nombre de background : Nombre de room * taille des room / taille du background -> Nombre de background;
+            int XPlaneNumber = Mathf.CeilToInt(XRoomNumber * Constants.Rooms.ROOM_SIZE_X / Constants.Rooms.ROOM_BACKGROUND_SIZE_X); ;
+            int YPlaneNumber = Mathf.CeilToInt(YRoomNumber * Constants.Rooms.ROOM_SIZE_Y / Constants.Rooms.ROOM_BACKGROUND_SIZE_Y);
+
+            float XPlaneNumberOffset = minIndexX * Constants.Rooms.ROOM_SIZE_X / Constants.Rooms.ROOM_BACKGROUND_SIZE_X;
+            float YPlaneNumberOffset = minIndexY * Constants.Rooms.ROOM_SIZE_Y / Constants.Rooms.ROOM_BACKGROUND_SIZE_Y;
+
+            for (float x = XPlaneNumberOffset - 1; x < XPlaneNumber + XPlaneNumberOffset + 1; x++)
+            {
+                for (float y = YPlaneNumberOffset - 1; y < YPlaneNumber + YPlaneNumberOffset + 1; y++)
+                {
+                    Instantiate(backGroundPrefab, new Vector3(x * Constants.Rooms.ROOM_BACKGROUND_SIZE_X, backGroundPrefab.transform.position.y, y * Constants.Rooms.ROOM_BACKGROUND_SIZE_Y), Quaternion.identity, roomParents);
+                }
+            }
+        }
         
         public void MoveCameraToRoom(int roomNumber)
         {
             Debug.Log($"On va vers la room numero ->{roomNumber}");
             var camHolder = rooms.Where(r => r.roomNumber == roomNumber).First().cameraHolder;
             StartCoroutine(TranslateCameraTo(camHolder.position));
-            
         }
 
         public IEnumerator TranslateCameraTo(Vector3 position)
