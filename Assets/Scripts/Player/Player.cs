@@ -20,6 +20,8 @@ public class Player : MonoBehaviour, IDamagable
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
 
+    public KeyBindSO binds;
+
     bool _isGrounded = true;
     bool _isOnSlope = false;
 
@@ -49,6 +51,8 @@ public class Player : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
+        float horizontal = 0, vertical = 0;
+
         _isOnSlope = OnSlope();
 
         if (_isOnSlope)
@@ -57,18 +61,23 @@ public class Player : MonoBehaviour, IDamagable
         }
         if (_isGrounded || _isOnSlope)
         {
-            motor.Move(new Vector3(Input.GetAxisRaw(Constants.Inputs.PLAYER_HORIZONTAL), 0, Input.GetAxisRaw(Constants.Inputs.PLAYER_VERTICAL)));
+            horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
+            horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
+            vertical += Input.GetKey(binds.moveForward) ? 1 : 0;
+            vertical += Input.GetKey(binds.moveBackward) ? -1 : 0;
+
+            motor.Move(new Vector3(horizontal, 0, vertical));
         }
         
         motor.LookAtMouse();
 
-        if (Input.GetButtonDown(Constants.Inputs.PLAYER_HIT) && lastAttack + attackSpeed <= Time.time)
+        if (Input.GetKeyDown(binds.attack) && lastAttack + attackSpeed <= Time.time)
         {
             lastAttack = Time.time;
             animator.SetTrigger("sword hit");
         }
 
-        if (Input.GetButtonDown(Constants.Inputs.PLAYER_INTERACT) && _chest != null)
+        if (Input.GetKeyDown(binds.interact) && _chest != null)
         {
             InteractWithChest();
         }

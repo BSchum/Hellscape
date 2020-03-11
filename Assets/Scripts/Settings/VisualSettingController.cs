@@ -8,9 +8,11 @@ public class VisualSettingController : MonoBehaviour
     public Dropdown graphics;
     public VisualSettingUI[] visualSettings;
 
+    public GraphicSO graphicSO;
+
     private List<Dropdown.OptionData> unityGraphicOptions = new List<Dropdown.OptionData>();
 
-    private void Start()
+    private void Awake()
     {
         foreach (string name in QualitySettings.names)
         {
@@ -22,12 +24,13 @@ public class VisualSettingController : MonoBehaviour
 
     private void OnEnable()
     {
-        graphics.value = QualitySettings.GetQualityLevel();
+        graphics.value = graphicSO.graphicLevel;
     }
 
     public void OnChangeGraphicOption()
     {
         QualitySettings.SetQualityLevel(graphics.value, true);
+        graphicSO.graphicLevel = QualitySettings.GetQualityLevel();
 
         UpdateSettingsUI();
     }

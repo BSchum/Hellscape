@@ -13,14 +13,6 @@ public static class Constants
         public const string FLOOR_TAG = "Floor";
     }
 
-    public class Inputs
-    {
-        public const string PLAYER_HORIZONTAL = "Horizontal";
-        public const string PLAYER_VERTICAL = "Vertical";
-        public const string PLAYER_HIT = "Hit";
-        public const string PLAYER_INTERACT = "Interact";
-    }
-
     public class Rooms
     {
         public const float ROOM_SIZE_X = 50f + 8f;

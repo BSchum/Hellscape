@@ -7,7 +7,7 @@ public abstract class VisualSettingUI : MonoBehaviour
 {
     protected Dropdown dropdown;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         dropdown = GetComponent<Dropdown>();
     }

@@ -53,6 +53,7 @@ MonoBehaviour:
     Speed: 13
     Health: 100
     MaxHealth: 100
+  binds: {fileID: 11400000, guid: 483c54c8305d6bb49a9e5ea11e3ddb72, type: 2}
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0

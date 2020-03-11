@@ -5,10 +5,13 @@ using UnityEngine;
 public class ScreenSettingUI : VisualSettingUI
 {
     private FullScreenMode[] screens = new FullScreenMode[2] { FullScreenMode.FullScreenWindow, FullScreenMode.Windowed };
-    public static FullScreenMode currentScreenMode;
 
-    private void Start()
+    public GraphicSO graphicSO;
+
+    protected override void Awake()
     {
+        base.Awake();
+
         dropdown.options.Clear();
         foreach(FullScreenMode screenMode in screens)
         {
@@ -18,13 +21,22 @@ public class ScreenSettingUI : VisualSettingUI
 
     public override void Refresh()
     {
-        dropdown.value = Screen.fullScreen ? 0 : 1;
+        int val = 0;
+        for (int i = 0; i < screens.Length; i++)
+        {
+            if (screens[i].ToString() == Screen.fullScreenMode.ToString())
+            {
+                val = i;
+            }
+        }
+
+        dropdown.value = val;
     }
 
     public override void SetQualitySetting(int quality)
     {
         Screen.fullScreenMode = screens[quality];
-        currentScreenMode = screens[quality];
+        graphicSO.screenMode = screens[quality];
     }
 
     public FullScreenMode GetCurrentScreenMode()
