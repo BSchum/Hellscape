@@ -6,17 +6,18 @@ namespace SDG.Unity.Scripts
     /// <summary>
     /// Hold every player data that's important for the current level.
     /// </summary>
-    public class PlayerContext : MonoBehaviour
+    [CreateAssetMenu(fileName = "PlayerContextData", menuName ="Player/PlayerData")]
+    public class PlayerContext : ScriptableObject
     {
-        [HideInInspector] public Position currentPosition;
-        [HideInInspector] public int currentRoomNumber;
-        [HideInInspector] public GameObject player;
-        public static PlayerContext instance { get; private set; }
+        public Position currentPosition;
+        public int currentRoomNumber;
+        public GameObject player;
 
-        private void Awake()
+        public void Reset()
         {
-            instance = this;
+            player = null;
+            currentRoomNumber = 0;
+            currentPosition = null;
         }
-
     }
 }

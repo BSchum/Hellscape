@@ -13,10 +13,11 @@ public class SimpleRoom : DefaultRoom
     [SerializeField] int enemyNumber;
     public bool roomCleared = false;
     public bool doorsClosed = false;
+    public EnemyProvider enemyProvider;
     // Start is called before the first frame update
     void Start()
     {
-        roomsEnemy = EnemyProvider.Instance.GetRandomEnemies(enemyNumber);
+        roomsEnemy = enemyProvider.GetRandomEnemies(enemyNumber);
         doors = GetComponentsInChildren<Door>();
         SpawnEnemies();
     }

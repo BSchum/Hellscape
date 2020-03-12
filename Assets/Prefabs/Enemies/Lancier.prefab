@@ -812,3 +812,4 @@ MonoBehaviour:
   bonusSpeed: 10
   range: 0
   motor: {fileID: 3696296593714651698}
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}

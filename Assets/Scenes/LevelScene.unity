@@ -127,11 +127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1768435608}
     m_Modifications:
-    - target: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
-        type: 3}
-      propertyPath: m_Name
-      value: Dungeon Manager
-      objectReference: {fileID: 0}
     - target: {fileID: 7605781038918695468, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,7 +193,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8053454489552591036, guid: 8ec229ed926d18747a03b6116f7943e7,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 7605781038918695469, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
+        type: 3}
+      propertyPath: playerContext
+      value: 
+      objectReference: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f,
+        type: 2}
+    - target: {fileID: 7605781038918695469, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
+        type: 3}
+      propertyPath: roomNumber
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Dungeon Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7605781038918695465, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
+    - {fileID: 957687225, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
 --- !u!1 &96915176
 GameObject:
@@ -487,7 +500,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013521256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e1506c88b3be8c48872bbb5c6e998cc, type: 3}
   m_Name: 

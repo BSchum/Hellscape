@@ -22,6 +22,8 @@ public class BigOne : Enemy
     [Header("Movement")]
     public float changeDirectionCooldown = 3f;
 
+    public PlayerContext playerContext;
+
     bool _isRotating = false;
     bool _isCharging = false;
 
@@ -39,7 +41,7 @@ public class BigOne : Enemy
 
     private void Start()
     {
-        _target = PlayerContext.instance.player;
+        _target = playerContext.player;
         _animator = GetComponent<Animator>();
         _motor = GetComponent<Motor>();
         directions = Enum.GetValues(typeof(Direction)).OfType<Direction>().ToList();
@@ -48,7 +50,7 @@ public class BigOne : Enemy
     void Update()
     {
         
-        if (_target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
+        if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             var toTarget = (_target.transform.position - transform.position).normalized;
             if (!_isCharging)

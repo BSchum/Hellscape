@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45525daef2c3ee945a786d144f0e8ef7, type: 3}
+  m_Name: HellEnemyProvider
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8116629483113830813, guid: c201b4b5f87b0fe4ba210678b4812a81, type: 3}
+  - {fileID: 3476039298315684302, guid: c4cabfc738e6382478565409cdb5fa89, type: 3}
+  - {fileID: 7665681542475485501, guid: ec023544da18adb47ad9ec1db60fbc59, type: 3}
+  - {fileID: 3095695288779228384, guid: 3e9c526afaa257549bd7aa9505ab8133, type: 3}

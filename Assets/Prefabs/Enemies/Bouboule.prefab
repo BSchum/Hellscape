@@ -195,6 +195,7 @@ MonoBehaviour:
   chargeDuration: 0.1
   damage: 2
   repulseForce: 10
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
 --- !u!1 &4148021787989724693
 GameObject:
   m_ObjectHideFlags: 0

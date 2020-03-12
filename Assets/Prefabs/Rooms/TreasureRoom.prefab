@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   room: {fileID: 6938393484646424450}
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
 --- !u!65 &525015269586711039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 3
   room: {fileID: 6938393484646424450}
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
 --- !u!65 &4685455925375762838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -405,6 +407,7 @@ MonoBehaviour:
   enemyNumber: 0
   roomCleared: 0
   doorsClosed: 0
+  enemyProvider: {fileID: 11400000, guid: f99722176fab02e469d85cc4420d1faf, type: 2}
 --- !u!114 &-4114650167217764332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,6 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   room: {fileID: 6938393484646424450}
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
 --- !u!65 &3756544923510142523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1419,6 +1423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 2
   room: {fileID: 6938393484646424450}
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
 --- !u!65 &6697967253210622215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1925,21 +1930,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 477240797883106295}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
-        type: 3}
-      propertyPath: m_Name
-      value: Treasure_platform
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 7202756947814523932, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2010,11 +2000,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
+        type: 3}
+      propertyPath: m_Name
+      value: Treasure_platform
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 4112080018341574584, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d37f45eee4c73c6449999d68730c44a9, type: 2}
+    - target: {fileID: 7202756947814523932, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9683b8e8dfdaacd4ba9571ef2cc0c895, type: 3}
 --- !u!4 &6764354246485108214 stripped
@@ -2090,16 +2095,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4159195861854102920}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: dfae8e1ebcb81a547bcfbeb5740e3fa4,
-        type: 3}
-      propertyPath: m_Name
-      value: Pont_top
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: dfae8e1ebcb81a547bcfbeb5740e3fa4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dfae8e1ebcb81a547bcfbeb5740e3fa4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2154,6 +2149,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dfae8e1ebcb81a547bcfbeb5740e3fa4,
+        type: 3}
+      propertyPath: m_Name
+      value: Pont_top
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dfae8e1ebcb81a547bcfbeb5740e3fa4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfae8e1ebcb81a547bcfbeb5740e3fa4, type: 3}
@@ -2176,16 +2181,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7444515822199498484}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 85b867bebc8a0164c8df43bf7e3421b2,
-        type: 3}
-      propertyPath: m_Name
-      value: Pont_bot
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 85b867bebc8a0164c8df43bf7e3421b2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 85b867bebc8a0164c8df43bf7e3421b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2241,6 +2236,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85b867bebc8a0164c8df43bf7e3421b2,
+        type: 3}
+      propertyPath: m_Name
+      value: Pont_bot
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 85b867bebc8a0164c8df43bf7e3421b2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b867bebc8a0164c8df43bf7e3421b2, type: 3}
 --- !u!1 &6799678850840655937 stripped
@@ -2262,16 +2267,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1736264802261376118}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 1337249078cf7f545abb673e31bd09ba,
-        type: 3}
-      propertyPath: m_Name
-      value: Pont_right
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 1337249078cf7f545abb673e31bd09ba,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1337249078cf7f545abb673e31bd09ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2327,6 +2322,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1337249078cf7f545abb673e31bd09ba,
+        type: 3}
+      propertyPath: m_Name
+      value: Pont_right
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1337249078cf7f545abb673e31bd09ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1337249078cf7f545abb673e31bd09ba, type: 3}
 --- !u!4 &634328321680825611 stripped
@@ -2348,16 +2353,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4633753238654389735}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 41275b0120b975245b0fdd20325667f5,
-        type: 3}
-      propertyPath: m_Name
-      value: Pont_left
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 41275b0120b975245b0fdd20325667f5,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 41275b0120b975245b0fdd20325667f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2412,6 +2407,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 41275b0120b975245b0fdd20325667f5,
+        type: 3}
+      propertyPath: m_Name
+      value: Pont_left
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 41275b0120b975245b0fdd20325667f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41275b0120b975245b0fdd20325667f5, type: 3}

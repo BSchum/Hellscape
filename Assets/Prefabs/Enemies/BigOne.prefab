@@ -532,6 +532,7 @@ MonoBehaviour:
   circularAttackTime: 3
   circularAttackCooldown: 6
   changeDirectionCooldown: 6
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
 --- !u!95 &4848812770371193504
 Animator:
   serializedVersion: 3

@@ -8,14 +8,14 @@ namespace SDG.Unity.Scripts
     {
         public Direction direction;
         public DefaultRoom room;
-
+        public PlayerContext playerContext;
         private void OnTriggerEnter(Collider collider)
         {
             if(collider.tag == Constants.Tags.PLAYER_TAG)
             {
-                if(PlayerContext.instance.currentRoomNumber != room.roomNumber)
+                if(playerContext.currentRoomNumber != room.roomNumber)
                     DungeonManager.GetInstance().MoveCameraToRoom(room.roomNumber);
-                PlayerContext.instance.currentRoomNumber = room.roomNumber;
+                playerContext.currentRoomNumber = room.roomNumber;
 
             }
         }

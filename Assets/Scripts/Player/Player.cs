@@ -15,20 +15,21 @@ public class Player : MonoBehaviour, IDamagable
     public Sword Sword { get { return sword; } }
 
     public Bag Bag { get; private set; } = new Bag();
-    private Chest _chest;
     public Stats stats;
+    public PlayerContext playerContext;
+
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
-
     bool _isGrounded = true;
     bool _isOnSlope = false;
+    private Chest _chest;
 
     public delegate void OnStatUpdate(Stats stats);
     public event OnStatUpdate OnStatUpdateEvent;
 
     private void Awake()
     {
-        PlayerContext.instance.player = this.gameObject;
+        playerContext.player = this.gameObject;
         animator = this.GetComponentInChildren<Animator>();
         motor = this.GetComponent<Motor>();
         Bag.OnAddItemEvent += Use;

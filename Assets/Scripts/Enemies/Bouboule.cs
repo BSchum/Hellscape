@@ -12,6 +12,7 @@ public class Bouboule : Enemy
     public uint damage = 1;
     public float repulseForce = 10;
 
+    public PlayerContext playerContext;
     bool _isCharging;
     GameObject _target;
     Motor _motor;
@@ -20,14 +21,14 @@ public class Bouboule : Enemy
 
     private void Start()
     {
-        _target = PlayerContext.instance.player;
+        _target = playerContext.player;
         _animator = GetComponent<Animator>();
         _motor = GetComponent<Motor>();
         _rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
-        if (_target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
+        if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             if (!_isCharging)
             {
