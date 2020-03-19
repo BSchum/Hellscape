@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7605781038918695468}
   - component: {fileID: 7605781038918695469}
-  - component: {fileID: 7605781038918695467}
   m_Layer: 0
   m_Name: Dungeon Manager
   m_TagString: Untagged
@@ -59,19 +58,3 @@ MonoBehaviour:
   roomParents: {fileID: 0}
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
   roomNumber: 7
---- !u!114 &7605781038918695467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605781038918695470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa15259c193c3904e93d91905db640de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hellItems:
-  - {fileID: 478272155, guid: d4227718ea1decf42b520c6472ab4b6f, type: 3}
-  - {fileID: 3189505877001947775, guid: a8b26787e0afc6f49bf08456db42f38c, type: 3}
-  - {fileID: 204175255688698354, guid: 2a530bf765b352849b71f8354e62b5b0, type: 3}
