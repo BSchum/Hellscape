@@ -16,9 +16,7 @@ ScriptedImporter:
     generateAllOutputs: 1
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://LAVA\" label=\"\" >\n  <presetinput identifier=\"$randomseed\"
-      uid=\"2292615722\" type=\"4\" value=\"718\" />\n  <presetinput identifier=\"Main_Rock_Size\"
-      uid=\"3034757833\" type=\"1\" value=\"0.7,0.7\" />\n  <presetinput identifier=\"Lava_Flowing\"
-      uid=\"3034838698\" type=\"1\" value=\"0,0\" />\n </sbspreset>\n"
+      uid=\"2292615722\" type=\"4\" value=\"9347\" />\n </sbspreset>\n"
     shaderName: Standard
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
