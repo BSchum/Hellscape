@@ -2,20 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProvider : MonoBehaviour
+[CreateAssetMenu(fileName ="EnemyProvider", menuName = "Providers/EnemyProvider")]
+public class EnemyProvider : ScriptableObject
 {
     public List<Enemy> enemies;
-
-    private static EnemyProvider _instance;
-
-    public static EnemyProvider Instance
-    {
-        get { return _instance; }
-    }
-    public EnemyProvider()
-    {
-        _instance = this;
-    }
     // Start is called before the first frame update
 
     public List<Enemy> GetRandomEnemies(int enemyNumber)

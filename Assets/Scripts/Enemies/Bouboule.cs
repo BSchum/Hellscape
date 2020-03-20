@@ -1,35 +1,34 @@
-﻿using System.Collections;
+﻿using SDG.Unity.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Bouboule : Enemy
 {
-    public float chargeDuration = 2f;
-    public Motor motor;
-    public Rigidbody rb;
-    public Animator animator;
-    public uint damage = 10;
+    [Header("Charge")]
+    public float chargeCastTime;
+    public float chargeDuration;
+    public uint damage = 1;
     public float repulseForce = 10;
 
-    float range;
+    public PlayerContext playerContext;
     bool _isCharging;
-    GameObject target;
+    GameObject _target;
+    Motor _motor;
+    Rigidbody _rb;
+    Animator _animator;
 
     private void Start()
     {
-        range = Constants.Rooms.ROOM_SIZE_Y / 4;
+        _target = playerContext.player;
+        _animator = GetComponent<Animator>();
+        _motor = GetComponent<Motor>();
+        _rb = GetComponent<Rigidbody>();
     }
-
     private void Update()
     {
-        if (target == null)
-        {
-            var targets = Physics.OverlapSphere(this.transform.position, range).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
-            if (targets.Count() > 0)
-                this.target = targets.FirstOrDefault().gameObject;
-        }
-        else if (target != null)
+        if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             if (!_isCharging)
             {
@@ -42,19 +41,16 @@ public class Bouboule : Enemy
     private IEnumerator Charging()
     {
         _isCharging = true;
-
-        animator.SetBool("isCharging", true);
-
-        motor.Look(target.transform.position);
+        _motor.Look(_target.transform.position);
+        _animator.SetBool("isCharging", true);
+        yield return new WaitForSeconds(chargeCastTime);
+        _animator.SetBool("isCharging", false);
+        var dir = _target.transform.position - transform.position;
+        _rb.AddForce(dir.normalized * _motor.speed);
 
         yield return new WaitForSeconds(chargeDuration);
-
-        var dir = target.transform.position - transform.position;
-        rb.AddForce(dir.normalized * motor.speed);
-
+        _rb.AddForce(-(dir.normalized * _motor.speed) / 2);
         _isCharging = false;
-
-        animator.SetBool("isCharging", false);
     }
 
     private void OnCollisionEnter(Collision collision)

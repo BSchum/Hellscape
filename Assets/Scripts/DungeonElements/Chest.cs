@@ -11,11 +11,13 @@ public class Chest : MonoBehaviour
     private GameObject _itemSpawned;
     public bool IsOpened { get; private set; }
     public bool IsLooted { get; private set; }
+
+    public ItemsProvider itemsProvider;
     private bool isOpening;
 
     void Start()
     {
-        _item = ItemsProvider.Instance.GetRandomItem();
+        _item = itemsProvider.GetRandomItem();
     }
 
     public void Open()

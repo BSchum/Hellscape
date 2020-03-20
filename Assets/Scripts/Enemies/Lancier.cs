@@ -11,6 +11,7 @@ public class Lancier : Enemy, IDamagable
     public int bonusSpeed = 2;
     public float range;
     public Motor motor;
+    public PlayerContext playerContext;
 
     GameObject target;
     bool isAiming = false;
@@ -21,13 +22,13 @@ public class Lancier : Enemy, IDamagable
     {
         range = Constants.Rooms.ROOM_SIZE_Y / 2;
         animator = this.GetComponent<Animator>();
-        target = PlayerContext.instance.player;
+        target = playerContext.player;
         motor.speed = bonusSpeed;
     }
 
     void Update()
     {
-        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
+        if (target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             if (!isRunningAway)
             {

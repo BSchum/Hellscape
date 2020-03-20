@@ -17,6 +17,8 @@ public static class Constants
     {
         public const float ROOM_SIZE_X = 50f + 8f;
         public const float ROOM_SIZE_Y = 30f + 8f;
+        public const float ROOM_BACKGROUND_SIZE_X = 60f;
+        public const float ROOM_BACKGROUND_SIZE_Y = 60f;
     }
 
 }

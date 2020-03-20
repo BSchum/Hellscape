@@ -525,9 +525,14 @@ MonoBehaviour:
   damageMultiplier: 2
   roomNumber: 0
   room: {fileID: 0}
+  attackRange: 5
+  chargingTime: 1
+  smashAttackCooldown: 3
   projector: {fileID: 855703468}
-  motor: {fileID: -2265156953290799618}
+  circularAttackTime: 3
+  circularAttackCooldown: 6
   changeDirectionCooldown: 6
+  playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
 --- !u!95 &4848812770371193504
 Animator:
   serializedVersion: 3

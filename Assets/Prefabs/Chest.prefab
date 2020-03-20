@@ -301,6 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4992767733737761962}
   anchor: {fileID: 5020080168232196470}
+  itemsProvider: {fileID: 11400000, guid: b652c090e9b2ec140935a3d845ef729b, type: 2}
 --- !u!1 &5020080168232196470
 GameObject:
   m_ObjectHideFlags: 0

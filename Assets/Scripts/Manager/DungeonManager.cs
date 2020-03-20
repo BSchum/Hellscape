@@ -16,19 +16,20 @@ namespace SDG.Unity.Scripts
         public GameObject bossRoomPrefab;
         public GameObject startRoomPrefab;
         public GameObject playerPrefab;
-
+        public GameObject backGroundPrefab;
         public Transform roomParents;
 
         public PlayerContext playerContext;
         public int roomNumber;
-        List<DefaultRoom> rooms;
+        List<DefaultRoom> _rooms;
+        Coroutine _currentTranslateCameraCoroutine;
 
-        Camera cam;
+        Camera _cam;
         // Start is called before the first frame update
         void Awake()
         {
-            playerContext = GetComponent<PlayerContext>();
-            cam = Camera.main;
+            playerContext.Reset();
+            _cam = Camera.main;
             RandomProvider randomProvider = new RandomProvider();
             var generator = new DungeonGenerator(randomProvider);
             var dungeon = generator.Generate(roomNumber);
@@ -40,11 +41,13 @@ namespace SDG.Unity.Scripts
             };
 
             dungeon = generator.PopulateRooms(dungeon, specialRoomList);
-            GenerateDungeon(dungeon);
+
+            Generate3DDungeon(dungeon);
+            GenerateDungeonBackground(dungeon);
         }
-        void GenerateDungeon(Dungeon dungeon)
+        void Generate3DDungeon(Dungeon dungeon)
         {
-            rooms = new List<DefaultRoom>();
+            _rooms = new List<DefaultRoom>();
             int i = 0;
             foreach (Room room in dungeon.dungeon)
             {
@@ -76,7 +79,7 @@ namespace SDG.Unity.Scripts
                     var defaultRoom = instantiateRoom.GetComponent<DefaultRoom>();
                     defaultRoom.roomNumber = i;
                     
-                    rooms.Add(defaultRoom);
+                    _rooms.Add(defaultRoom);
 
                     instantiateRoom.name = $"Room({room.Pos.X},{room.Pos.Y}) Number {i}";
                     //Destruction des ponts
@@ -91,22 +94,58 @@ namespace SDG.Unity.Scripts
 
                     if(room.RoomType == RoomType.Start)
                     {
-                        PlayerContext.instance.currentRoomNumber = i;
+                        playerContext.currentRoomNumber = i;
                         MoveCameraToRoom(defaultRoom.roomNumber);
                     }
                 }
 
                 i++;
-            } 
+            }
         }
-       
+        void GenerateDungeonBackground(Dungeon dungeon)
+        {
+            int minIndexX = 999;
+            int minIndexY = 999;
+            int maxIndexX = 0;
+            int maxIndexY = 0;
+            foreach(Room room in dungeon.dungeon)
+            {
+                if (room.RoomType != RoomType.None)
+                {
+                    minIndexX = Mathf.Min(minIndexX, room.Pos.X);
+                    maxIndexX = Mathf.Max(maxIndexX, room.Pos.X);
+
+                    minIndexY = Mathf.Min(minIndexY, room.Pos.Y);
+                    maxIndexY = Mathf.Max(maxIndexY, room.Pos.Y);
+                }
+            }
+
+            //Mon nombre de salle présente
+            int XRoomNumber = maxIndexX + 1 - minIndexX;
+            int YRoomNumber = maxIndexY + 1 - minIndexY;
+            //Nombre de background : Nombre de room * taille des room / taille du background -> Nombre de background;
+            int XPlaneNumber = Mathf.CeilToInt(XRoomNumber * Constants.Rooms.ROOM_SIZE_X / Constants.Rooms.ROOM_BACKGROUND_SIZE_X); ;
+            int YPlaneNumber = Mathf.CeilToInt(YRoomNumber * Constants.Rooms.ROOM_SIZE_Y / Constants.Rooms.ROOM_BACKGROUND_SIZE_Y);
+
+            float XPlaneNumberOffset = minIndexX * Constants.Rooms.ROOM_SIZE_X / Constants.Rooms.ROOM_BACKGROUND_SIZE_X;
+            float YPlaneNumberOffset = minIndexY * Constants.Rooms.ROOM_SIZE_Y / Constants.Rooms.ROOM_BACKGROUND_SIZE_Y;
+
+            for (float x = XPlaneNumberOffset - 1; x < XPlaneNumber + XPlaneNumberOffset + 1; x++)
+            {
+                for (float y = YPlaneNumberOffset - 1; y < YPlaneNumber + YPlaneNumberOffset + 1; y++)
+                {
+                    Instantiate(backGroundPrefab, new Vector3(x * Constants.Rooms.ROOM_BACKGROUND_SIZE_X, backGroundPrefab.transform.position.y, y * Constants.Rooms.ROOM_BACKGROUND_SIZE_Y), Quaternion.identity, roomParents);
+                }
+            }
+        }
         
         public void MoveCameraToRoom(int roomNumber)
         {
             Debug.Log($"On va vers la room numero ->{roomNumber}");
-            var camHolder = rooms.Where(r => r.roomNumber == roomNumber).First().cameraHolder;
-            StartCoroutine(TranslateCameraTo(camHolder.position));
-            
+            var camHolder = _rooms.Where(r => r.roomNumber == roomNumber).First().cameraHolder;
+            if(_currentTranslateCameraCoroutine != null)
+                StopCoroutine(_currentTranslateCameraCoroutine);
+            _currentTranslateCameraCoroutine = StartCoroutine(TranslateCameraTo(camHolder.position));
         }
 
         public IEnumerator TranslateCameraTo(Vector3 position)
@@ -114,7 +153,7 @@ namespace SDG.Unity.Scripts
             float elapsedTime = 0;
             while (elapsedTime < 2)
             {
-                cam.transform.position = Vector3.Lerp(cam.transform.position, position, elapsedTime / 2);
+                _cam.transform.position = Vector3.Lerp(_cam.transform.position, position, elapsedTime / 2);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }

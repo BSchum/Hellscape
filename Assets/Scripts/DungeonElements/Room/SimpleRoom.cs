@@ -13,10 +13,11 @@ public class SimpleRoom : DefaultRoom
     [SerializeField] int enemyNumber;
     public bool roomCleared = false;
     public bool doorsClosed = false;
+    public EnemyProvider enemyProvider;
     // Start is called before the first frame update
     void Start()
     {
-        roomsEnemy = EnemyProvider.Instance.GetRandomEnemies(enemyNumber);
+        roomsEnemy = enemyProvider.GetRandomEnemies(enemyNumber);
         doors = GetComponentsInChildren<Door>();
         SpawnEnemies();
     }
@@ -55,8 +56,12 @@ public class SimpleRoom : DefaultRoom
     {
         foreach (var door in doors)
         {
-            door.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-            door.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            if(door != null)
+            {
+                door.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                door.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            }
+
         }
         doorsClosed = false;
     }

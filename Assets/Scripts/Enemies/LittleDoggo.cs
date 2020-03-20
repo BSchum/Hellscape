@@ -8,15 +8,15 @@ using UnityEngine;
 public class LittleDoggo : Enemy
 {
     GameObject target;
-
+    public PlayerContext playerContext;
     private void Start()
     {
-        target = PlayerContext.instance.player;
+        target = playerContext.player;
     }
     // Update is called once per frame
     void Update()
     {
-        if (target != null && PlayerContext.instance.currentRoomNumber == roomNumber && room.doorsClosed)
+        if (target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             transform.LookAt(target.transform);
 

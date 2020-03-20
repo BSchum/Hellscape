@@ -19,6 +19,7 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
     public GameObject MaxHealthPrefab;
     public GameObject PowerPrefab;
     public bool IsUILoaded;
+    public PlayerContext playerContext;
 
     public void Awake()
     {
@@ -27,16 +28,16 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
 
     public void Start()
     {
-        player = PlayerContext.instance.player.GetComponent<Player>();
+        player = playerContext.player.GetComponent<Player>();
         player.Bag.OnAddItemEvent += Display;
         player.OnStatUpdateEvent += UpdateUI;
         player.Sword.OnSoulUpdateEvent += DisplaySouls;
     }
     private void Update()
     {
-        if (player == null && PlayerContext.instance.player != null && PlayerContext.instance.player.GetComponent<Player>() != null)
+        if (player == null && playerContext.player != null && playerContext.player.GetComponent<Player>() != null)
         {
-            player = PlayerContext.instance.player.GetComponent<Player>();
+            player = playerContext.player.GetComponent<Player>();
         }
     }
     public void UpdateUI(Stats stats)
