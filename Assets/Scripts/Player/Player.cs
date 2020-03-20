@@ -24,6 +24,8 @@ public class Player : MonoBehaviour, IDamagable
     bool _isOnSlope = false;
     private Chest _chest;
 
+    private KeyBindData binds;
+
     public delegate void OnStatUpdate(Stats stats);
     public event OnStatUpdate OnStatUpdateEvent;
 

@@ -40,6 +40,8 @@ public class SoundSettingController : MonoBehaviour
                 default:
                     break;
             }
+
+            soundButton.SetVolume();
         }
     }
 
