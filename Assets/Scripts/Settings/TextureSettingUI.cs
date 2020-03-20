@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TextureSettingUI : VisualSettingUI
 {
-    public override void Refresh()
+    public override void Refresh(GraphicSetting graphics)
     {
-        dropdown.value = QualitySettings.GetQualityLevel();
+        dropdown.value = graphics.texture;
     }
 
     public override void SetQualitySetting(int quality)
     {
         QualitySettings.pixelLightCount = quality;
+        VisualSettingController.GraphicsSetting.texture = quality;
     }
 }

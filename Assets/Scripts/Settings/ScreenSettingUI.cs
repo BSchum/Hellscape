@@ -6,8 +6,6 @@ public class ScreenSettingUI : VisualSettingUI
 {
     private FullScreenMode[] screens = new FullScreenMode[2] { FullScreenMode.FullScreenWindow, FullScreenMode.Windowed };
 
-    public GraphicSO graphicSO;
-
     protected override void Awake()
     {
         base.Awake();
@@ -19,24 +17,24 @@ public class ScreenSettingUI : VisualSettingUI
         }
     }
 
-    public override void Refresh()
+    public override void Refresh(GraphicSetting graphics)
     {
         int val = 0;
         for (int i = 0; i < screens.Length; i++)
         {
-            if (screens[i].ToString() == Screen.fullScreenMode.ToString())
+            if (i == graphics.screenMode)
             {
                 val = i;
             }
         }
-
+        Debug.Log(val);
         dropdown.value = val;
     }
 
     public override void SetQualitySetting(int quality)
     {
         Screen.fullScreenMode = screens[quality];
-        graphicSO.screenMode = screens[quality];
+        VisualSettingController.GraphicsSetting.screenMode = quality;
     }
 
     public FullScreenMode GetCurrentScreenMode()

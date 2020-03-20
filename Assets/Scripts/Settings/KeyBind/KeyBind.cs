@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyBind : MonoBehaviour
 {
-    public KeyBindSO.Key key;
+    public KeyBindData.Key key;
 
     public void OnClick()
     {

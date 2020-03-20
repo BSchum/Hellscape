@@ -6,9 +6,9 @@ public class ShadowSettingUI : VisualSettingUI
 {
     public ShadowSetting[] settings;
 
-    public override void Refresh()
+    public override void Refresh(GraphicSetting graphics)
     {
-        dropdown.value = QualitySettings.GetQualityLevel();
+        dropdown.value = graphics.shadow;
     }
 
     public override void SetQualitySetting(int quality)
@@ -17,6 +17,8 @@ public class ShadowSettingUI : VisualSettingUI
         QualitySettings.shadowResolution = settings[quality].shadowResolution;
         QualitySettings.shadowCascades = settings[quality].shadowCascades;
         QualitySettings.shadowDistance = settings[quality].shadowDistance;
+
+        VisualSettingController.GraphicsSetting.shadow = quality;
     }
 
     [System.Serializable]

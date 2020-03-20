@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class ResolutionSettingUI : VisualSettingUI
 {
-    public GraphicSO graphicSO;
-
-    public override void Refresh() 
+    public override void Refresh(GraphicSetting graphics)
     {
         int val = 0;
         for (int i = 0; i < dropdown.options.Count; i++)
         {
-            if (dropdown.options[i].text == graphicSO.resolution)
+            if (i == graphics.resolution)
             {
                 val = i;
             }
@@ -24,11 +22,11 @@ public class ResolutionSettingUI : VisualSettingUI
     {
         string resolution = dropdown.options[dropdown.value].text;
 
-        graphicSO.resolution = resolution;
-        
         string h = resolution.Split(':')[0];
         string w = resolution.Split(':')[1];
 
-        Screen.SetResolution(int.Parse(h), int.Parse(w), graphicSO.screenMode);
+        VisualSettingController.GraphicsSetting.resolution = quality;
+
+        Screen.SetResolution(int.Parse(h), int.Parse(w), VisualSettingController.GraphicsSetting.isFullScreen);
     }
 }

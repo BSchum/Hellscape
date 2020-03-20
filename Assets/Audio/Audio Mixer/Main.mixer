@@ -69,9 +69,11 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: a87565029e488e34db24cd8150181ece
-    name: AmbientVolume
+    name: Ambient
   - guid: 0a3785a93e24e974c9ed2701c9b26877
-    name: FxVolume
+    name: Fx
+  - guid: ebd2bed8fdff4da419d5ce6296caf0fa
+    name: Master
   m_AudioMixerGroupViews:
   - guids:
     - aa67373506ea8b54f9533052455d6c46
@@ -98,7 +100,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 24400004}
   m_UserColorIndex: 0
-  m_Mute: 0
+  m_Mute: 1
   m_Solo: 0
   m_BypassEffects: 0
 --- !u!244 &24400004

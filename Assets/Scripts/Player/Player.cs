@@ -20,7 +20,7 @@ public class Player : MonoBehaviour, IDamagable
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
 
-    public KeyBindSO binds;
+    public KeyBindData binds;
 
     bool _isGrounded = true;
     bool _isOnSlope = false;
@@ -35,6 +35,11 @@ public class Player : MonoBehaviour, IDamagable
         motor = this.GetComponent<Motor>();
         Bag.OnAddItemEvent += Use;
         LoadAllStats();
+        binds = SaveSystem.LoadData<KeyBindData>(SaveSystem.Data.Inputs);
+        if (binds == null)
+        {
+            binds = new KeyBindData();
+        }
     }
 
     void Use(Item item)

@@ -6,6 +6,10 @@ using UnityEngine.Audio;
 
 public class SoundButtonUI : MonoBehaviour
 {
+    public SoundSettingController soundSettingController;
+
+    public SoundSettingController.SoundGroup group;
+
     public AudioMixerGroup mixerGroup;
     public AudioMixer audioMixer;
     public Slider slider;
@@ -13,5 +17,7 @@ public class SoundButtonUI : MonoBehaviour
     public void SetVolume()
     {
         audioMixer.SetFloat(mixerGroup.name, slider.value);
+
+        soundSettingController.SetVolume(slider.value, group);
     }
 }

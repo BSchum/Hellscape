@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public abstract class VisualSettingUI : MonoBehaviour
 {
+    public VisualSettingController VisualSettingController;
     protected Dropdown dropdown;
 
     protected virtual void Awake()
@@ -14,5 +15,5 @@ public abstract class VisualSettingUI : MonoBehaviour
 
     public abstract void SetQualitySetting(int quality);
 
-    public abstract void Refresh();
+    public abstract void Refresh(GraphicSetting graphics);
 }

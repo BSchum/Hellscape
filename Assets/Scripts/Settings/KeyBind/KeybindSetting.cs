@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KeybindSetting : MonoBehaviour
 {
-    public KeyBindSO binds;
+    public KeyBindData binds;
     public Text attack;
     public Text interact;
     public Text left;
@@ -21,6 +21,13 @@ public class KeybindSetting : MonoBehaviour
     void Start()
     {
         singleton = this;
+        binds = SaveSystem.LoadData<KeyBindData>(SaveSystem.Data.Inputs);
+        if (binds == null)
+        {
+            binds = new KeyBindData();
+            SaveSystem.SaveData(binds, SaveSystem.Data.Inputs);
+        }
+
         UpdateBindsUI();
     }
 
@@ -44,6 +51,7 @@ public class KeybindSetting : MonoBehaviour
             {
                 isReadingKeys = false;
                 binds.SetKey(keyEditing.key, key);
+                SaveSystem.SaveData(binds, SaveSystem.Data.Inputs);
                 UpdateBindsUI();
             }
         }

@@ -14,16 +14,18 @@ public class AntialiasingSettingUI : VisualSettingUI
         {
             dropdown.options.Add(new UnityEngine.UI.Dropdown.OptionData(antialiasing + " Multi Sampling"));
         }
+
         dropdown.options[0].text = "Disabled";
     }
 
-    public override void Refresh()
+    public override void Refresh(GraphicSetting graphics)
     {
-        dropdown.value = QualitySettings.antiAliasing / 2;
+        dropdown.value = graphics.antiAliasing;
     }
 
     public override void SetQualitySetting(int quality)
     {
         QualitySettings.antiAliasing = antialiasingSettings[quality];
+        VisualSettingController.GraphicsSetting.antiAliasing = quality;
     }
 }

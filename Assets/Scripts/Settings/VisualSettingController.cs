@@ -5,41 +5,29 @@ using UnityEngine.UI;
 
 public class VisualSettingController : MonoBehaviour
 {
-    public Dropdown graphics;
     public VisualSettingUI[] visualSettings;
 
-    public GraphicSO graphicSO;
-
-    private List<Dropdown.OptionData> unityGraphicOptions = new List<Dropdown.OptionData>();
+    private GraphicSetting graphicSetting;
+    public GraphicSetting GraphicsSetting { get { return graphicSetting; } }
 
     private void Awake()
     {
-        foreach (string name in QualitySettings.names)
+        graphicSetting = SaveSystem.LoadData<GraphicSetting>(SaveSystem.Data.GraphicSetting);
+        if (graphicSetting == null)
         {
-            unityGraphicOptions.Add(new Dropdown.OptionData(name));
+            graphicSetting = new GraphicSetting();
         }
-
-        graphics.options = unityGraphicOptions;
-    }
-
-    private void OnEnable()
-    {
-        graphics.value = graphicSO.graphicLevel;
-    }
-
-    public void OnChangeGraphicOption()
-    {
-        QualitySettings.SetQualityLevel(graphics.value, true);
-        graphicSO.graphicLevel = QualitySettings.GetQualityLevel();
 
         UpdateSettingsUI();
     }
 
-    private void UpdateSettingsUI()
+   public void UpdateSettingsUI()
     {
         foreach (VisualSettingUI setting in visualSettings)
         {
-            setting.Refresh();
+            setting.Refresh(graphicSetting);
         }
+
+        SaveSystem.SaveData(graphicSetting, SaveSystem.Data.GraphicSetting);
     }
 }
