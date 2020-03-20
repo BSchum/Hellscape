@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour, IDamagable
     public float damageMultiplier = 1f;
     public int roomNumber;
     public SimpleRoom room;
+    public int moneyReward;
+    public PlayerData playerData;
     public virtual void TakeDamage(uint amount)
     {
         health -= amount * damageMultiplier;
@@ -15,6 +17,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
         if (health <= 0)
         {
+            playerData.Money += moneyReward;
             Destroy(this.gameObject);
         }
     }

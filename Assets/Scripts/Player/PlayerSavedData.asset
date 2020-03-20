@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b45bcdfb2cdfcfe4683045f355396b98, type: 3}
-  m_Name: PlayerContextData
+  m_Script: {fileID: 11500000, guid: 126ce226e6710d940ae7544d8789ee94, type: 3}
+  m_Name: PlayerSavedData
   m_EditorClassIdentifier: 
-  currentRoomNumber: 0
-  player: {fileID: 0}
   activeTalents:
   - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
   - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
-  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
-  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
-  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
-  Money: 200
+  - {fileID: 11400000, guid: 4c7560befe2ef27469b600c08bb834db, type: 2}
+  Money: 10
