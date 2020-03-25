@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.Text;
+using System;
 
 public static class SaveSystem
 {
@@ -15,11 +16,6 @@ public static class SaveSystem
         var jsonObject = JsonUtility.ToJson(o);
 
         string path = GetPath(data);
-
-        if (!File.Exists(path))
-        {
-            File.CreateText(path);
-        }
 
         File.WriteAllText(path, jsonObject);
     }
@@ -34,6 +30,13 @@ public static class SaveSystem
             var json = File.ReadAllText(path);
 
             obj = JsonUtility.FromJson<T>(json);
+        }
+        else
+        {
+            obj = (T)Activator.CreateInstance(typeof(T));
+            ISerializable t = (ISerializable)obj;
+
+            SaveData(t, data);
         }
 
         return obj;

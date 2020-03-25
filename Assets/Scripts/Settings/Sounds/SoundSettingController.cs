@@ -47,7 +47,7 @@ public class SoundSettingController : MonoBehaviour
 
     public void SetVolume(float volume, SoundGroup group)
     {
-        switch(group)
+        switch (group)
         {
             case SoundGroup.Master:
                 soundData.master = volume;
