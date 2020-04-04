@@ -145,7 +145,7 @@ MonoBehaviour:
   stats:
     Power: 10
     Speed: 5
-    Health: 50
+    Health: 2
     MaxHealth: 50
   motor: {fileID: 8415640790251491848}
   target: {fileID: 0}

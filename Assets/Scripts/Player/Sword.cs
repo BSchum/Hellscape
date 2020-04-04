@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public uint power;
+    public Stats stats;
     public Animator playerAnimator;
 
     public delegate void OnSoulUpdate(Soul soul);
@@ -15,12 +15,10 @@ public class Sword : MonoBehaviour
     public void IntegrateSoul(Soul soul)
     {
         souls.Add(soul);
-        if (soul.animatorAttackToggle != "")
-        {
-            playerAnimator.SetBool(soul.animatorAttackToggle, true);
-        }
-        if (OnSoulUpdateEvent != null)
-            OnSoulUpdateEvent(soul);
+        
+        playerAnimator.SetTrigger("IntegrateSoul");
+        Destroy(soul.gameObject);
+        OnSoulUpdateEvent?.Invoke(soul);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,12 +28,13 @@ public class Sword : MonoBehaviour
             IDamagable damagable = other.GetComponent<IDamagable>();
             if (damagable != null)
             {
-                damagable.TakeDamage(power);
                 foreach (Soul soul in souls)
                 {
                     if (soul is IEffectOnHit)
                         ((IEffectOnHit)soul).EffectOnHit(other);
                 }
+                damagable.TakeDamage(stats.Power);
+
             }
         }
     }

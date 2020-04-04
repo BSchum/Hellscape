@@ -54,6 +54,10 @@ MonoBehaviour:
     Health: 6
     MaxHealth: 6
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
+  _dashCastTime: 0.1
+  _dashDuration: 0.2
+  _dashCooldown: 0.5
+  _dashForce: 15
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 1231829336526215225}
 --- !u!1 &7654841200500890947
 GameObject:
   m_ObjectHideFlags: 0

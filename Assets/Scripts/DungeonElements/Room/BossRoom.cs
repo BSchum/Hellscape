@@ -10,6 +10,10 @@ public class BossRoom : DefaultRoom
     public GameObject playerPrefab;
     public Boss chosenBoss;
     public PlayerContext playerContext;
+    public GameObject exit;
+    GameObject _instantiatedBoss;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +21,7 @@ public class BossRoom : DefaultRoom
         PlayerUIManager.GetInstance().Awake();
         
         chosenBoss = BossesProvider.Instance.GetRandomBosses();
-        Instantiate(chosenBoss, bossAnchor.transform.position, Quaternion.identity);
-
+        _instantiatedBoss = Instantiate(chosenBoss, bossAnchor.transform.position, Quaternion.identity).gameObject;
         playerContext.player.transform.position = playerAnchor.transform.position;
         Camera.main.transform.position = cameraHolder.position;
     }
@@ -26,6 +29,10 @@ public class BossRoom : DefaultRoom
     // Update is called once per frame
     void Update()
     {
-        
+        if(_instantiatedBoss == null)
+        {
+            exit.SetActive(true);
+        }
+
     }
 }

@@ -28,7 +28,6 @@ namespace SDG.Unity.Scripts
         // Start is called before the first frame update
         void Awake()
         {
-            playerContext.Reset();
             _cam = Camera.main;
             RandomProvider randomProvider = new RandomProvider();
             var generator = new DungeonGenerator(randomProvider);
@@ -66,7 +65,12 @@ namespace SDG.Unity.Scripts
                     case RoomType.Start:
                         instantiateRoom = Instantiate(startRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity, roomParents);
                         var playerHolder = instantiateRoom.GetComponent<StartRoom>().playerHolder;
-                        playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
+                        if (playerContext.player == null)
+                            playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
+                        else
+                            playerContext.player.transform.position = playerHolder.transform.position;
+                        Debug.Log("The player is " + playerContext.player);
+
                         playerContext.currentPosition = room.Pos;
                         DontDestroyOnLoad(playerContext.player);
                         break;
