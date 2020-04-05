@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, IDamagable
     public Bag Bag { get; private set; } = new Bag();
     public Stats stats;
     public PlayerContext playerContext;
+    public PlayerData playerData;
 
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
@@ -35,6 +36,10 @@ public class Player : MonoBehaviour, IDamagable
         animator = this.GetComponentInChildren<Animator>();
         motor = this.GetComponent<Motor>();
         Bag.OnAddItemEvent += Use;
+        foreach (var talent in playerData.activeTalents)
+        {
+            stats += talent.stats;
+        }
         LoadAllStats();
         binds = SaveSystem.LoadData<KeyBindData>(SaveSystem.Data.Inputs);
         if (binds == null)
@@ -46,7 +51,6 @@ public class Player : MonoBehaviour, IDamagable
     void Use(Item item)
     {
         stats += item.bonusStats;
-        LoadAllStats();
         UpdateStatsUI();
     }
     void LoadAllStats()

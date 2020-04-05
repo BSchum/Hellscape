@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRoomNumber: 0
   player: {fileID: 0}
+  activeTalents:
+  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
+  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
+  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
+  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
+  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
+  Money: 200

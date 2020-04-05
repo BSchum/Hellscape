@@ -127,6 +127,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1768435608}
     m_Modifications:
+    - target: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Dungeon Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 7605781038918695468, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -203,11 +208,6 @@ PrefabInstance:
         type: 3}
       propertyPath: roomNumber
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
-        type: 3}
-      propertyPath: m_Name
-      value: Dungeon Manager
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7605781038918695465, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}

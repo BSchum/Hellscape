@@ -54,6 +54,7 @@ MonoBehaviour:
     Health: 6
     MaxHealth: 6
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
+  playerData: {fileID: 11400000, guid: 0ddd43607f3c9744db393595f2f5a17f, type: 2}
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0
