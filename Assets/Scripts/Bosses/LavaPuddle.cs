@@ -7,6 +7,12 @@ public class LavaPuddle : MonoBehaviour
     public uint damage;
     public float tickGap;
     float lastTick;
+    public float lastTime = 7f;
+
+    private void Start()
+    {
+        Destroy(gameObject, lastTime);
+    }
 
     private void OnTriggerStay(Collider other)
     {

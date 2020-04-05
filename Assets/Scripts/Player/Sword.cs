@@ -21,6 +21,8 @@ public class Sword : MonoBehaviour
         }
         if (OnSoulUpdateEvent != null)
             OnSoulUpdateEvent(soul);
+
+        playerAnimator.Play("GrabSoul");
     }
 
     private void OnTriggerEnter(Collider other)
