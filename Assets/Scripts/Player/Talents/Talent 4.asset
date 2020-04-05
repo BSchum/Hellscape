@@ -17,7 +17,7 @@ MonoBehaviour:
   hasBought: 0
   TalentName: Power++
   stats:
-    Power: 20
+    Power: 2
     Speed: 0
     Health: 0
     MaxHealth: 0

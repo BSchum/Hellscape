@@ -22,8 +22,6 @@ public class BigOne : Enemy
     [Header("Movement")]
     public float changeDirectionCooldown = 3f;
 
-    public PlayerContext playerContext;
-
     bool _isRotating = false;
     bool _isCharging = false;
 

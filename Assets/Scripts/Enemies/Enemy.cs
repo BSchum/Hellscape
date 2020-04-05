@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SDG.Unity.Scripts;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
@@ -9,7 +10,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public int roomNumber;
     public SimpleRoom room;
     public int moneyReward;
-    public PlayerData playerData;
+    public PlayerContext playerContext;
     public virtual void TakeDamage(uint amount)
     {
         health -= amount * damageMultiplier;
@@ -17,7 +18,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
         if (health <= 0)
         {
-            playerData.Money += moneyReward;
+            playerContext.playerData.AddMoney(moneyReward);
             Destroy(this.gameObject);
         }
     }

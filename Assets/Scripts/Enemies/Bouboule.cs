@@ -12,7 +12,6 @@ public class Bouboule : Enemy
     public uint damage = 1;
     public float repulseForce = 10;
 
-    public PlayerContext playerContext;
     bool _isCharging;
     GameObject _target;
     Motor _motor;

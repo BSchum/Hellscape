@@ -15,11 +15,11 @@ MonoBehaviour:
   state: 0
   defaultRefundState: 0
   hasBought: 0
-  TalentName: Health+
+  TalentName: Power+
   stats:
-    Power: 0
+    Power: 1
     Speed: 0
     Health: 0
-    MaxHealth: 10
+    MaxHealth: 0
   Cost: 30
   sprite: {fileID: 21300000, guid: cc4f78aa6ac5a024d971b12bdd5fe208, type: 3}

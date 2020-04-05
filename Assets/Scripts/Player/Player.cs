@@ -17,7 +17,6 @@ public class Player : MonoBehaviour, IDamagable
     public Bag Bag { get; private set; } = new Bag();
     public Stats stats;
     public PlayerContext playerContext;
-    public PlayerData playerData;
 
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
@@ -36,7 +35,7 @@ public class Player : MonoBehaviour, IDamagable
         animator = this.GetComponentInChildren<Animator>();
         motor = this.GetComponent<Motor>();
         Bag.OnAddItemEvent += Use;
-        foreach (var talent in playerData.activeTalents)
+        foreach (var talent in playerContext.playerData.activeTalents)
         {
             stats += talent.stats;
         }
@@ -84,7 +83,6 @@ public class Player : MonoBehaviour, IDamagable
         if (Input.GetKeyDown(binds.attack) && lastAttack + attackSpeed <= Time.time)
         {
             lastAttack = Time.time;
-            Debug.Log("Lance lattack");
             animator.SetTrigger("sword hit");
         }
 
@@ -129,9 +127,9 @@ public class Player : MonoBehaviour, IDamagable
         stats.TakeDamage(amount);
         if(stats.Health <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             Debug.Log("On est mort!");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
+            SceneManager.LoadScene("Talent");
         }
         OnStatUpdateEvent(stats);
     }

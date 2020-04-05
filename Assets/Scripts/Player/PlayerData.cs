@@ -1,11 +1,18 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
-[CreateAssetMenu(fileName = "PlayerSavedData", menuName = "Player/PlayerSavedData")]
-public class PlayerData : ScriptableObject
+[Serializable]
+public class PlayerData : ISerializable
 {
-    public List<Talent> activeTalents;
+    [NonSerialized]  public List<Talent> activeTalents = new List<Talent>(); // this do not persist
     public int Money;
+
+    public void AddMoney(int amout)
+    {
+        Money += amout;
+        SaveSystem.SaveData(this, SaveSystem.Data.PlayerData);
+    }
 
     public void UpdateTalent(Talent talent, bool addTalent)
     {
@@ -17,6 +24,22 @@ public class PlayerData : ScriptableObject
         {
             activeTalents.Remove(talent);
         }
+    }
+
+    // You need an empty constructor to deserialize
+    public PlayerData() { }
+
+    public PlayerData(SerializationInfo info, StreamingContext context)
+    {
+        if (info == null)
+            throw new ArgumentNullException("info");
+
+        Money = (int)info.GetValue("Money", typeof(int));
+    }
+
+    public void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        info.AddValue("Money", (int)Money);
     }
 }
 

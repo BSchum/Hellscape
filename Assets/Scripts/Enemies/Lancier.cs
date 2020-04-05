@@ -11,7 +11,6 @@ public class Lancier : Enemy, IDamagable
     public int bonusSpeed = 2;
     public float range;
     public Motor motor;
-    public PlayerContext playerContext;
 
     GameObject target;
     bool isAiming = false;

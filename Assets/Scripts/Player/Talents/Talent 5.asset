@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18aa8c10a6c3b024fa98da0d240e7a0a, type: 3}
   m_Name: Talent 5
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   defaultRefundState: 0
   hasBought: 0
   TalentName: Speed++
   stats:
     Power: 0
-    Speed: 20
+    Speed: 3
     Health: 0
     MaxHealth: 0
   Cost: 50

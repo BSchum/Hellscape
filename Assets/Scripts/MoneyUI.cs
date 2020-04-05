@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MoneyUI : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
+    public TalentTreeController talentTreeController;
     Text text;
 
     private void Start()
@@ -16,6 +16,6 @@ public class MoneyUI : MonoBehaviour
 
     public void Update()
     {
-        text.text = "Money : " + playerData.Money.ToString();
+        text.text = "Money : " + talentTreeController.playerContext.playerData.Money.ToString();
     }
 }

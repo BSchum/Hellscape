@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-using System.Text;
 using System;
 
 public static class SaveSystem
 {
-    public enum Data { GraphicSetting, Inputs, Sounds }
+    public enum Data { GraphicSetting, Inputs, Sounds, PlayerData, Talents }
 
     public static void SaveData(ISerializable o, Data data)
     {
@@ -44,26 +40,8 @@ public static class SaveSystem
 
     private static string GetPath(Data data)
     {
-        string path = Application.persistentDataPath + "/";
-
-        switch (data)
-        {
-            case Data.GraphicSetting:
-                path += "settings.data";
-                break;
-
-            case Data.Inputs:
-                path += "inputs.data";
-                break;
-
-            case Data.Sounds:
-                path += "sounds.data";
-                break;
-
-            default:
-                break;
-        }
-
+        string path = Application.persistentDataPath + "/" + data.ToString() + ".data";
+        
         return path;
     }
 }

@@ -13,6 +13,7 @@ namespace SDG.Unity.Scripts
         public Position currentPosition;
         public int currentRoomNumber;
         public GameObject player;
+        public PlayerData playerData;
 
         public void Reset()
         {

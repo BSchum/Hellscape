@@ -804,7 +804,7 @@ MonoBehaviour:
   damageMultiplier: 1
   roomNumber: 0
   room: {fileID: 0}
-  moneyReward: 0
+  moneyReward: 4
   playerData: {fileID: 11400000, guid: 0ddd43607f3c9744db393595f2f5a17f, type: 2}
   projectile: {fileID: 6766409457736630639, guid: 094b70fe7167e7a419fe67aaf8bc14af,
     type: 3}

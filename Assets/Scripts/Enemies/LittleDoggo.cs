@@ -8,7 +8,6 @@ using UnityEngine;
 public class LittleDoggo : Enemy
 {
     GameObject target;
-    public PlayerContext playerContext;
     private void Start()
     {
         target = playerContext.player;
