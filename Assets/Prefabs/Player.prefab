@@ -58,6 +58,7 @@ MonoBehaviour:
   _dashDuration: 0.2
   _dashCooldown: 0.5
   _dashForce: 15
+  playerData: {fileID: 11400000, guid: 0ddd43607f3c9744db393595f2f5a17f, type: 2}
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0

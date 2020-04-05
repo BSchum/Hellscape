@@ -8,6 +8,11 @@ public abstract class Soul : MonoBehaviour
     public Sprite sprite;
     public Stats bonusStats;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == Constants.Tags.PLAYER_TAG)

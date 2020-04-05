@@ -24,6 +24,8 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField] private float _dashForce;
     float _lastDash;
     bool _isDashing;
+    public PlayerData playerData;
+
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
     bool _isGrounded = true;
@@ -41,6 +43,10 @@ public class Player : MonoBehaviour, IDamagable
         motor = this.GetComponent<Motor>();
         Bag.OnAddItemEvent += Use;
         Sword.OnSoulUpdateEvent += AddSoulStats;
+        foreach (var talent in playerData.activeTalents)
+        {
+            stats += talent.stats;
+        }
         LoadAllStats();
         binds = SaveSystem.LoadData<KeyBindData>(SaveSystem.Data.Inputs);
         if (binds == null)
@@ -59,7 +65,6 @@ public class Player : MonoBehaviour, IDamagable
     void Use(Item item)
     {
         stats += item.bonusStats;
-        LoadAllStats();
         UpdateStatsUI();
     }
     void LoadAllStats()
