@@ -10,6 +10,11 @@ public abstract class Soul : MonoBehaviour
     public float attackSpeedBonus;
     public string animatorAttackToggle;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == Constants.Tags.PLAYER_TAG)
