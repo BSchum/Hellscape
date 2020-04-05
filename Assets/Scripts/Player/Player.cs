@@ -39,12 +39,12 @@ public class Player : MonoBehaviour, IDamagable
             stats += talent.stats;
         }
         LoadAllStats();
+        playerData.Money += 10;
     }
 
     void Use(Item item)
     {
         stats += item.bonusStats;
-        //LoadAllStats();
         UpdateStatsUI();
     }
     void LoadAllStats()

@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126ce226e6710d940ae7544d8789ee94, type: 3}
   m_Name: PlayerSavedData
   m_EditorClassIdentifier: 
-  activeTalents:
-  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
-  - {fileID: 11400000, guid: 7edde7a6037a0c845b1ee2d9c3a8d21b, type: 2}
-  - {fileID: 11400000, guid: 4c7560befe2ef27469b600c08bb834db, type: 2}
-  Money: 10
+  activeTalents: []
+  Money: 495

@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18aa8c10a6c3b024fa98da0d240e7a0a, type: 3}
-  m_Name: AttackTalent
+  m_Name: Talent 4
   m_EditorClassIdentifier: 
-  TalentName: More Attack
+  state: 0
+  defaultRefundState: 0
+  hasBought: 0
+  TalentName: Power++
   stats:
-    Power: 2
+    Power: 20
     Speed: 0
     Health: 0
     MaxHealth: 0
-  Cost: 20
+  Cost: 30
+  sprite: {fileID: 21300000, guid: e3613da8dad85d84cb3a94558401c529, type: 3}

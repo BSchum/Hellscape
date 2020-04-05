@@ -6,77 +6,44 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Toggle))]
 public class TalentUI : MonoBehaviour
 {
-    [SerializeField] Talent talent;
-    [SerializeField] Sprite talentImage;
-    [SerializeField] List<Link> sourceLinks;
-    [SerializeField] List<Link> destLinks;
-    [SerializeField] PlayerData playerData;
+    public Talent talent;
+    public Text talentNameUI, talentCostUI;
+    public Image talentState;
 
     private Toggle toggle;
-    private void Start()
-    {
+    [HideInInspector] public TalentTreeController talentTreeController;
 
-        toggle = this.GetComponent<Toggle>();
+    private void Awake()
+    {
+        toggle = GetComponent<Toggle>();
+        toggle.targetGraphic.gameObject.GetComponent<Image>().sprite = talent.sprite;
         toggle.onValueChanged.AddListener(OnClick);
 
-        foreach (var link in sourceLinks)
+        talentNameUI.text = talent.TalentName;
+        talentCostUI.text = talent.Cost.ToString();
+    }
+
+    public void UpdateToggle()
+    {
+        talentCostUI.gameObject.SetActive(!talent.hasBought);
+
+        toggle.interactable = talent.state != Talent.State.Lock;
+
+        talentState.gameObject.SetActive(toggle.interactable);
+
+        switch (talent.state)
         {
-            if (!link.IsActive)
-            {
-                toggle.interactable = false;
-            }
+            case Talent.State.Active:
+                talentState.color = Color.green;
+                break;
+            case Talent.State.Unlock:
+                talentState.color = Color.yellow;
+                break;
         }
     }
 
-    public void TryMakeInteractable()
+    public void OnClick(bool status)
     {
-        var interactable = true;
-        foreach (var link in sourceLinks)
-        {
-            if (!link.IsActive)
-            {
-                interactable = false;
-            }
-        }
-        
-        Debug.Log($"Est ce que je m'active? {interactable} {name}");
-        toggle.interactable = interactable;
-    }
-
-    //Called by toggle
-    public void OnClick(bool isOn)
-    {
-        Debug.Log("OnClick Toggle -> " + isOn);
-        if(destLinks.Any(l => l.IsDestTalentOn()))
-        {
-            toggle.isOn = true;
-            return;
-        }
-
-        if (playerData.Money < talent.Cost)
-        {
-            Debug.Log("Pas assez de money : " + playerData.Money);
-            toggle.isOn = false;
-            return;
-        }
-
-        if (isOn)
-        {
-            playerData.Money -= talent.Cost;
-            playerData.activeTalents.Add(talent);
-            foreach (var link in destLinks)
-            {
-                link.ActivateLink();
-            }
-        }
-        else
-        {
-            playerData.Money += talent.Cost;
-            playerData.activeTalents.Remove(talent);
-            foreach (var link in destLinks)
-            {
-                link.DesactivateLink();
-            }
-        }
+        talentTreeController.OnClickTalent(this);
     }
 }

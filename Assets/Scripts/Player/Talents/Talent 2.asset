@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18aa8c10a6c3b024fa98da0d240e7a0a, type: 3}
+  m_Name: Talent 2
+  m_EditorClassIdentifier: 
+  state: 1
+  defaultRefundState: 1
+  hasBought: 0
+  TalentName: Speed+
+  stats:
+    Power: 0
+    Speed: 10
+    Health: 0
+    MaxHealth: 0
+  Cost: 10
+  sprite: {fileID: 21300000, guid: 847a51f3a93f3b24bb00710b543ba552, type: 3}
