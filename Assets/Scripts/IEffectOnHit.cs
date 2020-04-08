@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public interface IEffectOnHit
 {
-    void EffectOnHit(Collider other);
+    IEnumerator EffectOnHit(Collider other);
 }

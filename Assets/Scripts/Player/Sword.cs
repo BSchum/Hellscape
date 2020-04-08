@@ -10,7 +10,7 @@ public class Sword : MonoBehaviour
     public delegate void OnSoulUpdate(Soul soul);
     public event OnSoulUpdate OnSoulUpdateEvent;
 
-    private List<Soul> souls = new List<Soul>();
+    public List<Soul> souls = new List<Soul>();
 
     public void IntegrateSoul(Soul soul)
     {
@@ -36,7 +36,7 @@ public class Sword : MonoBehaviour
                 foreach (Soul soul in souls)
                 {
                     if (soul is IEffectOnHit)
-                        ((IEffectOnHit)soul).EffectOnHit(other);
+                        StartCoroutine(((IEffectOnHit)soul).EffectOnHit(other));
                 }
             }
         }

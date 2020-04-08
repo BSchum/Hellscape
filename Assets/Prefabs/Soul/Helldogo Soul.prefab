@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5415218520642838382}
   - component: {fileID: 176817964611763619}
   - component: {fileID: 2009831655046899729}
-  - component: {fileID: 5462040141924846367}
+  - component: {fileID: 955026980585946620}
   m_Layer: 0
   m_Name: Helldogo Soul
   m_TagString: Untagged
@@ -93,7 +93,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5462040141924846367
+--- !u!114 &955026980585946620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,14 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3828828715940676939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d1e993519bc0240a0f487fba5fad1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 524e9b818773a5e42b3f1f26d0644776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Brasier du chien
-  sprite: {fileID: 21300000, guid: 63935423aae7aa64da84e2e6fbb0e36d, type: 3}
-  powerBonus: 1
-  attackSpeedBonus: 0.5
-  animatorAttackToggle: HellDogoBonus
-  damage: 1
-  duration: 3
-  fireDelay: 0.5
+  soul: {fileID: 11400000, guid: 6692207bfeb627741bf24a2fdda46060, type: 2}

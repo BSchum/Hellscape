@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "HellDogoSoul", menuName = "Soul/HellDogo")]
 public class HelldogoSoul : Soul, IEffectOnHit
 {
     public uint damage;
     public float duration;
     public float fireDelay;
 
-    public void EffectOnHit(Collider other)
+    public IEnumerator EffectOnHit(Collider other)
     {
-        StartCoroutine(ApplyDot(other.GetComponent<Enemy>()));
+        return ApplyDot(other.GetComponent<Enemy>());
     }
 
     private IEnumerator ApplyDot(Enemy enemy)
@@ -21,6 +22,7 @@ public class HelldogoSoul : Soul, IEffectOnHit
         {
             if (enemy != null)
                 enemy.TakeDamage(damage);
+
             yield return new WaitForSeconds(fireDelay);
         }
     }
