@@ -278,6 +278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
+  talentData:
+    talents: []
   lines:
   - talentUI: {fileID: 893049488}
     requiredTalents: []
@@ -776,10 +778,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1310052489}
     m_Modifications:
+    - target: {fileID: 8739513200756056166, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
       propertyPath: m_IsOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: graphic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257949, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
@@ -1019,10 +1031,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190426411}
     m_Modifications:
+    - target: {fileID: 8739513200756056166, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
       propertyPath: m_IsOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: graphic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257949, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
@@ -1726,6 +1748,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1621288537}
     m_Modifications:
+    - target: {fileID: 8739513200756056166, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -1745,6 +1772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: graphic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257949, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
@@ -2020,6 +2052,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190426411}
     m_Modifications:
+    - target: {fileID: 8739513200756056166, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -2054,6 +2091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: graphic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257949, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
@@ -2329,6 +2371,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1621288537}
     m_Modifications:
+    - target: {fileID: 8739513200756056166, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -2348,6 +2395,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739513200779257944, guid: bd17b4b127a58274e92aefada3b1bc7d,
+        type: 3}
+      propertyPath: graphic
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8739513200779257949, guid: bd17b4b127a58274e92aefada3b1bc7d,
         type: 3}
@@ -3419,6 +3471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070327312334690796, guid: ac631868fe2cec4428f4c9404526560b,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4939732847683573408, guid: ac631868fe2cec4428f4c9404526560b,
         type: 3}
