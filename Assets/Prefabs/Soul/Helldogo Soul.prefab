@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 176817964611763619}
   - component: {fileID: 2009831655046899729}
   - component: {fileID: 955026980585946620}
+  - component: {fileID: -349616311140850172}
   m_Layer: 0
   m_Name: Helldogo Soul
   m_TagString: Untagged
@@ -88,7 +89,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3828828715940676939}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -106,3 +107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soul: {fileID: 11400000, guid: 6692207bfeb627741bf24a2fdda46060, type: 2}
+--- !u!54 &-349616311140850172
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828828715940676939}
+  serializedVersion: 2
+  m_Mass: 0.5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0

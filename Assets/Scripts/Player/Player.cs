@@ -60,24 +60,6 @@ public class Player : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
-        float horizontal = 0, vertical = 0;
-
-        _isOnSlope = OnSlope();
-
-        if (_isOnSlope)
-        {
-            motor.Move(Vector3.down * 15 * Time.deltaTime);
-        }
-        if (_isGrounded || _isOnSlope)
-        {
-            horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
-            horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
-            vertical += Input.GetKey(binds.moveForward) ? 1 : 0;
-            vertical += Input.GetKey(binds.moveBackward) ? -1 : 0;
-
-            motor.Move(new Vector3(horizontal, 0, vertical));
-        }
-        
         motor.LookAtMouse();
 
         if (Input.GetKeyDown(binds.attack) && lastAttack + attackSpeed <= Time.time)
@@ -89,6 +71,26 @@ public class Player : MonoBehaviour, IDamagable
         if (Input.GetKeyDown(binds.interact) && _chest != null)
         {
             InteractWithChest();
+        }
+    }
+    void FixedUpdate()
+    {
+        float horizontal = 0, vertical = 0;
+
+        _isOnSlope = OnSlope();
+
+        if (_isOnSlope)
+        {
+            motor.Move(Vector3.down * 15);
+        }
+        if (_isGrounded || _isOnSlope)
+        {
+            horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
+            horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
+            vertical += Input.GetKey(binds.moveForward) ? 1 : 0;
+            vertical += Input.GetKey(binds.moveBackward) ? -1 : 0;
+
+            motor.Move(new Vector3(horizontal, 0, vertical));
         }
     }
     public void UpdateStatsUI()
@@ -128,7 +130,6 @@ public class Player : MonoBehaviour, IDamagable
         if(stats.Health <= 0)
         {
             Destroy(gameObject);
-            Debug.Log("On est mort!");
             SceneManager.LoadScene("Talent");
         }
         OnStatUpdateEvent(stats);

@@ -17,6 +17,7 @@ public class BigOne : Enemy
 
     [Header("CircularAttack")]
     public float circularAttackTime = 3f;
+    public float circularAttackCast = 0.5f;
     public float circularAttackCooldown = 6f;
 
     [Header("Movement")]
@@ -47,14 +48,9 @@ public class BigOne : Enemy
     // Update is called once per frame
     void Update()
     {
-        
         if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             var toTarget = (_target.transform.position - transform.position).normalized;
-            if (!_isCharging)
-            {
-                Move();
-            }
 
             if (Vector3.Distance(_target.transform.position, this.transform.position) < attackRange)
             {
@@ -76,6 +72,13 @@ public class BigOne : Enemy
                 }
             }
 
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (!_isCharging)
+        {
+            Move();
         }
     }
     void Move()
@@ -140,6 +143,7 @@ public class BigOne : Enemy
     }
     IEnumerator CircularAttack()
     {
+        yield return new WaitForSeconds(circularAttackCast);
         _isRotating = true;
         _lastCircularAttack = Time.time;
         _animator.SetBool("isRotating", true);

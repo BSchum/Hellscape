@@ -8,10 +8,10 @@ public class Bouboule : Enemy
 {
     [Header("Charge")]
     public float chargeCastTime;
-    public float chargeDuration;
     public uint damage = 1;
     public float repulseForce = 10;
 
+    bool _goingForward;
     bool _isCharging;
     GameObject _target;
     Motor _motor;
@@ -31,7 +31,6 @@ public class Bouboule : Enemy
         {
             if (!_isCharging)
             {
-                StopAllCoroutines();
                 StartCoroutine(Charging());
             }
         }
@@ -44,17 +43,20 @@ public class Bouboule : Enemy
         _animator.SetBool("isCharging", true);
         yield return new WaitForSeconds(chargeCastTime);
         _animator.SetBool("isCharging", false);
+        _goingForward = true;
         var dir = _target.transform.position - transform.position;
         _rb.AddForce(dir.normalized * _motor.speed);
-
-        yield return new WaitForSeconds(chargeDuration);
-        _rb.AddForce(-(dir.normalized * _motor.speed) / 2);
+        while(_rb.velocity.magnitude > 1)
+        {
+            yield return null;
+        }
+        _goingForward = false;
         _isCharging = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == Constants.Tags.PLAYER_TAG)
+        if (collision.gameObject.tag == Constants.Tags.PLAYER_TAG && _rb.velocity.magnitude > 1)
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
 

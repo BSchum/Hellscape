@@ -8,14 +8,14 @@ public class Motor : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
-        GetComponent<Rigidbody>().MovePosition(transform.position + direction.normalized * Time.deltaTime * speed);
+        GetComponent<Rigidbody>().MovePosition(transform.position + direction.normalized * speed * Time.fixedDeltaTime);
     }
 
     public void Move(Transform target, float magnitudeBeforeStop)
     {
         var direction = (target.transform.position - transform.position);
         if(direction.magnitude > magnitudeBeforeStop)
-            GetComponent<Rigidbody>().MovePosition(transform.position + direction.normalized * Time.deltaTime * speed);
+            GetComponent<Rigidbody>().MovePosition(transform.position + direction.normalized * speed * Time.fixedDeltaTime);
     }
 
     public void Look(Vector3 pointToLook)

@@ -57,7 +57,6 @@ public class HellDoggy : Boss, IDamagable
             //Follow the player
             if (canMove && !isChained)
             {
-                motor.Move(target.transform, 5);
                 motor.LookSmooth(target.transform, rotationSpeed);
 
                 if(_lastCharge + chargeCooldown < Time.time)
@@ -74,6 +73,11 @@ public class HellDoggy : Boss, IDamagable
                 }
             }
         }
+    }
+    void FixedUpdate()
+    {
+        if (target != null && canMove && !isChained)
+            motor.Move(target.transform, 5);
     }
     #region Charge
     public IEnumerator Charge()

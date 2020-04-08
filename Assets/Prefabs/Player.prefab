@@ -50,11 +50,10 @@ MonoBehaviour:
   sword: {fileID: 9183824532600963688}
   stats:
     Power: 1
-    Speed: 13
+    Speed: 20
     Health: 6
     MaxHealth: 6
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
-  playerData: {fileID: 11400000, guid: 0ddd43607f3c9744db393595f2f5a17f, type: 2}
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ca3338df5bc194c9e65b0713ec9207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 13
+  speed: 0
 --- !u!54 &4668982068908644484
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -575,6 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 1
   playerAnimator: {fileID: 1231829336526215225}
+  souls: []
 --- !u!1 &7654841200500890947
 GameObject:
   m_ObjectHideFlags: 0

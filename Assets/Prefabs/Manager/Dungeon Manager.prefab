@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7605781038918695468}
   - component: {fileID: 7605781038918695469}
+  - component: {fileID: 2013521257}
   m_Layer: 0
   m_Name: Dungeon Manager
   m_TagString: Untagged
@@ -53,8 +54,25 @@ MonoBehaviour:
     type: 3}
   playerPrefab: {fileID: 281481530547320143, guid: 94bd681b9abfa1c4eb02b6958cf96e5a,
     type: 3}
-  backGroundPrefab: {fileID: 5921097216357750279, guid: 1915a903678bafd439449fdeb7ff7de6,
+  backGroundPrefab: {fileID: 8053454489552591036, guid: 8ec229ed926d18747a03b6116f7943e7,
     type: 3}
   roomParents: {fileID: 0}
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
-  roomNumber: 7
+  roomNumber: 3
+--- !u!114 &2013521257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605781038918695470}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1506c88b3be8c48872bbb5c6e998cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gr: {fileID: -5537756484518242580, guid: 6b63dad365320c64aaa47db17400dd13, type: 3}
+  textureFlowSpeed: 10
+  textureParametersName: Lava_Flowing
+  minValue: 0
+  maxValue: 1

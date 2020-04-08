@@ -12,7 +12,7 @@ public class Spear : Projectile
         Destroy(gameObject, lifetime);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         motor.Move(transform.forward);
     }

@@ -127,11 +127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1768435608}
     m_Modifications:
-    - target: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
-        type: 3}
-      propertyPath: m_Name
-      value: Dungeon Manager
-      objectReference: {fileID: 0}
     - target: {fileID: 7605781038918695468, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,24 +189,15 @@ PrefabInstance:
       objectReference: {fileID: 1695194856}
     - target: {fileID: 7605781038918695469, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
         type: 3}
-      propertyPath: backGroundPrefab
-      value: 
-      objectReference: {fileID: 8053454489552591036, guid: 8ec229ed926d18747a03b6116f7943e7,
-        type: 3}
-    - target: {fileID: 7605781038918695469, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
-        type: 3}
-      propertyPath: playerContext
-      value: 
-      objectReference: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f,
-        type: 2}
-    - target: {fileID: 7605781038918695469, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
-        type: 3}
       propertyPath: roomNumber
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7605781038918695465, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
-    - {fileID: 957687225, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
+    - target: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Dungeon Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37cfbf56aa81e584ca0f03e4e7084f7f, type: 3}
 --- !u!1 &96915176
 GameObject:
@@ -487,29 +473,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2013521256 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 34607946}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2013521257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013521256}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e1506c88b3be8c48872bbb5c6e998cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gr: {fileID: -5537756484518242580, guid: 6b63dad365320c64aaa47db17400dd13, type: 3}
-  textureFlowSpeed: 10
-  textureParametersName: Lava_Flowing
-  minValue: 0
-  maxValue: 1
 --- !u!1001 &1090637278046963589
 PrefabInstance:
   m_ObjectHideFlags: 0

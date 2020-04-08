@@ -37,10 +37,13 @@ public class Lancier : Enemy, IDamagable
                     StartCoroutine(Aiming());
                 }
             }
-            else
-            {
-                motor.Move(transform.position - target.transform.position);
-            }
+        }
+    }
+    void FixedUpdate()
+    {
+        if (isRunningAway)
+        {
+            motor.Move(transform.position - target.transform.position);
         }
     }
 
