@@ -31,6 +31,13 @@ public class Motor : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
+    public void LookSmooth(Vector3 direction, float rotationSpeed)
+    {
+        var targetRotation = Quaternion.LookRotation(direction);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
     public void LookAtMouse()
     {
         Camera camera = Camera.main;
