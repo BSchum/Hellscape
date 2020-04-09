@@ -54,6 +54,10 @@ MonoBehaviour:
     Health: 6
     MaxHealth: 6
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
+  _dashCastTime: 0.1
+  _dashDuration: 0.2
+  _dashCooldown: 0.5
+  _dashForce: 20
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0

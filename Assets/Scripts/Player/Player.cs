@@ -17,11 +17,18 @@ public class Player : MonoBehaviour, IDamagable
     public Bag Bag { get; private set; } = new Bag();
     public Stats stats;
     public PlayerContext playerContext;
-
+    [Header("Dash Configuration")]
+    [SerializeField] private float _dashCastTime;
+    [SerializeField] private float _dashDuration;
+    [SerializeField] private float _dashCooldown;
+    [SerializeField] private float _dashForce;
+    float _lastDash;
+    bool _isDashing;
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
     bool _isGrounded = true;
     bool _isOnSlope = false;
+    bool _canMove = true;
     private Chest _chest;
 
     private KeyBindData binds;
@@ -83,7 +90,7 @@ public class Player : MonoBehaviour, IDamagable
         {
             motor.Move(Vector3.down * 15);
         }
-        if (_isGrounded || _isOnSlope)
+        if (_isGrounded || _isOnSlope && _canMove)
         {
             horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
             horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
@@ -92,7 +99,28 @@ public class Player : MonoBehaviour, IDamagable
 
             motor.Move(new Vector3(horizontal, 0, vertical));
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _lastDash + _dashCooldown <= Time.time && _canMove && _isGrounded)
+        {
+            _lastDash = Time.time;
+            StartCoroutine(Dash(new Vector3(horizontal, 0, vertical)));
+        }
     }
+
+    private IEnumerator Dash(Vector3 direction)
+    {
+        Debug.Log("Dash");
+        _isDashing = true;
+        var rb = GetComponent<Rigidbody>();
+        _canMove = false;
+        yield return new WaitForSeconds(_dashCastTime);
+        rb.AddForce(direction * _dashForce * 100);
+        yield return new WaitForSeconds(_dashDuration);
+        rb.velocity = Vector3.zero;
+        _canMove = true;
+        _isDashing = true;
+    }
+
     public void UpdateStatsUI()
     {
         OnStatUpdateEvent(stats);

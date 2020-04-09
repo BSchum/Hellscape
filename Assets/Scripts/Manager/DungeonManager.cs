@@ -28,7 +28,6 @@ namespace SDG.Unity.Scripts
         // Start is called before the first frame update
         void Awake()
         {
-            playerContext.Reset();
             _cam = Camera.main;
             RandomProvider randomProvider = new RandomProvider();
             var generator = new DungeonGenerator(randomProvider);
@@ -66,7 +65,12 @@ namespace SDG.Unity.Scripts
                     case RoomType.Start:
                         instantiateRoom = Instantiate(startRoomPrefab, new Vector3(room.Pos.X * Constants.Rooms.ROOM_SIZE_X, 0, room.Pos.Y * Constants.Rooms.ROOM_SIZE_Y), Quaternion.identity, roomParents);
                         var playerHolder = instantiateRoom.GetComponent<StartRoom>().playerHolder;
-                        playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
+                        if (playerContext.player == null)
+                            playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
+                        else
+                            playerContext.player.transform.position = playerHolder.transform.position;
+                        Debug.Log("The player is " + playerContext.player);
+
                         playerContext.currentPosition = room.Pos;
                         DontDestroyOnLoad(playerContext.player);
                         break;
@@ -78,13 +82,13 @@ namespace SDG.Unity.Scripts
                 {
                     var defaultRoom = instantiateRoom.GetComponent<DefaultRoom>();
                     defaultRoom.roomNumber = i;
-                    
+
                     _rooms.Add(defaultRoom);
 
                     instantiateRoom.name = $"Room({room.Pos.X},{room.Pos.Y}) Number {i}";
                     //Destruction des ponts
                     var bridges = instantiateRoom.GetComponentsInChildren<Bridge>().OfType<Bridge>().ToList();
-                    foreach(Bridge bridge in bridges)
+                    foreach (Bridge bridge in bridges)
                     {
                         if (!room.OpenedDoors[bridge.direction])
                         {
@@ -92,7 +96,7 @@ namespace SDG.Unity.Scripts
                         }
                     }
 
-                    if(room.RoomType == RoomType.Start)
+                    if (room.RoomType == RoomType.Start)
                     {
                         playerContext.currentRoomNumber = i;
                         MoveCameraToRoom(defaultRoom.roomNumber);
@@ -108,7 +112,7 @@ namespace SDG.Unity.Scripts
             int minIndexY = 999;
             int maxIndexX = 0;
             int maxIndexY = 0;
-            foreach(Room room in dungeon.dungeon)
+            foreach (Room room in dungeon.dungeon)
             {
                 if (room.RoomType != RoomType.None)
                 {
@@ -138,12 +142,12 @@ namespace SDG.Unity.Scripts
                 }
             }
         }
-        
+
         public void MoveCameraToRoom(int roomNumber)
         {
             Debug.Log($"On va vers la room numero ->{roomNumber}");
             var camHolder = _rooms.Where(r => r.roomNumber == roomNumber).First().cameraHolder;
-            if(_currentTranslateCameraCoroutine != null)
+            if (_currentTranslateCameraCoroutine != null)
                 StopCoroutine(_currentTranslateCameraCoroutine);
             _currentTranslateCameraCoroutine = StartCoroutine(TranslateCameraTo(camHolder.position));
         }
