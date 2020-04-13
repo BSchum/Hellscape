@@ -83,20 +83,23 @@ public class BigOne : Enemy
         //Move randomly in the platform, change direction every 2seconds or if a wall/an enemy is on the way
         var ray = new Ray(this.transform.position, _currentDirection);
 
-        if (!_isRotating)
+        if(health > 0)
         {
-            if (Time.time >= changeDirectionCooldown + _lastDirectionChange || Physics.Raycast(ray, 5))
+            if (!_isRotating)
             {
-                ChangeDirection();
-                _lastDirectionChange = Time.time;
+                if (Time.time >= changeDirectionCooldown + _lastDirectionChange || Physics.Raycast(ray, 5))
+                {
+                    ChangeDirection();
+                    _lastDirectionChange = Time.time;
+                }
+                _motor.Move(_currentDirection);
+                _motor.LookSmooth(_currentDirection, 10);
             }
-            _motor.Move(_currentDirection);
-            _motor.LookSmooth(_currentDirection, 10);
-        }
-        else
-        {
-            _motor.Move((_target.transform.position - this.transform.position).normalized);
-            _motor.LookSmooth(_target.transform, 10);
+            else
+            {
+                _motor.Move((_target.transform.position - this.transform.position).normalized);
+                _motor.LookSmooth(_target.transform, 10);
+            }
         }
     }
     void ChangeDirection()

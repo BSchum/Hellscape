@@ -11,15 +11,23 @@ public class Enemy : MonoBehaviour, IDamagable
     public SimpleRoom room;
     public int moneyReward;
     public PlayerContext playerContext;
+    public Animator animator;
+
+
     public virtual void TakeDamage(uint amount)
     {
-        health -= amount * damageMultiplier;
-        Debug.Log($"{this.name} a subit {amount * damageMultiplier}, il lui reste {health} PV");
-
-        if (health <= 0)
+        if (health > 0)
         {
-            playerContext.playerData.AddMoney(moneyReward);
-            Destroy(this.gameObject);
+            health -= amount * damageMultiplier;
+            Debug.Log($"{this.name} a subit {amount * damageMultiplier}, il lui reste {health} PV");
+
+            if (health <= 0)
+            {
+                playerContext.playerData.AddMoney(moneyReward);
+                StopAllCoroutines();
+                animator.SetTrigger("Die");
+                Destroy(this.gameObject, 2f);
+            }
         }
     }
 }
