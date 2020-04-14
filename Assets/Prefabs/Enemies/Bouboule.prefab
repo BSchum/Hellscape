@@ -117,7 +117,8 @@ MonoBehaviour:
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
   _animator: {fileID: 6434766717037606466}
   chargeCastTime: 2
-  repulseForce: 1000
+  chargeForce: 1000
+  repulseForce: 10
   damage: 1
   chargeCooldown: 2
   chargeDamage: 1

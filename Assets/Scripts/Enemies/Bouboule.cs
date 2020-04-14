@@ -8,6 +8,7 @@ public class Bouboule : Enemy
 {
     [Header("Charge")]
     public float chargeCastTime;
+    public float chargeForce = 10;
     public float repulseForce = 10;
     public uint damage = 1;
     public float chargeCooldown;
@@ -46,7 +47,7 @@ public class Bouboule : Enemy
         _isCharging = true;
         _animator.SetTrigger("Curl");
         yield return new WaitForSeconds(chargeCastTime);
-        _rb.AddForce(transform.forward * repulseForce);
+        _rb.AddForce(transform.forward * chargeForce);
         yield return new WaitForSeconds(chargeDuration);
         _animator.SetTrigger("UnCurl");
         _rb.velocity = Vector3.zero;
