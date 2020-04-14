@@ -7,7 +7,7 @@ public class MenuButtonUI : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Talent", LoadSceneMode.Single);
     }
 
     public void Quitter()
