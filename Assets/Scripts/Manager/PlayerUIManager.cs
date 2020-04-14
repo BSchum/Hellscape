@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
+public class PlayerUIManager : MonoBehaviour
 {
     public GameObject ItemUI;
     public GameObject SoulUI;
@@ -113,5 +113,12 @@ public class PlayerUIManager : ManagerSingleton<PlayerUIManager>
     {
         GameObject newSoul = Instantiate(soulUIPrefab.gameObject, SoulUI.transform);
         newSoul.GetComponent<SoulUI>().image.sprite = soul.sprite;
+    }
+
+    private void OnDestroy()
+    {
+        player.Bag.OnAddItemEvent -= Display;
+        player.OnStatUpdateEvent -= UpdateUI;
+        player.Sword.OnSoulUpdateEvent -= DisplaySouls;
     }
 }

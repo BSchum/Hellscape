@@ -13,8 +13,6 @@ public class SoulOrb : MonoBehaviour
         {
             collision.gameObject.GetComponent<Player>().Sword.IntegrateSoul(soul);
             Destroy(gameObject);
-            // TEMPORAIRE
-            SceneManager.LoadScene("Talent");
         }
     }
 }

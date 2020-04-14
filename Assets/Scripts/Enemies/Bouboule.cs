@@ -8,29 +8,34 @@ public class Bouboule : Enemy
 {
     [Header("Charge")]
     public float chargeCastTime;
-    public uint damage = 1;
     public float repulseForce = 10;
-
-    bool _goingForward;
+    public uint damage = 1;
+    public float chargeCooldown;
+    public uint chargeDamage;
+    public float chargeDuration;
+    float _lastCharge;
     bool _isCharging;
+
     GameObject _target;
     Motor _motor;
     Rigidbody _rb;
-    Animator _animator;
 
     private void Start()
     {
         _target = playerContext.player;
-        _animator = GetComponent<Animator>();
         _motor = GetComponent<Motor>();
         _rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
+        if(health > 0)
+            _motor.LookSmooth(_target.transform, 10f);
+
         if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
-            if (!_isCharging)
+            if (!_isCharging && _lastCharge + chargeCooldown < Time.time)
             {
+                _lastCharge = Time.time;     
                 StartCoroutine(Charging());
             }
         }
@@ -39,19 +44,13 @@ public class Bouboule : Enemy
     private IEnumerator Charging()
     {
         _isCharging = true;
-        _motor.Look(_target.transform.position);
-        _animator.SetBool("isCharging", true);
+        _animator.SetTrigger("Curl");
         yield return new WaitForSeconds(chargeCastTime);
-        _animator.SetBool("isCharging", false);
-        _goingForward = true;
-        var dir = _target.transform.position - transform.position;
-        _rb.AddForce(dir.normalized * _motor.speed);
-        while(_rb.velocity.magnitude > 1)
-        {
-            yield return null;
-        }
-        _goingForward = false;
-        _isCharging = false;
+        _rb.AddForce(transform.forward * repulseForce);
+        yield return new WaitForSeconds(chargeDuration);
+        _animator.SetTrigger("UnCurl");
+        _rb.velocity = Vector3.zero;
+        _isCharging = false;        
     }
 
     private void OnCollisionEnter(Collision collision)

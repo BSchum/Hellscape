@@ -147,7 +147,7 @@ MonoBehaviour:
   room: {fileID: 0}
   moneyReward: 10
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
-  animator: {fileID: 7975439238138582357}
+  _animator: {fileID: 7975439238138582357}
   attackRange: 5
   chargingTime: 1
   smashAttackCooldown: 3

@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public SimpleRoom room;
     public int moneyReward;
     public PlayerContext playerContext;
-    public Animator animator;
+    public Animator _animator;
 
 
     public virtual void TakeDamage(uint amount)
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour, IDamagable
             {
                 playerContext.playerData.AddMoney(moneyReward);
                 StopAllCoroutines();
-                animator.SetTrigger("Die");
+                _animator.SetTrigger("Die");
                 Destroy(this.gameObject, 2f);
             }
         }
