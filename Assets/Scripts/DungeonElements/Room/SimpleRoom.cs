@@ -19,6 +19,7 @@ public class SimpleRoom : DefaultRoom
     {
         roomsEnemy = enemyProvider.GetRandomEnemies(enemyNumber);
         doors = GetComponentsInChildren<Door>();
+        OpenDoors();
         SpawnEnemies();
     }
 
@@ -46,8 +47,9 @@ public class SimpleRoom : DefaultRoom
     {
         foreach (var door in doors)
         {
-            door.gameObject.GetComponent<BoxCollider>().isTrigger = false;
-            door.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            door.GetComponent<BoxCollider>().enabled = true;
+            door.GetComponent<Animator>().SetTrigger("Close");
+
         }
         doorsClosed = true;
     }
@@ -58,8 +60,8 @@ public class SimpleRoom : DefaultRoom
         {
             if(door != null)
             {
-                door.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-                door.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                door.GetComponent<BoxCollider>().enabled = false;
+                door.GetComponent<Animator>().SetTrigger("Open");
             }
 
         }
