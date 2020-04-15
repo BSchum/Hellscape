@@ -33,7 +33,6 @@ public class BigOne : Enemy
     Vector3 _currentDirection;
 
     Motor _motor;
-    Animator _animator;
     GameObject _target;
 
 

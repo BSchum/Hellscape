@@ -10,12 +10,10 @@ public class BossRoom : DefaultRoom
     public GameObject playerPrefab;
     public Boss chosenBoss;
     public PlayerContext playerContext;
+    public GameObject nextLevelDoor;
     // Start is called before the first frame update
     void Start()
-    {
-
-        PlayerUIManager.GetInstance().Awake();
-        
+    {        
         chosenBoss = BossesProvider.Instance.GetRandomBosses();
         Instantiate(chosenBoss, bossAnchor.transform.position, Quaternion.identity);
 

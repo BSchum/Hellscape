@@ -15,12 +15,11 @@ public class Lancier : Enemy, IDamagable
     GameObject target;
     bool isAiming = false;
     bool isRunningAway = false;
-    Animator animator;
 
     private void Start()
     {
         range = Constants.Rooms.ROOM_SIZE_Y / 2;
-        animator = this.GetComponent<Animator>();
+        _animator = this.GetComponent<Animator>();
         target = playerContext.player;
         motor.speed = bonusSpeed;
     }
@@ -71,7 +70,7 @@ public class Lancier : Enemy, IDamagable
         yield return new WaitForSeconds(aimDelay);
 
         isAiming = false;
-        animator.SetTrigger("aim");
+        _animator.SetTrigger("aim");
     }
 
     IEnumerator RunAway()

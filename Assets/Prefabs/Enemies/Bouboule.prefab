@@ -115,10 +115,14 @@ MonoBehaviour:
   room: {fileID: 0}
   moneyReward: 5
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
-  animator: {fileID: 6434766717037606466}
+  _animator: {fileID: 6434766717037606466}
   chargeCastTime: 2
-  damage: 1
+  chargeForce: 1000
   repulseForce: 10
+  damage: 1
+  chargeCooldown: 2
+  chargeDamage: 1
+  chargeDuration: 1
 --- !u!1 &4148021787989724693
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class BossDoor : MonoBehaviour
     {
         if(other.tag == Constants.Tags.PLAYER_TAG)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Boss");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Boss", LoadSceneMode.Single);
         }
     }
 }
