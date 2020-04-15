@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using SDG.Unity.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleRoom : DefaultRoom
 {
+    public PlayerContext playerContext;
     public Transform holder;
-
+    public GameObject bossDoor;
     [HideInInspector] List<Enemy> roomsEnemy;
     public Transform[] enemyHolders;
     [HideInInspector] public Door[] doors;
@@ -13,6 +15,7 @@ public class SimpleRoom : DefaultRoom
     [SerializeField] int enemyNumber;
     public bool roomCleared = false;
     public bool doorsClosed = false;
+    public bool isBossEntranceRoom = false;
     public EnemyProvider enemyProvider;
     // Start is called before the first frame update
     void Start()
@@ -21,10 +24,16 @@ public class SimpleRoom : DefaultRoom
         doors = GetComponentsInChildren<Door>();
         OpenDoors();
         SpawnEnemies();
+        
     }
 
     private void FixedUpdate()
     {
+        if (isBossEntranceRoom && playerContext.currentRoomNumber == roomNumber)
+        {
+            bossDoor.GetComponent<Animator>().SetTrigger("Open");
+        }
+
         enemies.RemoveAll(enemy => enemy == null);
         if(enemies.Count == 0)
         {
