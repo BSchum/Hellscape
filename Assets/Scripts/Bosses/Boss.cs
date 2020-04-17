@@ -25,8 +25,9 @@ public class Boss : MonoBehaviour, IDamagable
         if (stats.Health == 0)
         {
             Instantiate(soul, transform.position, soul.transform.rotation);
-            
-            Destroy(this.gameObject);
+
+            animator.SetTrigger("Die");
+            Destroy(this.gameObject, 2f);
         }
     }
 }

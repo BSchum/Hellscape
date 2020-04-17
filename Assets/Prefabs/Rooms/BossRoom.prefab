@@ -339,7 +339,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomNumber: 0
   cameraHolder: {fileID: 74706660617091655}
+  playerContext: {fileID: 0}
   holder: {fileID: 0}
+  bossDoor: {fileID: 0}
   enemyHolders:
   - {fileID: 0}
   - {fileID: 0}
@@ -355,6 +357,7 @@ MonoBehaviour:
   enemyNumber: 0
   roomCleared: 0
   doorsClosed: 0
+  isBossEntranceRoom: 0
   enemyProvider: {fileID: 0}
 --- !u!114 &1792987338807815793
 MonoBehaviour:
@@ -399,13 +402,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7105458293133680923}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.03, z: 11.27}
+  m_LocalRotation: {x: -0, y: 0.9998849, z: -0, w: -0.015172591}
+  m_LocalPosition: {x: 0.03, y: -1.71, z: 5.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1012277491433101381}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 181.739, z: 0}
 --- !u!1 &7578961402992546282
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8807491878717123940
 Transform:
   m_ObjectHideFlags: 0
