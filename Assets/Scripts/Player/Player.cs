@@ -22,6 +22,9 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField] private float _dashDuration;
     [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashForce;
+
+    [SerializeField] private float _invicibilityDuration;
+    private float _lastInvicibility = 0.0f;
     float _lastDash;
     bool _isDashing;
     private float attackSpeed = 0.5f;
@@ -154,13 +157,33 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakeDamage(uint amount)
     {
-        stats.TakeDamage(amount);
-        if(stats.Health <= 0)
+        if(_lastInvicibility + _invicibilityDuration <= Time.time)
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("Talent");
+            _lastInvicibility = Time.time;
+            StartCoroutine(Blink());
+            stats.TakeDamage(amount);
+            if (stats.Health <= 0)
+            {
+                Destroy(gameObject);
+                SceneManager.LoadScene("Talent");
+            }
+            OnStatUpdateEvent(stats);
+
         }
-        OnStatUpdateEvent(stats);
+
+    }
+
+    private IEnumerator Blink()
+    {
+        while(_lastInvicibility + _invicibilityDuration >= Time.time)
+        {
+            foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+            {
+                renderer.enabled = !renderer.enabled;
+            }
+
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 
     #region Triggers

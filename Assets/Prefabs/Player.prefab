@@ -58,6 +58,7 @@ MonoBehaviour:
   _dashDuration: 0.2
   _dashCooldown: 0.5
   _dashForce: 20
+  _invicibilityDuration: 1
 --- !u!114 &4564009270137118349
 MonoBehaviour:
   m_ObjectHideFlags: 0
