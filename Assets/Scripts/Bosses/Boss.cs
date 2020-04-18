@@ -12,6 +12,7 @@ public class Boss : MonoBehaviour, IDamagable
     public GameObject target;
     public Animator animator;
     public GameObject soul;
+    public GameObject spawnedSoul;
 
     private void Start()
     {
@@ -22,10 +23,9 @@ public class Boss : MonoBehaviour, IDamagable
     public void TakeDamage(uint amount)
     {
         stats.TakeDamage(amount);
-        if (stats.Health == 0)
+        if (stats.Health == 0 && spawnedSoul == null)
         {
-            Instantiate(soul, transform.position, soul.transform.rotation);
-
+            spawnedSoul = Instantiate(soul, transform.position, soul.transform.rotation);
             animator.SetTrigger("Die");
             Destroy(this.gameObject, 2f);
         }

@@ -86,7 +86,13 @@ public class Player : MonoBehaviour, IDamagable
     void FixedUpdate()
     {
         float horizontal = 0, vertical = 0;
+        horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
+        horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
+        vertical += Input.GetKey(binds.moveForward) ? 1 : 0;
+        vertical += Input.GetKey(binds.moveBackward) ? -1 : 0;
 
+        animator.SetFloat("MoveX", horizontal);
+        animator.SetFloat("MoveY", vertical);
         _isOnSlope = OnSlope();
 
         if (_isOnSlope)
@@ -95,11 +101,6 @@ public class Player : MonoBehaviour, IDamagable
         }
         if (_isGrounded || _isOnSlope && _canMove)
         {
-            horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
-            horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
-            vertical += Input.GetKey(binds.moveForward) ? 1 : 0;
-            vertical += Input.GetKey(binds.moveBackward) ? -1 : 0;
-
             motor.Move(new Vector3(horizontal, 0, vertical));
         }
 
@@ -185,6 +186,16 @@ public class Player : MonoBehaviour, IDamagable
 
             yield return new WaitForSeconds(0.02f);
         }
+    }
+
+    public void ActivateSwordCollider()
+    {
+        sword.GetComponent<BoxCollider>().enabled = true;
+    }
+
+    public void DesactivateSwordCollider()
+    {
+        sword.GetComponent<BoxCollider>().enabled = false;
     }
 
     #region Triggers

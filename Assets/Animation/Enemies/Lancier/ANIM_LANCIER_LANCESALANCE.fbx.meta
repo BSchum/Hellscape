@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -2247684483868433399
-    second: ANIM_LANCIER_LAUNCH
+    second: LANCESALANCE
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ANIM_LANCIER_LAUNCH
+      name: LANCESALANCE
       takeName: LANCESALANCE
       internalID: 0
       firstFrame: 1
@@ -59,7 +59,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.664823
+      - time: 0.6766918
         functionName: Shoot
         data: 
         objectReferenceParameter: {instanceID: 0}

@@ -61,25 +61,6 @@ Transform:
   m_Father: {fileID: 8896498263923693131}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &394260767
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7217224332889584784}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d440613c11267594b8a5c37cf991f9ba, type: 3}
-  m_Controller: {fileID: 9100000, guid: f87c19f8089bc354e992694b1c181c3f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7782450066019571148
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +74,7 @@ GameObject:
   - component: {fileID: 1102193781612427216}
   - component: {fileID: 3696296593714651698}
   - component: {fileID: 3476039298315684302}
+  - component: {fileID: 8742722763498116480}
   m_Layer: 9
   m_Name: Lancier
   m_TagString: Enemy
@@ -176,7 +158,7 @@ MonoBehaviour:
   room: {fileID: 0}
   moneyReward: 4
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
-  _animator: {fileID: 394260767}
+  _animator: {fileID: 8742722763498116480}
   projectile: {fileID: 6766409457736630639, guid: 094b70fe7167e7a419fe67aaf8bc14af,
     type: 3}
   projectileSpawn: {fileID: 5727643879947460047}
@@ -185,6 +167,25 @@ MonoBehaviour:
   bonusSpeed: 10
   range: 0
   motor: {fileID: 3696296593714651698}
+--- !u!95 &8742722763498116480
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782450066019571148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d440613c11267594b8a5c37cf991f9ba, type: 3}
+  m_Controller: {fileID: 9100000, guid: f87c19f8089bc354e992694b1c181c3f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1659952893957975449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,12 +256,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -6057140222963153312, guid: d440613c11267594b8a5c37cf991f9ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d440613c11267594b8a5c37cf991f9ba, type: 3}
---- !u!1 &7217224332889584784 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d440613c11267594b8a5c37cf991f9ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1659952893957975449}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5941341451159242371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d440613c11267594b8a5c37cf991f9ba,

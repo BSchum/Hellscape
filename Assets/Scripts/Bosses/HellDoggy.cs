@@ -60,7 +60,7 @@ public class HellDoggy : Boss, IDamagable
             {
                 motor.LookSmooth(target.transform, rotationSpeed);
 
-                if((target.transform.position - this.transform.position).magnitude > 5)
+                if((target.transform.position - this.transform.position).magnitude > 3)
                 {
                     animator.SetFloat("CurrentMoveSpeed", 1f, 1f, Time.time);
                 }
@@ -87,7 +87,7 @@ public class HellDoggy : Boss, IDamagable
     void FixedUpdate()
     {
         if (target != null && canMove && !isChained)
-            motor.Move(target.transform, 5);
+            motor.Move(target.transform, 20);
     }
     #region Charge
     public IEnumerator Charge()
