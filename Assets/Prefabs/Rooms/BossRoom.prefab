@@ -378,7 +378,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 0}
   chosenBoss: {fileID: 0}
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
-  nextLevelDoor: {fileID: 0}
+  nextLevelDoor: {fileID: 7578961402992546282}
 --- !u!1 &7105458293133680923
 GameObject:
   m_ObjectHideFlags: 0

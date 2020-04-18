@@ -15,11 +15,9 @@ public class Lancier : Enemy, IDamagable
     GameObject target;
     bool isAiming = false;
     bool isRunningAway = false;
-
     private void Start()
     {
         range = Constants.Rooms.ROOM_SIZE_Y / 2;
-        _animator = this.GetComponent<Animator>();
         target = playerContext.player;
         motor.speed = bonusSpeed;
     }
@@ -28,7 +26,7 @@ public class Lancier : Enemy, IDamagable
     {
         if (target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
-            if (!isRunningAway)
+            if (!isRunningAway && health > 0)
             {
                 motor.Look(target.transform.position);
                 if (!isAiming)
@@ -40,9 +38,10 @@ public class Lancier : Enemy, IDamagable
     }
     void FixedUpdate()
     {
-        if (isRunningAway)
+        if (isRunningAway && health > 0)
         {
             motor.Move(transform.position - target.transform.position);
+            motor.LookSmooth(-(target.transform.position - transform.position), 5f);
         }
     }
 
@@ -53,8 +52,7 @@ public class Lancier : Enemy, IDamagable
         {
             isAiming = false;
         }
-
-        StopAllCoroutines();
+        _animator.SetBool("isFleeing", true);
         StartCoroutine(RunAway());
     }
 
@@ -70,7 +68,7 @@ public class Lancier : Enemy, IDamagable
         yield return new WaitForSeconds(aimDelay);
 
         isAiming = false;
-        _animator.SetTrigger("aim");
+        _animator.SetTrigger("Launch");
     }
 
     IEnumerator RunAway()
@@ -80,5 +78,7 @@ public class Lancier : Enemy, IDamagable
         yield return new WaitForSeconds(bonusSpeedDuration);
 
         isRunningAway = false;
+        _animator.SetBool("isFleeing", false);
+
     }
 }

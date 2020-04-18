@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: 3cd8058576b3a84459c811ec880056f4
+guid: 1101f04d93945c547a755e7f1200219c
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable:
-  - first:
-      74: -6585586632299630528
-    second: ANIM_HERO_MARCHEDROTI
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -90,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

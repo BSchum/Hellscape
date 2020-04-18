@@ -8,6 +8,11 @@ public class Bag
     public delegate void OnAddItem(Item item);
     public event OnAddItem OnAddItemEvent;
 
+    public void UpdateItemUI()
+    {
+
+    }
+
     public void AddItem(Item item)
     {
         items.Add(item);

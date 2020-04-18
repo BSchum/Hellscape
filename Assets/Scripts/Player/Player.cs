@@ -128,6 +128,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         OnStatUpdateEvent(stats);
     }
+
     private bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
