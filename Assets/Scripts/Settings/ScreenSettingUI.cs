@@ -27,7 +27,6 @@ public class ScreenSettingUI : VisualSettingUI
                 val = i;
             }
         }
-        Debug.Log(val);
         dropdown.value = val;
     }
 
