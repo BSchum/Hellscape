@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598023535485402566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1206335899313057047}
@@ -45,6 +45,20 @@ MonoBehaviour:
   roomNumber: 0
   cameraHolder: {fileID: 0}
   playerHolder: {fileID: 8359341003779687562}
+--- !u!64 &3853925620297242956
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599048989860118690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 8736767188277716173, guid: a0b90b391923e0140b821e63cfcf71d8, type: 3}
 --- !u!1001 &7160034226686523795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265,6 +279,12 @@ GameObject:
 --- !u!4 &1206335899313057047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8349754155812967556, guid: 60532068054a0694c97a6c4449dae484,
+    type: 3}
+  m_PrefabInstance: {fileID: 7160034226686523795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1599048989860118690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8461555219711834417, guid: 60532068054a0694c97a6c4449dae484,
     type: 3}
   m_PrefabInstance: {fileID: 7160034226686523795}
   m_PrefabAsset: {fileID: 0}

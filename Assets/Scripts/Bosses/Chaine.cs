@@ -27,6 +27,7 @@ public class Chaine : MonoBehaviour
             if (hellDogoRb != null)
             {
                 hellDogoRb.GetComponent<HellDoggy>().isChained = false;
+                hellDogoRb.GetComponent<Animator>().SetBool("IsChained", false);
             }
             Destroy(gameObject);
         }
@@ -38,7 +39,10 @@ public class Chaine : MonoBehaviour
         {
             lastChaineJoin.connectedBody = other.attachedRigidbody;
             hellDogoRb = other.attachedRigidbody;
-            hellDogoRb.GetComponent<HellDoggy>().isChained = true;
+            if (hellDogoRb.GetComponent<HellDoggy>().isChained != true) { 
+                hellDogoRb.GetComponent<HellDoggy>().isChained = true;
+                hellDogoRb.GetComponent<Animator>().SetBool("IsChained", true);
+            }
         }
     }
 }

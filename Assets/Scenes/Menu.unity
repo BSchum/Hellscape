@@ -8653,6 +8653,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7506605839336368282, guid: 2bc61f6ac8cdae840862083d0b066b4e,
+        type: 3}
+      propertyPath: levelName
+      value: Talent
+      objectReference: {fileID: 0}
     - target: {fileID: 7506605839336368284, guid: 2bc61f6ac8cdae840862083d0b066b4e,
         type: 3}
       propertyPath: m_PreserveAspect

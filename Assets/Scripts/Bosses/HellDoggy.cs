@@ -21,6 +21,7 @@ public class HellDoggy : Boss, IDamagable
     public float clawStrikeCooldown;
     float _lastClawStrike;
     public float clawStrikeCastTime;
+    public BoxCollider clawCollider;
 
     [Header("Coulée de lave")]
     public GameObject lavaPuddlePrefab;
@@ -40,7 +41,7 @@ public class HellDoggy : Boss, IDamagable
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        _lastClawStrike = clawStrikeCooldown;
+        _lastClawStrike = 0;
         _lastCharge = chargeCooldown;
         motor.speed = stats.Speed;
     }
@@ -59,17 +60,26 @@ public class HellDoggy : Boss, IDamagable
             {
                 motor.LookSmooth(target.transform, rotationSpeed);
 
-                if(_lastCharge + chargeCooldown < Time.time)
+                if((target.transform.position - this.transform.position).magnitude > 3)
                 {
-                    _lastCharge = Time.time;
-                    StartCoroutine(Charge());
+                    animator.SetFloat("CurrentMoveSpeed", 1f, 1f, Time.time);
                 }
-
+                else
+                {
+                    animator.SetFloat("CurrentMoveSpeed", 0f, 1f, Time.time);
+                }
                 //Coup de griffe
                 if (_lastClawStrike + clawStrikeCooldown < Time.time && (target.transform.position - this.transform.position).magnitude < 5 && !_isCharging)
                 {
                     _lastClawStrike = Time.time;
                     StartCoroutine(ClawStrike());
+                }
+
+
+                if (_lastCharge + chargeCooldown < Time.time)
+                {
+                    _lastCharge = Time.time;
+                    StartCoroutine(Charge());
                 }
             }
         }
@@ -77,18 +87,18 @@ public class HellDoggy : Boss, IDamagable
     void FixedUpdate()
     {
         if (target != null && canMove && !isChained)
-            motor.Move(target.transform, 5);
+            motor.Move(target.transform, 20);
     }
     #region Charge
     public IEnumerator Charge()
     {
         canMove = false;
-        animator.SetTrigger("CastCharge");
         yield return new WaitForSeconds(chargeCastTime);
-        animator.SetTrigger("Charge");
+        animator.SetBool("isCharging", true);
         _isCharging = true;
         rb.AddForce(transform.forward * chargeForce);
         yield return new WaitForSeconds(chargeDuration);
+        animator.SetBool("isCharging", false);
         rb.velocity = Vector3.zero;
         canMove = true;
         _isCharging = false;
@@ -100,7 +110,6 @@ public class HellDoggy : Boss, IDamagable
     public IEnumerator CastLavaPuddle()
     {
         yield return new WaitUntil(IsFacingPlayer);
-        Debug.Log("LavaPuddleCast!");
         canMove = false;
         animator.SetTrigger("IsCastingLavaPuddle");
         yield return new WaitForSeconds(lavaPuddleCastTime);
@@ -113,7 +122,6 @@ public class HellDoggy : Boss, IDamagable
         Physics.Raycast(new Ray(this.transform.position, transform.forward), out rHit, 300);
         if (rHit.transform != null)
         {
-            Debug.Log("Je face le joueur???" + rHit.transform.tag == Constants.Tags.PLAYER_TAG);
             return rHit.transform.tag == Constants.Tags.PLAYER_TAG;
         }
         else
@@ -138,13 +146,20 @@ public class HellDoggy : Boss, IDamagable
         animator.SetTrigger("IsCastingClaw");
         yield return new WaitForSeconds(clawStrikeCastTime);
         animator.SetTrigger("IsClawing");
+        clawCollider.enabled = true;
     }
     #endregion
+
+    public void DesactivateClawCollider()
+    {
+        clawCollider.enabled = false;
+    }
     /// <summary>
     /// Called by animation
     /// </summary>
     public void CanMove()
     {
+        Debug.Log("Yo, je bouge via l'anim tmtc");
         canMove = true;
     }
 

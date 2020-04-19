@@ -22,6 +22,9 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField] private float _dashDuration;
     [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashForce;
+
+    [SerializeField] private float _invicibilityDuration;
+    private float _lastInvicibility = 0.0f;
     float _lastDash;
     bool _isDashing;
     private float attackSpeed = 0.5f;
@@ -83,7 +86,13 @@ public class Player : MonoBehaviour, IDamagable
     void FixedUpdate()
     {
         float horizontal = 0, vertical = 0;
+        horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
+        horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
+        vertical += Input.GetKey(binds.moveForward) ? 1 : 0;
+        vertical += Input.GetKey(binds.moveBackward) ? -1 : 0;
 
+        animator.SetFloat("MoveX", horizontal);
+        animator.SetFloat("MoveY", vertical);
         _isOnSlope = OnSlope();
 
         if (_isOnSlope)
@@ -92,11 +101,6 @@ public class Player : MonoBehaviour, IDamagable
         }
         if (_isGrounded || _isOnSlope && _canMove)
         {
-            horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
-            horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
-            vertical += Input.GetKey(binds.moveForward) ? 1 : 0;
-            vertical += Input.GetKey(binds.moveBackward) ? -1 : 0;
-
             motor.Move(new Vector3(horizontal, 0, vertical));
         }
 
@@ -125,6 +129,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         OnStatUpdateEvent(stats);
     }
+
     private bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
@@ -154,13 +159,43 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakeDamage(uint amount)
     {
-        stats.TakeDamage(amount);
-        if(stats.Health <= 0)
+        if(_lastInvicibility + _invicibilityDuration <= Time.time)
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("Talent");
+            _lastInvicibility = Time.time;
+            StartCoroutine(Blink());
+            stats.TakeDamage(amount);
+            if (stats.Health <= 0)
+            {
+                Destroy(gameObject);
+                SceneManager.LoadScene("Talent");
+            }
+            OnStatUpdateEvent(stats);
+
         }
-        OnStatUpdateEvent(stats);
+
+    }
+
+    private IEnumerator Blink()
+    {
+        while(_lastInvicibility + _invicibilityDuration >= Time.time)
+        {
+            foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+            {
+                renderer.enabled = !renderer.enabled;
+            }
+
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    public void ActivateSwordCollider()
+    {
+        sword.GetComponent<BoxCollider>().enabled = true;
+    }
+
+    public void DesactivateSwordCollider()
+    {
+        sword.GetComponent<BoxCollider>().enabled = false;
     }
 
     #region Triggers

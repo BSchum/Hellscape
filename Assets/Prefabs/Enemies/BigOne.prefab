@@ -50,6 +50,32 @@ Projector:
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!65 &4232713231591513488
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580328131326054461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04036347, y: 0.019733604, z: 0.01205989}
+  m_Center: {x: -0.012823122, y: 0.0016072564, z: 0.0004911071}
+--- !u!114 &3869919878428277673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580328131326054461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aaad91a2baeaf9469d54aa6e60d7082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
 --- !u!1 &7042965785554482867
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,12 +174,13 @@ MonoBehaviour:
   moneyReward: 10
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
   _animator: {fileID: 7975439238138582357}
-  attackRange: 5
+  attackRange: 8
   chargingTime: 1
   smashAttackCooldown: 3
   projector: {fileID: 855703468}
   circularAttackTime: 3
   circularAttackCooldown: 6
+  hookCollider: {fileID: 4232713231591513488}
   changeDirectionCooldown: 6
 --- !u!95 &7975439238138582357
 Animator:
@@ -293,6 +320,12 @@ PrefabInstance:
 --- !u!4 &5652994956391861166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 67efc5a0518c2ba469d871c07cd35e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 795391353408610484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6580328131326054461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3432928556804116343, guid: 67efc5a0518c2ba469d871c07cd35e8f,
     type: 3}
   m_PrefabInstance: {fileID: 795391353408610484}
   m_PrefabAsset: {fileID: 0}

@@ -36,7 +36,7 @@ namespace SDG.Unity.Scripts
             {
                 new StartRoomBehaviour(randomProvider),
                 new TreasureRoomBehaviour(randomProvider),
-                new BossRoomBehaviour(randomProvider),
+                new BossRoomBehaviour(randomProvider)
             };
 
             dungeon = generator.PopulateRooms(dungeon, specialRoomList);

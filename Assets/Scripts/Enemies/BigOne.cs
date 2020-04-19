@@ -18,6 +18,7 @@ public class BigOne : Enemy
     [Header("CircularAttack")]
     public float circularAttackTime = 3f;
     public float circularAttackCooldown = 6f;
+    public BoxCollider hookCollider;
 
     [Header("Movement")]
     public float changeDirectionCooldown = 3f;
@@ -29,6 +30,7 @@ public class BigOne : Enemy
     float _lastSmashAttack = 0.0f;
     float _lastDirectionChange = 0.0f;
 
+    
     List<Direction> directions;
     Vector3 _currentDirection;
 
@@ -96,7 +98,8 @@ public class BigOne : Enemy
             }
             else
             {
-                _motor.Move((_target.transform.position - this.transform.position).normalized);
+                if((_target.transform.position - this.transform.position).magnitude > 3)
+                    _motor.Move((_target.transform.position - this.transform.position).normalized);
                 _motor.LookSmooth(_target.transform, 10);
             }
         }
@@ -150,11 +153,13 @@ public class BigOne : Enemy
     IEnumerator CircularAttack()
     {
         _isRotating = true;
+        hookCollider.enabled = true;
         _lastCircularAttack = Time.time;
         _animator.SetBool("isRotating", true);
         yield return new WaitForSeconds(circularAttackTime);
         _isRotating = false;
         _animator.SetBool("isRotating", false);
+        hookCollider.enabled = false;
 
     }
 }

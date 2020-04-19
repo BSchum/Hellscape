@@ -11,19 +11,24 @@ public class BossRoom : DefaultRoom
     public Boss chosenBoss;
     public PlayerContext playerContext;
     public GameObject nextLevelDoor;
+    Boss instantiatedBoss;
     // Start is called before the first frame update
     void Start()
     {        
         chosenBoss = BossesProvider.Instance.GetRandomBosses();
-        Instantiate(chosenBoss, bossAnchor.transform.position, Quaternion.identity);
+        instantiatedBoss = Instantiate(chosenBoss, bossAnchor.transform.position, Quaternion.identity);
 
         playerContext.player.transform.position = playerAnchor.transform.position;
         Camera.main.transform.position = cameraHolder.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(instantiatedBoss.stats.Health <= 0)
+        {
+            nextLevelDoor.SetActive(true);
+        }
     }
 }
