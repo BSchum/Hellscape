@@ -7,17 +7,23 @@ using UnityEngine.UI;
 
 public class PlayerUIManager : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject ItemUI;
+    [HideInInspector]
     public GameObject SoulUI;
+    [HideInInspector]
+    private GameObject PowerUI;
+    [HideInInspector]
+    public GameObject SpeedUI;
     public ItemUI itemUIPrefab;
     public SoulUI soulUIPrefab;
+    [HideInInspector]
     public Player player;
+    [HideInInspector]
     public GameObject HealthUI;
-    public GameObject PowerUI;
-    public GameObject MaxHealthUI;
+    private GameObject MaxHealthUI;
     public GameObject HeartPrefab;
     public GameObject MaxHealthPrefab;
-    public GameObject PowerPrefab;
     public bool IsUILoaded;
     public PlayerContext playerContext;
 
@@ -43,7 +49,8 @@ public class PlayerUIManager : MonoBehaviour
     public void UpdateUI(Stats stats)
     {
         UpdateLifeUI(stats.Health, stats.MaxHealth);
-        UpdatePowerUI(stats.Power);
+        PowerUI.GetComponent<Text>().text = stats.Power.ToString();
+        SpeedUI.GetComponent<Text>().text = stats.Speed.ToString();
     }
     void UpdateLifeUI(uint currentHealth, uint maxHealth)
     {
@@ -53,38 +60,30 @@ public class PlayerUIManager : MonoBehaviour
         bool lastHeartIsHalf = false;
 
         //Calcul du bon nombre de coeur ( 2pv = 1coeur)
-        if(currentHealth % 2 != 0)
+        if (currentHealth % 2 != 0)
         {
             heartNumber = currentHealth / 2 + 1;
             lastHeartIsHalf = true;
         }
         else
         {
-            heartNumber = currentHealth/2;
+            heartNumber = currentHealth / 2;
         }
 
-        for (int i =0; i < heartNumber; i++)
+        for (int i = 0; i < heartNumber; i++)
         {
             GameObject heart = Instantiate(HeartPrefab, HealthUI.transform);
 
             if (i == heartNumber - 1 && lastHeartIsHalf)
             {
                 var halfHearts = heart.GetComponentsInChildren<HalfHeart>();
-                halfHearts[halfHearts.Length -1].gameObject.SetActive(false);
+                halfHearts[halfHearts.Length - 1].gameObject.SetActive(false);
             }
         }
 
-        for(int i=0; i < Math.Ceiling(maxHealth /2f); i++)
+        for (int i = 0; i < Math.Ceiling(maxHealth / 2f); i++)
         {
             GameObject heartContainer = Instantiate(MaxHealthPrefab, MaxHealthUI.transform);
-        }
-    }
-    void UpdatePowerUI(uint powerNumber)
-    {
-        PowerUI.transform.Clear();
-        for(int i = 0; i < powerNumber; i++)
-        {
-            GameObject power = Instantiate(PowerPrefab, PowerUI.transform);
         }
     }
     private IEnumerator LoadUserInterfaceScene()
@@ -98,6 +97,7 @@ public class PlayerUIManager : MonoBehaviour
         HealthUI = GameObject.Find("Health");
         MaxHealthUI = GameObject.Find("MaxHealth");
         PowerUI = GameObject.Find("Power");
+        SpeedUI = GameObject.Find("Speed");
         ItemUI = GameObject.Find("Items");
         SoulUI = GameObject.Find("Souls");
         IsUILoaded = true;
@@ -114,7 +114,6 @@ public class PlayerUIManager : MonoBehaviour
         GameObject newSoul = Instantiate(soulUIPrefab.gameObject, SoulUI.transform);
         newSoul.GetComponent<SoulUI>().image.sprite = soul.sprite;
     }
-
     private void OnDestroy()
     {
         player.Bag.OnAddItemEvent -= Display;

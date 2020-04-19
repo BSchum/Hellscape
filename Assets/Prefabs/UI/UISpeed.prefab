@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3079070101765368160
+--- !u!1 &8001952085486319803
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4654104385989450602}
-  - component: {fileID: 2331545543198078483}
-  - component: {fileID: 8254782702223495761}
+  - component: {fileID: 5531912530100643167}
+  - component: {fileID: 3044377456291560556}
+  - component: {fileID: 7999177816903391023}
   m_Layer: 5
-  m_Name: UIPower
+  m_Name: UISpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4654104385989450602
+--- !u!224 &5531912530100643167
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079070101765368160}
+  m_GameObject: {fileID: 8001952085486319803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,21 +37,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2331545543198078483
+--- !u!222 &3044377456291560556
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079070101765368160}
+  m_GameObject: {fileID: 8001952085486319803}
   m_CullTransparentMesh: 0
---- !u!114 &8254782702223495761
+--- !u!114 &7999177816903391023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079070101765368160}
+  m_GameObject: {fileID: 8001952085486319803}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20e84746ca487904fbe59b32ae260481, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0765241a27c725429b99ff91c6e5679, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -303,5 +303,45 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3149230992795493545, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149230992795493545, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149230992795493545, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061993264758578660, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_Text
+      value: 3.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061993264758578660, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061993264758578660, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061993264758578660, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061993264758578660, guid: faffcb168ed141a49a44fb3378d400ac,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faffcb168ed141a49a44fb3378d400ac, type: 3}
