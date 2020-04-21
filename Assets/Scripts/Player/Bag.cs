@@ -8,9 +8,9 @@ public class Bag
     public delegate void OnAddItem(Item item);
     public event OnAddItem OnAddItemEvent;
 
-    public void UpdateItemUI()
+    public List<Item> GetAllCurrentItems()
     {
-
+        return items;
     }
 
     public void AddItem(Item item)

@@ -38,7 +38,24 @@ public class PlayerUIManager : MonoBehaviour
         player.Bag.OnAddItemEvent += Display;
         player.OnStatUpdateEvent += UpdateUI;
         player.Sword.OnSoulUpdateEvent += DisplaySouls;
+
+        StartCoroutine(PrepareUI());
+    }
+
+    IEnumerator PrepareUI()
+    {
+        while (!IsUILoaded)
+        {
+            yield return null;
+        }
+
+        Debug.Log("Update stats");
         player.UpdateStatsUI();
+
+        foreach (var item in player.Bag.GetAllCurrentItems())
+        {
+            Display(item);
+        }
     }
     private void Update()
     {

@@ -51,14 +51,17 @@ MonoBehaviour:
   sword: {fileID: 5950999385911119818}
   stats:
     Power: 1
-    Speed: 20
+    Speed: 15
     Health: 6
     MaxHealth: 6
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
+  moveLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   _dashCastTime: 0.1
-  _dashDuration: 0.2
+  _dashDuration: 2
   _dashCooldown: 0.5
-  _dashForce: 20
+  _dashForce: 10000
   _invicibilityDuration: 1
 --- !u!114 &4564009270137118349
 MonoBehaviour:

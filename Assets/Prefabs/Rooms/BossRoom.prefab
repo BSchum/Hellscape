@@ -8899,7 +8899,7 @@ GameObject:
   - component: {fileID: 9156541825221138610}
   - component: {fileID: 3130369251935693719}
   - component: {fileID: 4502428742843622267}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sol5
   m_TagString: Floor
   m_Icon: {fileID: 0}

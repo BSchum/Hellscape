@@ -17,12 +17,7 @@ public class Player : MonoBehaviour, IDamagable
     public Bag Bag { get; private set; } = new Bag();
     public Stats stats;
     public PlayerContext playerContext;
-    [Header("Dash Configuration")]
-    [SerializeField] private float _dashCastTime;
-    [SerializeField] private float _dashDuration;
-    [SerializeField] private float _dashCooldown;
-    [SerializeField] private float _dashForce;
-
+    public LayerMask moveLayerMask;
     [SerializeField] private float _invicibilityDuration;
     private float _lastInvicibility = 0.0f;
     float _lastDash;
@@ -30,7 +25,6 @@ public class Player : MonoBehaviour, IDamagable
     private float attackSpeed = 0.5f;
     private float lastAttack = 0.0f;
     bool _isGrounded = true;
-    bool _isOnSlope = false;
     bool _canMove = true;
     private Chest _chest;
 
@@ -71,7 +65,6 @@ public class Player : MonoBehaviour, IDamagable
     void Update()
     {
         motor.LookAtMouse();
-
         if (Input.GetKeyDown(binds.attack) && lastAttack + attackSpeed <= Time.time)
         {
             lastAttack = Time.time;
@@ -85,6 +78,13 @@ public class Player : MonoBehaviour, IDamagable
     }
     void FixedUpdate()
     {
+        Physics.Raycast(this.transform.position + Vector3.up, -Vector3.up, out RaycastHit raycastHit, 2, moveLayerMask);
+     
+        if(raycastHit.transform != null)
+            _isGrounded = raycastHit.transform.tag == Constants.Tags.FLOOR_TAG || raycastHit.collider.tag == Constants.Tags.BRIDGE_TAG;
+        else
+            _isGrounded = false;
+        Debug.Log("Is grounded :" + _isGrounded);
         float horizontal = 0, vertical = 0;
         horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
         horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
@@ -93,36 +93,11 @@ public class Player : MonoBehaviour, IDamagable
 
         animator.SetFloat("MoveX", horizontal);
         animator.SetFloat("MoveY", vertical);
-        _isOnSlope = OnSlope();
 
-        if (_isOnSlope)
-        {
-            motor.Move(Vector3.down * 15);
-        }
-        if (_isGrounded || _isOnSlope && _canMove)
+        if (_isGrounded && _canMove)
         {
             motor.Move(new Vector3(horizontal, 0, vertical));
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && _lastDash + _dashCooldown <= Time.time && _canMove && _isGrounded)
-        {
-            _lastDash = Time.time;
-            StartCoroutine(Dash(new Vector3(horizontal, 0, vertical)));
-        }
-    }
-
-    private IEnumerator Dash(Vector3 direction)
-    {
-        Debug.Log("Dash");
-        _isDashing = true;
-        var rb = GetComponent<Rigidbody>();
-        _canMove = false;
-        yield return new WaitForSeconds(_dashCastTime);
-        rb.AddForce(direction * _dashForce * 100);
-        yield return new WaitForSeconds(_dashDuration);
-        rb.velocity = Vector3.zero;
-        _canMove = true;
-        _isDashing = true;
     }
 
     public void UpdateStatsUI()
@@ -179,7 +154,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         while(_lastInvicibility + _invicibilityDuration >= Time.time)
         {
-            foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+            foreach (SkinnedMeshRenderer renderer in GetComponentsInChildren<SkinnedMeshRenderer>())
             {
                 renderer.enabled = !renderer.enabled;
             }
@@ -204,6 +179,7 @@ public class Player : MonoBehaviour, IDamagable
         if (other.tag == Constants.Tags.CHEST_TAG)
         {
             _chest = other.GetComponent<Chest>();
+            _chest.ToggleUI(true);
         }        
     }
 
@@ -211,6 +187,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         if (other.tag == Constants.Tags.CHEST_TAG)
         {
+            _chest.ToggleUI(false);
             _chest = null;
         }
     }
