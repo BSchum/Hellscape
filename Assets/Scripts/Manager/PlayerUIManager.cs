@@ -22,6 +22,7 @@ public class PlayerUIManager : MonoBehaviour
     [HideInInspector]
     public GameObject HealthUI;
     private GameObject MaxHealthUI;
+    public GameObject LevelNumberUI;
     public GameObject HeartPrefab;
     public GameObject MaxHealthPrefab;
     public bool IsUILoaded;
@@ -51,7 +52,7 @@ public class PlayerUIManager : MonoBehaviour
 
         Debug.Log("Update stats");
         player.UpdateStatsUI();
-
+        LevelNumberUI.GetComponent<Text>().text = playerContext.currentLevel.ToString();
         foreach (var item in player.Bag.GetAllCurrentItems())
         {
             Display(item);
@@ -118,6 +119,7 @@ public class PlayerUIManager : MonoBehaviour
         SpeedUI = GameObject.Find("Speed");
         ItemUI = GameObject.Find("Items");
         SoulUI = GameObject.Find("Souls");
+        LevelNumberUI = GameObject.Find("LevelNumber");
         IsUILoaded = true;
 
         UpdateUI(player.stats);

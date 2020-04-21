@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18aa8c10a6c3b024fa98da0d240e7a0a, type: 3}
-  m_Name: Talent 5
+  m_Name: Power++
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
   defaultRefundState: 0
   hasBought: 0
-  TalentName: Speed++
+  TalentName: Power++
   stats:
-    Power: 0
-    Speed: 3
+    Power: 2
+    Speed: 0
     Health: 0
     MaxHealth: 0
-  Cost: 50
-  sprite: {fileID: 21300000, guid: 847a51f3a93f3b24bb00710b543ba552, type: 3}
+  Cost: 30
+  sprite: {fileID: 21300000, guid: e3613da8dad85d84cb3a94558401c529, type: 3}

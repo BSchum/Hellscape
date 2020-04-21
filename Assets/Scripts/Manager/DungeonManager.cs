@@ -29,6 +29,7 @@ namespace SDG.Unity.Scripts
         void Awake()
         {
             _cam = Camera.main;
+            playerContext.currentLevel += 1;
             RandomProvider randomProvider = new RandomProvider();
             var generator = new DungeonGenerator(randomProvider);
             var dungeon = generator.Generate(roomNumber);

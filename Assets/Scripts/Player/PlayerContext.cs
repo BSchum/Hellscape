@@ -14,6 +14,7 @@ namespace SDG.Unity.Scripts
         public int currentRoomNumber;
         public GameObject player;
         public PlayerData playerData;
+        public int currentLevel = 0;
 
         public void Reset()
         {

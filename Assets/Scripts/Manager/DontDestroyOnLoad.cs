@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Managers : MonoBehaviour
+public class DontDestroyOnLoad : MonoBehaviour
 {
     void Start()
     {
