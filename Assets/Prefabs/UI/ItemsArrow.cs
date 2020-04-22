@@ -10,8 +10,9 @@ public class ItemsArrow : MonoBehaviour
 
     public void Display()
     {
-        animator.SetBool("Display", state);
-
         state = !state;
+
+        animator.SetBool("Display", state);
+        animator.SetTrigger("OnArrowClick");
     }
 }
