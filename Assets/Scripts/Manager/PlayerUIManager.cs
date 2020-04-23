@@ -22,7 +22,9 @@ public class PlayerUIManager : MonoBehaviour
     [HideInInspector]
     public GameObject HealthUI;
     private GameObject MaxHealthUI;
-    public GameObject LevelNumberUI;
+    private GameObject LevelNumberUI;
+    private GameObject GoldEarnedUI;
+    private GameObject DeadMenuUI;
     public GameObject HeartPrefab;
     public GameObject MaxHealthPrefab;
     public bool IsUILoaded;
@@ -70,6 +72,11 @@ public class PlayerUIManager : MonoBehaviour
         UpdateLifeUI(stats.Health, stats.MaxHealth);
         PowerUI.GetComponent<Text>().text = stats.Power.ToString();
         SpeedUI.GetComponent<Text>().text = stats.Speed.ToString();
+
+        if(stats.Health <= 0)
+        {
+            ShowDeadPanel();
+        }
     }
     void UpdateLifeUI(uint currentHealth, uint maxHealth)
     {
@@ -120,6 +127,11 @@ public class PlayerUIManager : MonoBehaviour
         ItemUI = GameObject.Find("Items");
         SoulUI = GameObject.Find("Souls");
         LevelNumberUI = GameObject.Find("LevelNumber");
+        DeadMenuUI = GameObject.Find("DeadMenu");
+        GoldEarnedUI = GameObject.Find("EarnedGold");
+        Debug.Log(DeadMenuUI);
+        DeadMenuUI.SetActive(false);
+
         IsUILoaded = true;
 
         UpdateUI(player.stats);
@@ -134,6 +146,13 @@ public class PlayerUIManager : MonoBehaviour
         GameObject newSoul = Instantiate(soulUIPrefab.gameObject, SoulUI.transform);
         newSoul.GetComponent<SoulUI>().image.sprite = soul.sprite;
     }
+
+    public void ShowDeadPanel()
+    {
+        GoldEarnedUI.GetComponent<Text>().text = playerContext.goldEarned.ToString();
+        DeadMenuUI.SetActive(true);
+    }
+
     private void OnDestroy()
     {
         player.Bag.OnAddItemEvent -= Display;

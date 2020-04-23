@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour, IDamagable
             if (health <= 0)
             {
                 playerContext.playerData.AddMoney(moneyReward);
+                playerContext.goldEarned += moneyReward;
                 StopAllCoroutines();
                 _animator.SetTrigger("Die");
                 Destroy(this.gameObject, 2f);

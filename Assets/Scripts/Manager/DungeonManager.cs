@@ -70,7 +70,6 @@ namespace SDG.Unity.Scripts
                             playerContext.player = Instantiate(playerPrefab, playerHolder.transform.position, Quaternion.identity) as GameObject;
                         else
                             playerContext.player.transform.position = playerHolder.transform.position;
-                        Debug.Log("The player is " + playerContext.player);
 
                         playerContext.currentPosition = room.Pos;
                         DontDestroyOnLoad(playerContext.player);

@@ -9,9 +9,7 @@ public class StartScene : MonoBehaviour
 
     void Start()
     {
-        var managers = GameObject.Find("__GlobalsManager__");
-        if(managers != null)
-            Destroy(managers);
+
     }
 
     public void LoadLevel()

@@ -29,7 +29,7 @@ public class Bouboule : Enemy
     }
     private void Update()
     {
-        if(health > 0)
+        if(health > 0 && _target != null)
             _motor.LookSmooth(_target.transform, 10f);
 
         if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)

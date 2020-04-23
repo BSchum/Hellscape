@@ -15,6 +15,7 @@ namespace SDG.Unity.Scripts
         public GameObject player;
         public PlayerData playerData;
         public int currentLevel = 0;
+        public int goldEarned = 0;
 
         public void Reset()
         {

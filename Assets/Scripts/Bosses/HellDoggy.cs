@@ -36,7 +36,8 @@ public class HellDoggy : Boss, IDamagable
     public float chargeDuration;
     float _lastCharge;
     bool _isCharging;
-        
+
+    BossAudioManager _bossAudioManager;
 
     private void Start()
     {

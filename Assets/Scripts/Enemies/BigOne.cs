@@ -84,7 +84,7 @@ public class BigOne : Enemy
         //Move randomly in the platform, change direction every 2seconds or if a wall/an enemy is on the way
         var ray = new Ray(this.transform.position, _currentDirection);
 
-        if(health > 0)
+        if(health > 0 && _target != null)
         {
             if (!_isRotating)
             {

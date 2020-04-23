@@ -12,23 +12,23 @@ public class Lancier : Enemy, IDamagable
     public float range;
     public Motor motor;
 
-    GameObject target;
+    GameObject _target;
     bool isAiming = false;
     bool isRunningAway = false;
     private void Start()
     {
         range = Constants.Rooms.ROOM_SIZE_Y / 2;
-        target = playerContext.player;
+        _target = playerContext.player;
         motor.speed = bonusSpeed;
     }
 
     void Update()
     {
-        if (target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
+        if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             if (!isRunningAway && health > 0)
             {
-                motor.Look(target.transform.position);
+                motor.Look(_target.transform.position);
                 if (!isAiming)
                 {
                     StartCoroutine(Aiming());
@@ -38,10 +38,10 @@ public class Lancier : Enemy, IDamagable
     }
     void FixedUpdate()
     {
-        if (isRunningAway && health > 0)
+        if (isRunningAway && health > 0 && _target != null)
         {
-            motor.Move(transform.position - target.transform.position);
-            motor.LookSmooth(-(target.transform.position - transform.position), 5f);
+            motor.Move(transform.position - _target.transform.position);
+            motor.LookSmooth(-(_target.transform.position - transform.position), 5f);
         }
     }
 

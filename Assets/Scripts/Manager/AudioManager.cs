@@ -10,6 +10,20 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;
     public List<SceneAudio> sceneAudios;
+
+    private static AudioManager _currentAudioManager;
+
+    private void Start()
+    {
+        if(_currentAudioManager == null)
+        {
+            _currentAudioManager = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     // Start is called before the first frame update
     void OnEnable()
     {

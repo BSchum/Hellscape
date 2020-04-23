@@ -27,6 +27,7 @@ public class Player : MonoBehaviour, IDamagable
     bool _isGrounded = true;
     bool _canMove = true;
     private Chest _chest;
+    
 
     private KeyBindData binds;
 
@@ -84,7 +85,6 @@ public class Player : MonoBehaviour, IDamagable
             _isGrounded = raycastHit.transform.tag == Constants.Tags.FLOOR_TAG || raycastHit.collider.tag == Constants.Tags.BRIDGE_TAG;
         else
             _isGrounded = false;
-        Debug.Log("Is grounded :" + _isGrounded);
         float horizontal = 0, vertical = 0;
         horizontal += Input.GetKey(binds.moveLeft) ? -1 : 0;
         horizontal += Input.GetKey(binds.moveRight) ? 1 : 0;
@@ -141,8 +141,9 @@ public class Player : MonoBehaviour, IDamagable
             stats.TakeDamage(amount);
             if (stats.Health <= 0)
             {
-                Destroy(gameObject);
-                SceneManager.LoadScene("Talent");
+                _canMove = false;
+                animator.SetTrigger("Die");
+                Destroy(gameObject, 2f);
             }
             OnStatUpdateEvent(stats);
 
@@ -160,6 +161,11 @@ public class Player : MonoBehaviour, IDamagable
             }
 
             yield return new WaitForSeconds(0.02f);
+        }
+
+        foreach (SkinnedMeshRenderer renderer in GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            renderer.enabled = true;
         }
     }
 
