@@ -45,19 +45,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemUI: {fileID: 0}
   SoulUI: {fileID: 0}
+  SpeedUI: {fileID: 0}
   itemUIPrefab: {fileID: 8682511641447182039, guid: 56203ec6f4606004b92a47b3895a620b,
     type: 3}
   soulUIPrefab: {fileID: 9143169326373699066, guid: 5a6f3417b50ee15469024eadf1516508,
     type: 3}
   player: {fileID: 0}
   HealthUI: {fileID: 0}
-  PowerUI: {fileID: 0}
-  MaxHealthUI: {fileID: 0}
   HeartPrefab: {fileID: 6584254051180177972, guid: ef0f016cb1735c946b12092948ae808a,
     type: 3}
-  MaxHealthPrefab: {fileID: 2124199463925336007, guid: 14368085e1e643a489d4449f6918bfb2,
-    type: 3}
-  PowerPrefab: {fileID: 3079070101765368160, guid: 654f801c3043e19459c94bc78ef67bb6,
+  MaxHealthPrefab: {fileID: 3488917713962228283, guid: e52463edd826f91478b9408715aa724b,
     type: 3}
   IsUILoaded: 0
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}

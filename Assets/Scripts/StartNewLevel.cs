@@ -11,7 +11,6 @@ public class StartNewLevel : MonoBehaviour
     public void SetUpContext() {
         playerContext.currentLevel = 0;
         playerContext.goldEarned = 0;
-
         SceneManager.LoadScene("LevelScene");
     }
 }

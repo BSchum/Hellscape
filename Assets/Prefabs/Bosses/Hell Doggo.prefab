@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 2415770256359914918}
   - component: {fileID: 8415640790251491848}
   - component: {fileID: 4581745733591052572}
+  - component: {fileID: 3150103926789164745}
+  - component: {fileID: -622157748327470702}
   m_Layer: 9
   m_Name: Hell Doggo
   m_TagString: Enemy
@@ -124,12 +126,14 @@ MonoBehaviour:
   target: {fileID: 0}
   animator: {fileID: 1106552758374206739}
   soul: {fileID: 3828828715940676939, guid: 1e6a529391a24914f85e5ca3911fc762, type: 3}
+  spawnedSoul: {fileID: 0}
   aggroRange: 15
+  movementRange: 8
   rotationSpeed: 10
   canMove: 1
   isChained: 0
   clawStrikeCooldown: 5
-  clawStrikeCastTime: 0.5
+  clawStrikeCastTime: 1
   clawCollider: {fileID: 8266634099864836201}
   lavaPuddlePrefab: {fileID: 4179985381804066462, guid: bf11fa96b6b4a364cade2ae148f1e13e,
     type: 3}
@@ -166,6 +170,119 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5152559, z: 1.9669135}
   m_Center: {x: 0, y: 0.7457943, z: -0.006924778}
+--- !u!82 &3150103926789164745
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571773287610997557}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-622157748327470702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571773287610997557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2677acdd9deced43aff328efd8690af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  claw: {fileID: 8300000, guid: 0e186fc4f3f33174388d7deb9625cba1, type: 3}
+  clawCast: {fileID: 8300000, guid: 875380819ff1e7040ac3a0bd63c4dd27, type: 3}
+  chained: {fileID: 8300000, guid: aadce1b4754bcb040b58f2ac299a7f73, type: 3}
+  charging: {fileID: 8300000, guid: 3aee1fc221accbb4a9d02c41112c6cdc, type: 3}
+  lavaSpit: {fileID: 8300000, guid: 9530fb7fc239d254b979f2d168bd8532, type: 3}
 --- !u!1 &4017596040531615281
 GameObject:
   m_ObjectHideFlags: 0

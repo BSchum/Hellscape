@@ -11,6 +11,7 @@ public class HellDoggy : Boss, IDamagable
     Rigidbody rb;
     [Header("Comportement du boss")]
     public float aggroRange;
+    public float movementRange;
     public float rotationSpeed = 2;
     public bool canMove;
 
@@ -37,7 +38,6 @@ public class HellDoggy : Boss, IDamagable
     float _lastCharge;
     bool _isCharging;
 
-    BossAudioManager _bossAudioManager;
 
     private void Start()
     {
@@ -61,7 +61,7 @@ public class HellDoggy : Boss, IDamagable
             {
                 motor.LookSmooth(target.transform, rotationSpeed);
 
-                if((target.transform.position - this.transform.position).magnitude > 3)
+                if((target.transform.position - this.transform.position).magnitude > movementRange)
                 {
                     animator.SetFloat("CurrentMoveSpeed", 1f, 1f, Time.time);
                 }
@@ -69,8 +69,9 @@ public class HellDoggy : Boss, IDamagable
                 {
                     animator.SetFloat("CurrentMoveSpeed", 0f, 1f, Time.time);
                 }
+
                 //Coup de griffe
-                if (_lastClawStrike + clawStrikeCooldown < Time.time && (target.transform.position - this.transform.position).magnitude < 5 && !_isCharging)
+                if (_lastClawStrike + clawStrikeCooldown < Time.time && (target.transform.position - this.transform.position).magnitude < movementRange && !_isCharging)
                 {
                     _lastClawStrike = Time.time;
                     StartCoroutine(ClawStrike());
@@ -88,15 +89,16 @@ public class HellDoggy : Boss, IDamagable
     void FixedUpdate()
     {
         if (target != null && canMove && !isChained)
-            motor.Move(target.transform, 20);
+            motor.Move(target.transform, movementRange);
     }
     #region Charge
     public IEnumerator Charge()
     {
+        _isCharging = true;
         canMove = false;
+        animator.SetTrigger("CastCharge");
         yield return new WaitForSeconds(chargeCastTime);
         animator.SetBool("isCharging", true);
-        _isCharging = true;
         rb.AddForce(transform.forward * chargeForce);
         yield return new WaitForSeconds(chargeDuration);
         animator.SetBool("isCharging", false);
@@ -147,10 +149,12 @@ public class HellDoggy : Boss, IDamagable
         animator.SetTrigger("IsCastingClaw");
         yield return new WaitForSeconds(clawStrikeCastTime);
         animator.SetTrigger("IsClawing");
-        clawCollider.enabled = true;
     }
     #endregion
-
+    public void ActivateClawCollider()
+    {
+        clawCollider.enabled = true;
+    }
     public void DesactivateClawCollider()
     {
         clawCollider.enabled = false;

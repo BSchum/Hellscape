@@ -105,17 +105,6 @@ public class Player : MonoBehaviour, IDamagable
         OnStatUpdateEvent(stats);
     }
 
-    private bool OnSlope()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
-        {
-            if (hit.normal != Vector3.up)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
     private void InteractWithChest()
     {
         if (_chest.IsOpened)

@@ -17,11 +17,13 @@ namespace SDG.Unity.Scripts
         public int currentLevel = 0;
         public int goldEarned = 0;
 
-        public void Reset()
+        public delegate void OnGoldEarned();
+        public event OnGoldEarned OnGoldEarnedEvent;
+        public void EarnGold(int golds)
         {
-            player = null;
-            currentRoomNumber = 0;
-            currentPosition = null;
+            goldEarned += golds;
+            playerData.AddMoney(golds);
+            OnGoldEarnedEvent();
         }
     }
 }

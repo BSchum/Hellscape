@@ -24,6 +24,7 @@ public class PlayerUIManager : MonoBehaviour
     private GameObject MaxHealthUI;
     private GameObject LevelNumberUI;
     private GameObject GoldEarnedUI;
+    private GameObject InGameGoldEarnedUI;
     private GameObject DeadMenuUI;
     public GameObject HeartPrefab;
     public GameObject MaxHealthPrefab;
@@ -39,8 +40,9 @@ public class PlayerUIManager : MonoBehaviour
     {
         player = playerContext.player.GetComponent<Player>();
         player.Bag.OnAddItemEvent += Display;
-        player.OnStatUpdateEvent += UpdateUI;
+        player.OnStatUpdateEvent += UpdateStatsUI;
         player.Sword.OnSoulUpdateEvent += DisplaySouls;
+        playerContext.OnGoldEarnedEvent += UpdateGoldUI;
 
         StartCoroutine(PrepareUI());
     }
@@ -53,7 +55,8 @@ public class PlayerUIManager : MonoBehaviour
         }
 
         Debug.Log("Update stats");
-        player.UpdateStatsUI();
+        UpdateStatsUI(player.stats);
+        UpdateGoldUI();
         LevelNumberUI.GetComponent<Text>().text = playerContext.currentLevel.ToString();
         foreach (var item in player.Bag.GetAllCurrentItems())
         {
@@ -67,7 +70,13 @@ public class PlayerUIManager : MonoBehaviour
             player = playerContext.player.GetComponent<Player>();
         }
     }
-    public void UpdateUI(Stats stats)
+    public void UpdateGoldUI()
+    {
+        InGameGoldEarnedUI.GetComponent<Text>().text = playerContext.goldEarned.ToString();
+        GoldEarnedUI.GetComponent<Text>().text = playerContext.goldEarned.ToString();
+    }
+
+    public void UpdateStatsUI(Stats stats)
     {
         UpdateLifeUI(stats.Health, stats.MaxHealth);
         PowerUI.GetComponent<Text>().text = stats.Power.ToString();
@@ -129,12 +138,10 @@ public class PlayerUIManager : MonoBehaviour
         LevelNumberUI = GameObject.Find("LevelNumber");
         DeadMenuUI = GameObject.Find("DeadMenu");
         GoldEarnedUI = GameObject.Find("EarnedGold");
-        Debug.Log(DeadMenuUI);
+        InGameGoldEarnedUI = GameObject.Find("Gold");
         DeadMenuUI.SetActive(false);
 
         IsUILoaded = true;
-
-        UpdateUI(player.stats);
     }
     public void Display(Item item)
     {
@@ -149,14 +156,14 @@ public class PlayerUIManager : MonoBehaviour
 
     public void ShowDeadPanel()
     {
-        GoldEarnedUI.GetComponent<Text>().text = playerContext.goldEarned.ToString();
         DeadMenuUI.SetActive(true);
     }
 
     private void OnDestroy()
     {
         player.Bag.OnAddItemEvent -= Display;
-        player.OnStatUpdateEvent -= UpdateUI;
+        player.OnStatUpdateEvent -= UpdateStatsUI;
         player.Sword.OnSoulUpdateEvent -= DisplaySouls;
+        playerContext.OnGoldEarnedEvent -= UpdateGoldUI;
     }
 }

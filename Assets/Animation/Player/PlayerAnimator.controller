@@ -7,8 +7,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New State
-  m_Speed: 1
+  m_Name: Double Attack
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2220676737411920953}
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8093028431456646992, guid: a4faab211df54514f905f34c123f2190,
+  m_Motion: {fileID: 8093028431456646992, guid: 2855fa22ae4a6b249913b56f5848923d,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -35,7 +35,13 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: sword hit
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: HellDogoBonus
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8949610764485608485}
   m_Solo: 0
@@ -95,7 +101,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -4869697337737035879, guid: 4e3ba9e92a1b8494791a73dec6b634a8,
+    m_Motion: {fileID: 2126459665172807778, guid: 9cfabb0f319a1734b8d0542193bb9560,
       type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
@@ -160,7 +166,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 2126459665172807778, guid: 07d6700d961f2664b9313da575bf5a2b,
+  m_Motion: {fileID: 2126459665172807778, guid: 9cfabb0f319a1734b8d0542193bb9560,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -281,31 +287,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: HellDogoBonus
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MoveX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MoveY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Die
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

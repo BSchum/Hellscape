@@ -8,9 +8,9 @@ public class PlayerData : ISerializable
     [NonSerialized]  public List<Talent> activeTalents = new List<Talent>(); // this do not persist
     public int Money;
 
-    public void AddMoney(int amout)
+    public void AddMoney(int amount)
     {
-        Money += amout;
+        Money += amount;
         SaveSystem.SaveData(this, SaveSystem.Data.PlayerData);
     }
 

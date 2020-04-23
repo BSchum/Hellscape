@@ -58,10 +58,6 @@ MonoBehaviour:
   moveLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  _dashCastTime: 0.1
-  _dashDuration: 2
-  _dashCooldown: 0.5
-  _dashForce: 10000
   _invicibilityDuration: 1
 --- !u!114 &4564009270137118349
 MonoBehaviour:
@@ -115,11 +111,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281481530547320143}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9cfabb0f319a1734b8d0542193bb9560, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 729baaaa6686d65429b14a5d39452cf7, type: 3}
   m_Controller: {fileID: 9100000, guid: 78d36216b483cf249a2557e621278cbd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

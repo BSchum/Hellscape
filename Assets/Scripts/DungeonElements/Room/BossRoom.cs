@@ -26,9 +26,9 @@ public class BossRoom : DefaultRoom
     // Update is called once per frame
     void Update()
     {
-        if(instantiatedBoss.stats.Health <= 0)
+        if(instantiatedBoss != null && instantiatedBoss.stats.Health <= 0)
         {
-            nextLevelDoor.SetActive(true);
+            nextLevelDoor.GetComponent<Animator>().SetTrigger("Spawn");
         }
     }
 }

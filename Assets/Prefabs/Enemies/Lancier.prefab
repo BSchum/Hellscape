@@ -193,6 +193,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3563603162213693921}
     m_Modifications:
+    - target: {fileID: -4217222959554293067, guid: d440613c11267594b8a5c37cf991f9ba,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d3907cb9a6527c4983cfee91ebe7fd6, type: 2}
     - target: {fileID: -4216859302048453862, guid: d440613c11267594b8a5c37cf991f9ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -253,6 +258,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ANIM_LANCIER_DEATH
       objectReference: {fileID: 0}
+    - target: {fileID: 9050967959669162518, guid: d440613c11267594b8a5c37cf991f9ba,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 685d0526c2431fe45b11dd96c704b778, type: 2}
     m_RemovedComponents:
     - {fileID: -6057140222963153312, guid: d440613c11267594b8a5c37cf991f9ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d440613c11267594b8a5c37cf991f9ba, type: 3}
