@@ -16,6 +16,6 @@ public class MoneyUI : MonoBehaviour
 
     public void Update()
     {
-        text.text = "Money : " + talentTreeController.playerContext.playerData.Money.ToString();
+        text.text = talentTreeController.playerContext.playerData.Money.ToString();
     }
 }

@@ -14,7 +14,10 @@ public class Talent : ScriptableObject
     public Stats stats;
     public int Cost = 10;
 
-    public Sprite sprite;
+    public Sprite ActiveSprite;
+    public Sprite LockedSprite;
+    public Sprite BoughtUnactiveSprite;
+    public Sprite NonBoughtUnactiveSprite;
 
     /*
      * Beacuse i can't serialize SO, i'll get a pre serialize data from the SO and then save only that data

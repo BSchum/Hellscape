@@ -131,6 +131,7 @@ MonoBehaviour:
   movementRange: 8
   rotationSpeed: 10
   canMove: 1
+  chainConnection: {fileID: 6374822069787446633}
   isChained: 0
   clawStrikeCooldown: 5
   clawStrikeCastTime: 1
@@ -283,6 +284,36 @@ MonoBehaviour:
   chained: {fileID: 8300000, guid: aadce1b4754bcb040b58f2ac299a7f73, type: 3}
   charging: {fileID: 8300000, guid: 3aee1fc221accbb4a9d02c41112c6cdc, type: 3}
   lavaSpit: {fileID: 8300000, guid: 9530fb7fc239d254b979f2d168bd8532, type: 3}
+--- !u!1 &1098270957035417406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6374822069787446633}
+  m_Layer: 0
+  m_Name: ChainConnection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6374822069787446633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098270957035417406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0065, y: 0.00767, z: -0.00292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4604325686174464856}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4017596040531615281
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +476,12 @@ PrefabInstance:
 --- !u!4 &2519794411692534833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4e3ba9e92a1b8494791a73dec6b634a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7458716777957754667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4604325686174464856 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2853181318537560973, guid: 4e3ba9e92a1b8494791a73dec6b634a8,
     type: 3}
   m_PrefabInstance: {fileID: 7458716777957754667}
   m_PrefabAsset: {fileID: 0}

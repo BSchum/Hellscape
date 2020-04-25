@@ -26,6 +26,7 @@ public class Bouboule : Enemy
         _target = playerContext.player;
         _motor = GetComponent<Motor>();
         _rb = GetComponent<Rigidbody>();
+        damage *= (uint)damageMultiplier;
     }
     private void Update()
     {

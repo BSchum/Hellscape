@@ -14,6 +14,8 @@ public class HellDoggy : Boss, IDamagable
     public float movementRange;
     public float rotationSpeed = 2;
     public bool canMove;
+    [Header("Chaine")]
+    public Transform chainConnection;
 
     [HideInInspector]
     public bool isChained = false;

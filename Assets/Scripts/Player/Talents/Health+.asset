@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18aa8c10a6c3b024fa98da0d240e7a0a, type: 3}
   m_Name: Health+
   m_EditorClassIdentifier: 
-  state: 1
+  state: 2
   defaultRefundState: 1
-  hasBought: 0
+  hasBought: 1
   TalentName: Health+
   stats:
     Power: 0
@@ -22,4 +22,9 @@ MonoBehaviour:
     Health: 2
     MaxHealth: 2
   Cost: 10
-  sprite: {fileID: 21300000, guid: cc4f78aa6ac5a024d971b12bdd5fe208, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: ae60fdbe4b3e50f4e974f71364f6b043, type: 3}
+  LockedSprite: {fileID: 21300000, guid: fde4c8b1ab9655e42a9a2a836bd1b7f9, type: 3}
+  BoughtUnactiveSprite: {fileID: 21300000, guid: e70a0c1430f9fd540a9e36a8bd30a1ad,
+    type: 3}
+  NonBoughtUnactiveSprite: {fileID: 21300000, guid: ad1aaacc9244cd443bc78b442ec2af30,
+    type: 3}

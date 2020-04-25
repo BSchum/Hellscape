@@ -44,6 +44,7 @@ public class BigOne : Enemy
         _animator = GetComponentInChildren<Animator>();
         _motor = GetComponent<Motor>();
         directions = Enum.GetValues(typeof(Direction)).OfType<Direction>().ToList();
+        hookCollider.GetComponent<Hook>().damage *= (uint)damageMultiplier;
     }
     // Update is called once per frame
     void Update()
@@ -65,14 +66,14 @@ public class BigOne : Enemy
                 if (hitPos > 0 && !_isRotating && _lastSmashAttack + smashAttackCooldown < Time.time)
                 {
                     //On se prepare a taper
-                    damageMultiplier = 1f;
+                    damageTakenMultiplier = 1f;
                     StartCoroutine(SmashAttack());
                 }
                 // Si derriere le joueur
                 if (hitPos < 0 && !_isRotating && _lastCircularAttack + circularAttackCooldown < Time.time)
                 {
                     //On fait tourner et on suis
-                    damageMultiplier = 2f;
+                    damageTakenMultiplier = 2f;
                     StartCoroutine(CircularAttack());
                 }
             }

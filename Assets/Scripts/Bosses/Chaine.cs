@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chaine : MonoBehaviour
 {
-    public HingeJoint lastChaineJoin;
+    public HingeJoint lastChainJoin;
 
     private Rigidbody hellDogoRb = null;
     public MeshRenderer[] chainMesh;
@@ -37,7 +37,8 @@ public class Chaine : MonoBehaviour
     {
         if (other.tag == Constants.Tags.ENEMY_TAG)
         {
-            lastChaineJoin.connectedBody = other.attachedRigidbody;
+            
+            lastChainJoin.connectedBody = other.attachedRigidbody;
             hellDogoRb = other.attachedRigidbody;
             if (hellDogoRb.GetComponent<HellDoggy>().isChained != true) { 
                 hellDogoRb.GetComponent<HellDoggy>().isChained = true;

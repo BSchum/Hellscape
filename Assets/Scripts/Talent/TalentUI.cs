@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class TalentUI : MonoBehaviour
 {
     public Talent talent;
-    public Text talentNameUI, talentCostUI;
+    public Text talentCostUI;
+    public Image talentCostIcon;
     public Image talentState;
 
     private Toggle toggle;
@@ -16,28 +17,29 @@ public class TalentUI : MonoBehaviour
     private void Awake()
     {
         toggle = GetComponent<Toggle>();
-        toggle.targetGraphic.gameObject.GetComponent<Image>().sprite = talent.sprite;
         toggle.onValueChanged.AddListener(OnClick);
-
-        talentNameUI.text = talent.TalentName;
         talentCostUI.text = talent.Cost.ToString();
     }
 
     public void UpdateToggle()
     {
         talentCostUI.gameObject.SetActive(!talent.hasBought);
+        talentCostIcon.gameObject.SetActive(!talent.hasBought);
 
         toggle.interactable = talent.state != Talent.State.Lock;
-
-        talentState.gameObject.SetActive(toggle.interactable);
-
         switch (talent.state)
         {
             case Talent.State.Active:
-                talentState.color = Color.green;
+                talentState.sprite = talent.ActiveSprite;
                 break;
             case Talent.State.Unlock:
-                talentState.color = Color.yellow;
+                if (talent.hasBought)
+                    talentState.sprite = talent.BoughtUnactiveSprite;
+                else if (!talent.hasBought)
+                    talentState.sprite = talent.NonBoughtUnactiveSprite;
+                break;
+            default:
+                talentState.sprite = talent.LockedSprite;
                 break;
         }
     }

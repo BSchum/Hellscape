@@ -58,7 +58,8 @@ public class Lancier : Enemy, IDamagable
 
     void Shoot()
     {
-        Instantiate(projectile, projectileSpawn.position, transform.rotation);
+        var go  = Instantiate(projectile, projectileSpawn.position, transform.rotation);
+        go.GetComponent<Spear>().damage *= (uint)damageMultiplier;
     }
 
     IEnumerator Aiming()

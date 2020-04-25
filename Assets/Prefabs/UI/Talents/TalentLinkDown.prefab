@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2990612481185607306}
-  - component: {fileID: 6478666445664483554}
   m_Layer: 5
   m_Name: TalentLinkDown
   m_TagString: Untagged
@@ -37,22 +36,6 @@ RectTransform:
   m_AnchoredPosition: {x: -424, y: -118}
   m_SizeDelta: {x: 106.66, y: 126.96}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6478666445664483554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6292730459895243303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f783050f09dbc5947bcffe15f1b3fe3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sourceTalent: {fileID: 0}
-  destinationTalent: {fileID: 0}
-  images:
-  - {fileID: 9129559025523892897}
 --- !u!1 &8856147908921787101
 GameObject:
   m_ObjectHideFlags: 0
