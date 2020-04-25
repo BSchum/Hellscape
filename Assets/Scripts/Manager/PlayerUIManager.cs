@@ -174,7 +174,7 @@ public class PlayerUIManager : MonoBehaviour
         Vector2 screenPos = Camera.main.WorldToScreenPoint(location.position);
         floatingText.transform.SetParent(canvas.transform, false);
         floatingText.transform.position = screenPos;
-        floatingText.GetComponent<Text>().text = text;
+        floatingText.GetComponentInChildren<Text>().text = text;
     }
     private void OnDestroy()
     {

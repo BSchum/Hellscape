@@ -52,7 +52,6 @@ public class Lancier : Enemy, IDamagable
         {
             isAiming = false;
         }
-        _animator.SetBool("isFleeing", true);
         StartCoroutine(RunAway());
     }
 
@@ -74,12 +73,10 @@ public class Lancier : Enemy, IDamagable
 
     IEnumerator RunAway()
     {
+        _animator.SetBool("isFleeing", true);
         isRunningAway = true;
-
         yield return new WaitForSeconds(bonusSpeedDuration);
-
         isRunningAway = false;
         _animator.SetBool("isFleeing", false);
-
     }
 }
