@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &855703466
+--- !u!1 &6223677135940373326
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,76 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 855703467}
-  - component: {fileID: 855703468}
+  - component: {fileID: 4299484041144684909}
+  - component: {fileID: 871420454942403262}
+  - component: {fileID: 518361888764614230}
   m_Layer: 0
-  m_Name: Projector
+  m_Name: Pentacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &855703467
+  m_IsActive: 0
+--- !u!4 &4299484041144684909
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855703466}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 5.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 6223677135940373326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1.2998164, y: 1.2998164, z: 1.2998164}
   m_Children: []
   m_Father: {fileID: 5161378123225745602}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!119 &855703468
-Projector:
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &871420454942403262
+MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855703466}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_NearClipPlane: 0.01
-  m_FarClipPlane: 19.1
-  m_FieldOfView: 401.6
-  m_AspectRatio: 1
-  m_Orthographic: 0
-  m_OrthographicSize: 10
-  m_Material: {fileID: 2100000, guid: ce32ca01d96fa4045bfcd9e603a9d730, type: 2}
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 0
+  m_GameObject: {fileID: 6223677135940373326}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &518361888764614230
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223677135940373326}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f563dc5024652904a891b93d10b76b76, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!65 &4232713231591513488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59,7 +87,7 @@ BoxCollider:
   m_GameObject: {fileID: 6580328131326054461}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.04036347, y: 0.019733604, z: 0.01205989}
   m_Center: {x: -0.012823122, y: 0.0016072564, z: 0.0004911071}
@@ -108,8 +136,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.322, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 855703467}
   - {fileID: 1165509521243046144}
+  - {fileID: 4299484041144684909}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -168,20 +196,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 4
+  damageTakenMultiplier: 1
   damageMultiplier: 2
   roomNumber: 0
   room: {fileID: 0}
   moneyReward: 10
   playerContext: {fileID: 11400000, guid: f10309fa6f8cc944db5a8c83b55ff58f, type: 2}
   _animator: {fileID: 7975439238138582357}
-  attackRange: 8
+  smashAttackRange: 6
   chargingTime: 1
   smashAttackCooldown: 3
-  projector: {fileID: 855703468}
+  pentacle: {fileID: 6223677135940373326}
   circularAttackTime: 3
   circularAttackCooldown: 6
   hookCollider: {fileID: 4232713231591513488}
   changeDirectionCooldown: 6
+  attackRange: 8
 --- !u!95 &7975439238138582357
 Animator:
   serializedVersion: 3
@@ -230,7 +260,7 @@ Transform:
   m_Children:
   - {fileID: 5652994956391861166}
   m_Father: {fileID: 5161378123225745602}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &795391353408610484
 PrefabInstance:

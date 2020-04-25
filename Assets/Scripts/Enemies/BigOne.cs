@@ -9,11 +9,12 @@ using UnityEngine;
 [RequireComponent(typeof(Motor))]
 public class BigOne : Enemy
 {
+
     [Header("Smash Attack")]
-    public float attackRange = 5.0f;
+    public float smashAttackRange = 3f;
     public float chargingTime = 1f;
     public float smashAttackCooldown = 3f;
-    public Projector projector;
+    public GameObject pentacle;
 
     [Header("CircularAttack")]
     public float circularAttackTime = 3f;
@@ -22,6 +23,8 @@ public class BigOne : Enemy
 
     [Header("Movement")]
     public float changeDirectionCooldown = 3f;
+    public float attackRange = 5.0f;
+
 
     bool _isRotating = false;
     bool _isCharging = false;
@@ -137,15 +140,15 @@ public class BigOne : Enemy
         _isCharging = true;
         _animator.SetTrigger("Charge");
         _lastSmashAttack = Time.time;
-        projector.enabled = true;
+        pentacle.SetActive(true);
         yield return new WaitForSeconds(chargingTime);
 
         _isAttacking = true;
         _isCharging = false;
 
         _animator.SetTrigger("Attack");
-        projector.enabled = false;
-        var targets = Physics.OverlapSphere(this.transform.position, 10).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
+        pentacle.SetActive(false);
+        var targets = Physics.OverlapSphere(this.transform.position, smashAttackRange).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
         foreach (var target in targets)
         {
             target.GetComponent<Rigidbody>().AddExplosionForce(1000f, this.transform.position, attackRange, 5f);
@@ -162,5 +165,10 @@ public class BigOne : Enemy
         _animator.SetBool("isRotating", false);
         hookCollider.enabled = false;
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, smashAttackRange);
     }
 }
