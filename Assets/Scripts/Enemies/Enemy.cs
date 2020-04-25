@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using SDG.Unity.Scripts;
-using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
@@ -27,7 +24,7 @@ public class Enemy : MonoBehaviour, IDamagable
             health -= amount * damageTakenMultiplier;
 
             Debug.Log($"{this.name} a subit {amount * damageTakenMultiplier}, il lui reste {health} PV");
-            PlayerUIManager.instance.CreateFloatingText((amount * damageTakenMultiplier).ToString(), this.transform);
+            FloatingTextCreator.instance.CreateFloatingText((amount * damageTakenMultiplier).ToString(), this.transform);
             if (health <= 0)
             {
                 playerContext.EarnGold(this.moneyReward);

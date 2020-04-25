@@ -30,12 +30,8 @@ public class PlayerUIManager : MonoBehaviour
     public GameObject MaxHealthPrefab;
     public bool IsUILoaded;
     public PlayerContext playerContext;
-    public GameObject floatingTextPrefab;
-    public Canvas canvas;
-    public static PlayerUIManager instance;
     public void Awake()
     {
-        instance = this;
         StartCoroutine(LoadUserInterfaceScene());
     }
 
@@ -132,11 +128,11 @@ public class PlayerUIManager : MonoBehaviour
     private IEnumerator LoadUserInterfaceScene()
     {
         AsyncOperation UI = SceneManager.LoadSceneAsync("UserInterface", LoadSceneMode.Additive);
+
         while (!UI.isDone)
         {
             yield return null;
         }
-
         HealthUI = GameObject.Find("Health");
         MaxHealthUI = GameObject.Find("MaxHealth");
         PowerUI = GameObject.Find("Power");
@@ -147,7 +143,6 @@ public class PlayerUIManager : MonoBehaviour
         DeadMenuUI = GameObject.Find("DeadMenu");
         GoldEarnedUI = GameObject.Find("EarnedGold");
         InGameGoldEarnedUI = GameObject.Find("Gold");
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>(); 
         DeadMenuUI.SetActive(false);
 
         IsUILoaded = true;
@@ -166,15 +161,6 @@ public class PlayerUIManager : MonoBehaviour
     public void ShowDeadPanel()
     {
         DeadMenuUI.SetActive(true);
-    }
-
-    public void CreateFloatingText(string text, Transform location)
-    {
-        GameObject floatingText = Instantiate(floatingTextPrefab);
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(location.position);
-        floatingText.transform.SetParent(canvas.transform, false);
-        floatingText.transform.position = screenPos;
-        floatingText.GetComponentInChildren<Text>().text = text;
     }
     private void OnDestroy()
     {

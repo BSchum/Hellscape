@@ -22,7 +22,7 @@ public class Boss : MonoBehaviour, IDamagable
 
     public void TakeDamage(uint amount)
     {
-        PlayerUIManager.instance.CreateFloatingText((amount).ToString(), this.transform);
+        FloatingTextCreator.instance.CreateFloatingText((amount).ToString(), this.transform);
         stats.TakeDamage(amount);
         if (stats.Health == 0 && spawnedSoul == null)
         {
