@@ -158,8 +158,8 @@ namespace SDG.Unity.Scripts
             while (elapsedTime < 2)
             {
                 _cam.transform.position = Vector3.Lerp(_cam.transform.position, position, elapsedTime / 2);
-                elapsedTime += Time.deltaTime;
-                yield return null;
+                elapsedTime += Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
             }
         }
     }
