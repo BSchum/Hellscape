@@ -129,7 +129,7 @@ MonoBehaviour:
   lastChainJoin: {fileID: 320671746533578236}
   chainMesh:
   - {fileID: 33228058747341510}
-  chainLifetime: 3
+  chainLifetime: 1
   brokenChain: {r: 1, g: 0, b: 0, a: 0}
   baseChainColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0}
 --- !u!1 &1422703570472640788

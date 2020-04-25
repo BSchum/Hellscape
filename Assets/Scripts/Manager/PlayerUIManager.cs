@@ -30,9 +30,12 @@ public class PlayerUIManager : MonoBehaviour
     public GameObject MaxHealthPrefab;
     public bool IsUILoaded;
     public PlayerContext playerContext;
-
+    public GameObject floatingTextPrefab;
+    public Canvas canvas;
+    public static PlayerUIManager instance;
     public void Awake()
     {
+        instance = this;
         StartCoroutine(LoadUserInterfaceScene());
     }
 
@@ -61,6 +64,11 @@ public class PlayerUIManager : MonoBehaviour
         foreach (var item in player.Bag.GetAllCurrentItems())
         {
             Display(item);
+        }
+
+        foreach(var soul in player.Sword.souls)
+        {
+            DisplaySouls(soul);
         }
     }
     private void Update()
@@ -139,6 +147,7 @@ public class PlayerUIManager : MonoBehaviour
         DeadMenuUI = GameObject.Find("DeadMenu");
         GoldEarnedUI = GameObject.Find("EarnedGold");
         InGameGoldEarnedUI = GameObject.Find("Gold");
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>(); 
         DeadMenuUI.SetActive(false);
 
         IsUILoaded = true;
@@ -159,6 +168,14 @@ public class PlayerUIManager : MonoBehaviour
         DeadMenuUI.SetActive(true);
     }
 
+    public void CreateFloatingText(string text, Transform location)
+    {
+        GameObject floatingText = Instantiate(floatingTextPrefab);
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(location.position);
+        floatingText.transform.SetParent(canvas.transform, false);
+        floatingText.transform.position = screenPos;
+        floatingText.GetComponent<Text>().text = text;
+    }
     private void OnDestroy()
     {
         player.Bag.OnAddItemEvent -= Display;

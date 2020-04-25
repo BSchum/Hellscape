@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HellDogoSoul
   m_EditorClassIdentifier: 
   itemName: Helldogo Soul
-  sprite: {fileID: 21300000, guid: 63935423aae7aa64da84e2e6fbb0e36d, type: 3}
+  sprite: {fileID: 21300000, guid: 561b695f0d400af4d9e9d5f346132140, type: 3}
   powerBonus: 0
   attackSpeedBonus: 1
   animatorAttackToggle: HellDogoBonus

@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 7605781038918695469, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
         type: 3}
       propertyPath: roomNumber
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7605781038918695470, guid: 37cfbf56aa81e584ca0f03e4e7084f7f,
         type: 3}
@@ -664,6 +664,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6008742989008605453, guid: b09419bd128eab343b4b34acb79b6122,
+        type: 3}
+      propertyPath: floatingTextPrefab
+      value: 
+      objectReference: {fileID: 3872400802037607589, guid: ce9aee8f021286e479abaf3202a5c40a,
+        type: 3}
     - target: {fileID: 6623710006114852026, guid: b09419bd128eab343b4b34acb79b6122,
         type: 3}
       propertyPath: m_LocalPosition.x
