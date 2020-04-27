@@ -26,6 +26,7 @@ public class PlayerUIManager : MonoBehaviour
     private GameObject GoldEarnedUI;
     private GameObject InGameGoldEarnedUI;
     private GameObject DeadMenuUI;
+    private GameObject PauseMenuUI;
     public GameObject HeartPrefab;
     public GameObject MaxHealthPrefab;
     public bool IsUILoaded;
@@ -45,7 +46,18 @@ public class PlayerUIManager : MonoBehaviour
 
         StartCoroutine(PrepareUI());
     }
+    private void Update()
+    {
+        if (player == null && playerContext.player != null && playerContext.player.GetComponent<Player>() != null)
+        {
+            player = playerContext.player.GetComponent<Player>();
+        }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenuUI.SetActive(true);
+        }
+    }
     IEnumerator PrepareUI()
     {
         while (!IsUILoaded)
@@ -67,13 +79,7 @@ public class PlayerUIManager : MonoBehaviour
             DisplaySouls(soul);
         }
     }
-    private void Update()
-    {
-        if (player == null && playerContext.player != null && playerContext.player.GetComponent<Player>() != null)
-        {
-            player = playerContext.player.GetComponent<Player>();
-        }
-    }
+
     public void UpdateGoldUI()
     {
         InGameGoldEarnedUI.GetComponent<Text>().text = playerContext.goldEarned.ToString();
@@ -141,9 +147,11 @@ public class PlayerUIManager : MonoBehaviour
         SoulUI = GameObject.Find("Souls");
         LevelNumberUI = GameObject.Find("LevelNumber");
         DeadMenuUI = GameObject.Find("DeadMenu");
+        PauseMenuUI = GameObject.Find("PauseMenu");
         GoldEarnedUI = GameObject.Find("EarnedGold");
         InGameGoldEarnedUI = GameObject.Find("Gold");
         DeadMenuUI.SetActive(false);
+        PauseMenuUI.SetActive(false);
 
         IsUILoaded = true;
     }
