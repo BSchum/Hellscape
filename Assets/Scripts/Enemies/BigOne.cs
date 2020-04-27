@@ -151,7 +151,12 @@ public class BigOne : Enemy
         var targets = Physics.OverlapSphere(this.transform.position, smashAttackRange).Where(c => c.tag == Constants.Tags.PLAYER_TAG);
         foreach (var target in targets)
         {
-            target.GetComponent<Rigidbody>().AddExplosionForce(1000f, this.transform.position, attackRange, 5f);
+            var playerRb = target.GetComponent<Rigidbody>();
+
+            if (playerRb.velocity.y < 900f)
+            {
+                target.GetComponent<Rigidbody>().AddExplosionForce(1000f, this.transform.position, attackRange, 5f);
+            }
         }
     }
     IEnumerator CircularAttack()
