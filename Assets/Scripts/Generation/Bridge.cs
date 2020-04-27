@@ -9,6 +9,8 @@ namespace SDG.Unity.Scripts
         public Direction direction;
         public DefaultRoom room;
         public PlayerContext playerContext;
+        public GameObject replacementWall;
+        public GameObject brigeModel;
         private void OnTriggerEnter(Collider collider)
         {
             if(collider.tag == Constants.Tags.PLAYER_TAG)

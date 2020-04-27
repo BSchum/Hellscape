@@ -92,7 +92,9 @@ namespace SDG.Unity.Scripts
                     {
                         if (!room.OpenedDoors[bridge.direction])
                         {
-                            Destroy(bridge.gameObject);
+
+                            Destroy(bridge.brigeModel);
+                            bridge.replacementWall.SetActive(true);
                         }
                     }
 

@@ -15,6 +15,6 @@ MonoBehaviour:
   currentRoomNumber: 36
   player: {fileID: 0}
   playerData:
-    Money: 2102
-  currentLevel: 1
-  goldEarned: 78
+    Money: 0
+  currentLevel: 0
+  goldEarned: 0
