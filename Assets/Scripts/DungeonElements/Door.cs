@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using SDG.Platform.Entities;
+using UnityEngine;
 
 public class Door : MonoBehaviour
 {
     public SimpleRoom room;
+    public Direction direction;
 
     private void OnTriggerExit(Collider other)
     {

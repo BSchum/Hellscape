@@ -92,9 +92,17 @@ namespace SDG.Unity.Scripts
                     {
                         if (!room.OpenedDoors[bridge.direction])
                         {
-
                             Destroy(bridge.brigeModel);
                             bridge.replacementWall.SetActive(true);
+                        }
+                    }
+                    var doors = instantiateRoom.GetComponentsInChildren<Door>().OfType<Door>().ToList();
+
+                    foreach (Door door in doors)
+                    {
+                        if (!room.OpenedDoors[door.direction])
+                        {
+                            Destroy(door.gameObject);
                         }
                     }
 

@@ -1,6 +1,7 @@
 ﻿using SDG.Unity.Scripts;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SimpleRoom : DefaultRoom
@@ -54,7 +55,10 @@ public class SimpleRoom : DefaultRoom
 
     public void CloseDoors()
     {
-        foreach (var door in doors)
+        var doorsList = doors.OfType<Door>().ToList();
+        doorsList.RemoveAll(door => door == null);
+
+        foreach (var door in doorsList)
         {
             door.GetComponent<BoxCollider>().enabled = true;
             door.GetComponent<Animator>().SetTrigger("Close");
@@ -65,7 +69,9 @@ public class SimpleRoom : DefaultRoom
 
     public void OpenDoors()
     {
-        foreach (var door in doors)
+        var doorsList = doors.OfType<Door>().ToList();
+        doorsList.RemoveAll(door => door == null);
+        foreach (var door in doorsList)
         {
             if(door != null)
             {
