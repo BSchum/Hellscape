@@ -3059,7 +3059,7 @@ PrefabInstance:
     - target: {fileID: 6714096773208480378, guid: 5ff5500aadc5f304e951ecdcee386dc3,
         type: 3}
       propertyPath: direction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff5500aadc5f304e951ecdcee386dc3, type: 3}
@@ -3483,6 +3483,11 @@ PrefabInstance:
       propertyPath: room
       value: 
       objectReference: {fileID: 5423809094066649996}
+    - target: {fileID: 6714096773208480378, guid: 5ff5500aadc5f304e951ecdcee386dc3,
+        type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff5500aadc5f304e951ecdcee386dc3, type: 3}
 --- !u!4 &7846465421218012813 stripped
