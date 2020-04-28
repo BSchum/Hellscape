@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 2
   defaultRefundState: 1
-  hasBought: 1
+  hasBought: 0
   TalentName: Speed+
   stats:
     Power: 0
     Speed: 2
     Health: 0
     MaxHealth: 0
-  Cost: 10
+  Cost: 100
   ActiveSprite: {fileID: 21300000, guid: bb9d2e5ee62bf7e4ea7d095b41413dd8, type: 3}
   LockedSprite: {fileID: 21300000, guid: ebf028e892f64a34195afd2be78bcbda, type: 3}
   BoughtUnactiveSprite: {fileID: 21300000, guid: b2c4a9f4bc1006b489e89a486466824a,

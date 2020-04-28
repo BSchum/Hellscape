@@ -21,7 +21,7 @@ MonoBehaviour:
     Speed: 0
     Health: 0
     MaxHealth: 0
-  Cost: 30
+  Cost: 750
   ActiveSprite: {fileID: 21300000, guid: b033a47a03a01ab4698c4a5f7935d32f, type: 3}
   LockedSprite: {fileID: 21300000, guid: 78fe8106643d3234fa8249688239bd97, type: 3}
   BoughtUnactiveSprite: {fileID: 21300000, guid: 11cf9e89c2fc0394e86678438ffab0cb,

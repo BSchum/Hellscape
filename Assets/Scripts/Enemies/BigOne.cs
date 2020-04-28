@@ -153,7 +153,7 @@ public class BigOne : Enemy
         {
             var playerRb = target.GetComponent<Rigidbody>();
 
-            if (playerRb.velocity.y < 900f)
+            if (playerRb.velocity.y < 100f)
             {
                 target.GetComponent<Rigidbody>().AddExplosionForce(1000f, this.transform.position, attackRange, 5f);
             }
