@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45bcdfb2cdfcfe4683045f355396b98, type: 3}
   m_Name: PlayerContextData
   m_EditorClassIdentifier: 
-  currentRoomNumber: 36
+  currentRoomNumber: 56
   player: {fileID: 0}
   playerData:
-    Money: 0
-  currentLevel: 0
-  goldEarned: 0
+    Money: 8568
+  currentLevel: 2
+  goldEarned: 118

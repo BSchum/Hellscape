@@ -130,7 +130,7 @@ ScriptedImporter:
       usage: 15
       bImage: 1
       bNumerical: 0
-      bLinear: 1
+      bLinear: 0
     - outputName: metallic
       identifier: metallic
       usageName: metallic
@@ -157,7 +157,7 @@ ScriptedImporter:
       usage: 30
       bImage: 1
       bNumerical: 0
-      bLinear: 1
+      bLinear: 0
     - outputName: Emissive
       identifier: Emissive
       usageName: UNKNOWN

@@ -52,6 +52,9 @@ public class BigOne : Enemy
     // Update is called once per frame
     void Update()
     {
+        if(health <= 0) {
+            hookCollider.enabled = false;
+        }
 
         if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {

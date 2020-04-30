@@ -205,6 +205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lance (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7389676329243447239, guid: 1101f04d93945c547a755e7f1200219c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88f88b0700893104fab2c65385c905e1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1101f04d93945c547a755e7f1200219c, type: 3}
 --- !u!4 &7830564607433237430 stripped
