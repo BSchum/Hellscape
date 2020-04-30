@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 67efc5a0518c2ba469d871c07cd35e8f
+guid: fd762c915cdc93d40b2530156eb4697f
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: 2667949614841947897
-    second: Walk
+      74: -9194059058004419895
+    second: CLIP_CAC_Walk
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,8 +35,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
-      takeName: Walk
+      name: CLIP_CAC_Walk
+      takeName: CLIP_CAC_Walk
       internalID: 0
       firstFrame: 1
       lastFrame: 58

@@ -114,7 +114,6 @@ public class HellDoggy : Boss, IDamagable
     #region LavaPuddle
     public IEnumerator CastLavaPuddle()
     {
-        yield return new WaitUntil(IsFacingPlayer);
         canMove = false;
         animator.SetTrigger("IsCastingLavaPuddle");
         yield return new WaitForSeconds(lavaPuddleCastTime);

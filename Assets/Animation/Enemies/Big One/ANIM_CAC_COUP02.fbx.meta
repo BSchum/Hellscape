@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: d920624f5eaa3a2439185dc90a83104d
+guid: 764703797db949943bf83ec5e27460eb
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: 2221079868524588604
-    second: Tourbilol
+      74: -3406066735425957575
+    second: CLIP_CAC_Coup02
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,10 +35,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Tourbilol
-      takeName: Tourbilol
+      name: CLIP_CAC_Coup02
+      takeName: CLIP_CAC_Coup02
       internalID: 0
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0

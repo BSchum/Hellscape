@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 8d4657476c91bca4c9e32a7e7ab69b03
+guid: f99dcf69151a840489d15f796e5b3962
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: 4348485665485846014
-    second: Death
+      74: 6695493376933513045
+    second: CLIP_CAC_Death
   externalObjects: {}
   materials:
     importMaterials: 1

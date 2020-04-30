@@ -22,7 +22,7 @@ public class Player : MonoBehaviour, IDamagable
     private float _lastInvicibility = 0.0f;
     float _lastDash;
     bool _isDashing;
-    private float attackSpeed = 0.5f;
+    private float attackSpeed = 0.01f;
     private float lastAttack = 0.0f;
     bool _isGrounded = true;
     bool _canMove = true;
