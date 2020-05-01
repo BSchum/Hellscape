@@ -16,7 +16,7 @@ public class BossRoom : DefaultRoom
     void Start()
     {        
         chosenBoss = BossesProvider.Instance.GetRandomBosses();
-        instantiatedBoss = Instantiate(chosenBoss, bossAnchor.transform.position, Quaternion.identity);
+        instantiatedBoss = Instantiate(chosenBoss, bossAnchor.transform.position, bossAnchor.transform.rotation);
 
         playerContext.player.transform.position = playerAnchor.transform.position;
         Camera.main.transform.position = cameraHolder.position;

@@ -95,6 +95,10 @@ namespace SDG.Unity.Scripts
                             Destroy(bridge.brigeModel);
                             bridge.replacementWall.SetActive(true);
                         }
+                        else
+                        {
+                            bridge.replacementWall.SetActive(false);
+                        }
                     }
                     var doors = instantiateRoom.GetComponentsInChildren<Door>().OfType<Door>().ToList();
 
