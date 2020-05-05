@@ -55,6 +55,7 @@ public class Player : MonoBehaviour, IDamagable
     void Use(Item item)
     {
         stats += item.bonusStats;
+        LoadAllStats();
         UpdateStatsUI();
     }
     void LoadAllStats()

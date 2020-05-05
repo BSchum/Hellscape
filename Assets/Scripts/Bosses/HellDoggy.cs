@@ -165,7 +165,6 @@ public class HellDoggy : Boss, IDamagable
     /// </summary>
     public void CanMove()
     {
-        Debug.Log("Yo, je bouge via l'anim tmtc");
         canMove = true;
     }
 

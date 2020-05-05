@@ -15,8 +15,11 @@ public class Lancier : Enemy, IDamagable
     GameObject _target;
     bool isAiming = false;
     bool isRunningAway = false;
+
+    float _randomDelay;
     private void Start()
     {
+        _randomDelay = Random.Range(Time.time, Time.time + 5.00f);
         range = Constants.Rooms.ROOM_SIZE_Y / 2;
         _target = playerContext.player;
         motor.speed = bonusSpeed;
@@ -24,6 +27,8 @@ public class Lancier : Enemy, IDamagable
 
     void Update()
     {
+        if (Time.time < _randomDelay)
+            return;
         if (_target != null && playerContext.currentRoomNumber == roomNumber && room.doorsClosed)
         {
             if (!isRunningAway && health > 0)
@@ -38,6 +43,9 @@ public class Lancier : Enemy, IDamagable
     }
     void FixedUpdate()
     {
+        if (Time.time < _randomDelay)
+            return;
+
         if (isRunningAway && health > 0 && _target != null)
         {
             motor.Move(transform.position - _target.transform.position);

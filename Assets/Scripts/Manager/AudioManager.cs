@@ -45,6 +45,7 @@ public class AudioManager : MonoBehaviour
             if (audioSource.clip.name != currentAudio.name)
             {
                 audioSource.clip = currentAudio;
+                
             }
         }
     }

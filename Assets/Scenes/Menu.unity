@@ -1220,7 +1220,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 240953736}
   m_Template: {fileID: 1824632247}
-  m_CaptionText: {fileID: 0}
+  m_CaptionText: {fileID: 1866552190}
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 1595511483}
   m_ItemImage: {fileID: 0}
@@ -4694,7 +4694,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 747888827}
   m_Template: {fileID: 1631982211}
-  m_CaptionText: {fileID: 0}
+  m_CaptionText: {fileID: 1586598136}
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 569994855}
   m_ItemImage: {fileID: 0}
@@ -6034,7 +6034,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 986067932}
   m_Template: {fileID: 341460502}
-  m_CaptionText: {fileID: 0}
+  m_CaptionText: {fileID: 1006424487}
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 1273177056}
   m_ItemImage: {fileID: 0}
@@ -7987,7 +7987,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1341948548}
   m_Template: {fileID: 1810607276}
-  m_CaptionText: {fileID: 0}
+  m_CaptionText: {fileID: 1521283170}
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 1244865956}
   m_ItemImage: {fileID: 0}
@@ -8802,7 +8802,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "D\xE9sactiv\xE9"
+  m_Text: Disabled
 --- !u!222 &1521283171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9455,7 +9455,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Texture
+  m_Text: Very Low
 --- !u!222 &1586598137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10831,7 +10831,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Ombres
+  m_Text: Disabled
 --- !u!222 &1866552191
 CanvasRenderer:
   m_ObjectHideFlags: 0
