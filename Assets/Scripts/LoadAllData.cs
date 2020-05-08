@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LoadAllData : MonoBehaviour
 {
+    List<VisualSettingUI> visualSettingUIs;
     // Start is called before the first frame update
     void Start()
     {

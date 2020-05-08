@@ -391,6 +391,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af2a40082e97c0344a088f2f2af557e2, type: 2}
+    - target: {fileID: 457038931711146934, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 591501876505809956, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 797203199558361342, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1104933077506595171, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -421,6 +436,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5fc4daa4539b1ec419e7c85ddc8ee319, type: 2}
+    - target: {fileID: 3942496095100799296, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4016285346967091926, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -430,6 +450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossEntranceRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143815911799229500, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5423809094066649996, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
@@ -452,11 +477,31 @@ PrefabInstance:
       propertyPath: enemyNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6002812148730054544, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6669282149905351333, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 37a3b54c1f6a1c6428efffaf7e479241, type: 2}
+    - target: {fileID: 7038626730901604515, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414737588177644176, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964577540524990921, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8277109090414224264, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_Layer
@@ -532,6 +577,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8467446779358266106, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8522779601679431077, guid: 60532068054a0694c97a6c4449dae484,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -542,6 +592,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af2a40082e97c0344a088f2f2af557e2, type: 2}
+    - target: {fileID: 8772666899603557591, guid: 60532068054a0694c97a6c4449dae484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60532068054a0694c97a6c4449dae484, type: 3}
 --- !u!4 &3619902542032068103 stripped
