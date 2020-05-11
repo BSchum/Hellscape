@@ -322,8 +322,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.8335915, y: 4.8605957, z: 3.7971115}
-  m_Center: {x: 0.5423393, y: 1.9302979, z: 16.94453}
+  m_Size: {x: 6.8335915, y: 4.8605957, z: 5.008603}
+  m_Center: {x: 0.5423393, y: 1.9302979, z: 16.338785}
 --- !u!1 &1509345484404143572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2409,7 @@ PrefabInstance:
     - target: {fileID: 6714096773208480378, guid: 5ff5500aadc5f304e951ecdcee386dc3,
         type: 3}
       propertyPath: direction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff5500aadc5f304e951ecdcee386dc3, type: 3}
@@ -2640,11 +2640,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 6714096773208480378, guid: 5ff5500aadc5f304e951ecdcee386dc3,
-        type: 3}
-      propertyPath: direction
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff5500aadc5f304e951ecdcee386dc3, type: 3}
